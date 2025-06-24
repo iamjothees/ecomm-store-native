@@ -1,0 +1,8 @@
+services:
+  app:
+    container_name: ecomm-store
+    image: ecomm-store-native:latest
+    volumes:
+      - ./src:/usr/src/app
+    ports:
+      - 5044:5173
