@@ -6,3 +6,5 @@ services:
       - ./src:/usr/src/app
     ports:
       - 5044:5173
+    environment:
+      - CHOKIDAR_USEPOLLING=true
