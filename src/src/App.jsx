@@ -1,9 +1,12 @@
 import AppRouter from "./AppRouter"
 import "./App.css"
+import Layout from "./components/Layout"
 
 function App() {
   return (
-    <AppRouter />
+    <Layout>
+      <AppRouter />
+    </Layout>
   )
 }
 
