@@ -1,6 +1,6 @@
-import AppRouter from "./AppRouter"
-import "./App.css"
-import Layout from "./components/Layout"
+import "@/App.css"
+import AppRouter from "@/AppRouter"
+import Layout from "@/components/Layout"
 
 function App() {
   return (
