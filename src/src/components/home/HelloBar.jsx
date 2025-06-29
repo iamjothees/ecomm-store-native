@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card"
 
 export function HelloBar() {
   return (
-    <Card className="w-[98%] bg-gradient-to-r from-primary to-primary/90 p-4 rounded-lg">
+    <Card className="w-[98%] p-4 bg-gradient-to-r from-primary to-primary/90 text-primary-foreground rounded-lg">
       <div className="flex items-center justify-between">
         {/* User greeting with Avatar */}
         <div className="flex items-center gap-3">
@@ -14,14 +14,14 @@ export function HelloBar() {
               <User className="h-4 w-4" />
             </AvatarFallback>
           </Avatar>
-          <div className="text-primary-foreground">
+          <div>
             <p className="text-sm font-light">Hello,</p>
             <p className="font-medium">John Doe</p>
           </div>
         </div>
 
         {/* Action icons */}
-        <div className="flex items-center gap-4 text-primary-foreground">
+        <div className="flex items-center gap-4">
           <BadgeIcon 
             onClick={() => alert("Bell clicked")}
             icon={Bell} 
