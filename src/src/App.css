@@ -34,11 +34,11 @@
     --color-accent-300 : var(--color-teal-300);
     --color-accent-400 : var(--color-teal-400);
     --color-accent-500 : var(--color-teal-500);
-    --color-accent-600 : var(--color-emrald-600);
-    --color-accent-700 : var(--color-emrald-700);
-    --color-accent-800 : var(--color-emrald-800);
-    --color-accent-900 : var(--color-emrald-900);
-    --color-accent-950 : var(--color-emrald-950);
+    --color-accent-600 : var(--color-emerald-600);
+    --color-accent-700 : var(--color-emerald-700);
+    --color-accent-800 : var(--color-emerald-800);
+    --color-accent-900 : var(--color-emerald-900);
+    --color-accent-950 : var(--color-emerald-950);
 }
 
 @theme inline {

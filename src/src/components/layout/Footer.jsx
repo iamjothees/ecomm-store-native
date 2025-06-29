@@ -3,7 +3,7 @@ import { House, Search, User } from 'lucide-react'
 function Footer() {
     return (
         <div className="
-                w-screen h-20 bg-accent-400/70 border-t rounded-t-2xl text-primary 
+                w-screen h-20 bg-accent-400 border-t rounded-t-2xl text-primary 
                 flex items-center justify-around
             "
         >
