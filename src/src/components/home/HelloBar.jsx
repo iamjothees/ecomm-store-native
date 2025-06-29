@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card"
 
 export function HelloBar() {
   return (
-    <Card className="w-full bg-gradient-to-r from-primary to-primary/90 p-4 rounded-lg">
+    <Card className="w-[98%] bg-gradient-to-r from-primary to-primary/90 p-4 rounded-lg">
       <div className="flex items-center justify-between">
         {/* User greeting with Avatar */}
         <div className="flex items-center gap-3">
