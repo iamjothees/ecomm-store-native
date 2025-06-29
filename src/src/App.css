@@ -39,6 +39,8 @@
     --color-accent-800 : var(--color-emerald-800);
     --color-accent-900 : var(--color-emerald-900);
     --color-accent-950 : var(--color-emerald-950);
+
+    --aspect-product-card: 3 / 4;
 }
 
 @theme inline {
@@ -169,4 +171,8 @@
       -ms-overflow-style: none; /* IE and Edge */
       scrollbar-width: none; /* Firefox */
     }
+}
+
+.scroll-horizontal {
+    @apply overflow-x-auto snap-x snap-mandatory scroll-smooth;
 }

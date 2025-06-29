@@ -1,5 +1,6 @@
 import HelloBar from "@/components/home/HelloBar"
 import FeaturedCategories from "@/components/home/FeaturedCategories"
+import FeaturedProducts from "@/components/home/FeaturedProducts"
 import Hero from "@/components/home/Hero"
 
 function Home() {
@@ -8,6 +9,7 @@ function Home() {
       <HelloBar />
       <FeaturedCategories />
       <Hero />
+      <FeaturedProducts />
     </main>
   )
 }

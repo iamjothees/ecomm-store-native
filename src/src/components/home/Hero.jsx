@@ -32,7 +32,7 @@ function Hero() {
     
     return (
         <section className="w-full h-50 flex flex-col">
-            <main className="grow flex overflow-x-auto gap-3 snap-x snap-mandatory scroll-smooth py-3">
+            <main className="grow flex gap-3 py-3 scroll-horizontal">
                 {
                     dummyHeroItems.map((item) => (
                         <div key={item.id} className="grow shrink-0 h-full w-screen snap-center flex justify-center">

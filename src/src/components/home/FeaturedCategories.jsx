@@ -24,7 +24,7 @@ function FeaturedCategories() {
         </Button>
       </header>
 
-      <main className="flex overflow-x-auto gap-3 px-3 pb-2 snap-x snap-mandatory scroll-smooth">
+      <main className="flex gap-3 px-3 pb-2 scroll-horizontal">
         {dummyCategories.map((category) => (
             <ImageWithFallback
               key={category.id}
