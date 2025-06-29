@@ -44,7 +44,7 @@ function Hero() {
                     ))
                 }
             </main>
-            <div>
+            <footer>
                 <div className="flex gap-3 justify-center">
                     {
                         dummyHeroItems.map((item) => (
@@ -54,7 +54,7 @@ function Hero() {
                         ))
                     }
                 </div>
-            </div>
+            </footer>
         </section>
     )
 }

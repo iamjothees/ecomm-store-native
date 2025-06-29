@@ -16,7 +16,7 @@ export function HelloBar() {
           </Avatar>
           <div>
             <p className="text-sm font-light">Hello,</p>
-            <p className="font-medium">John Doe</p>
+            <p className="font-medium">Joe Dev</p>
           </div>
         </div>
 
