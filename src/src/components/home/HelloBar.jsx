@@ -1,0 +1,45 @@
+import { User, ShoppingCart, Bell } from "lucide-react"
+import { BadgeIcon } from "@/components/common/BadgeIcon"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { Card } from "@/components/ui/card"
+
+export function HelloBar() {
+  return (
+    <Card className="w-full bg-gradient-to-r from-primary to-primary/90 p-4 rounded-lg">
+      <div className="flex items-center justify-between">
+        {/* User greeting with Avatar */}
+        <div className="flex items-center gap-3">
+          <Avatar className="h-9 w-9">
+            <AvatarFallback className="bg-primary-foreground text-primary">
+              <User className="h-4 w-4" />
+            </AvatarFallback>
+          </Avatar>
+          <div className="text-primary-foreground">
+            <p className="text-sm font-light">Hello,</p>
+            <p className="font-medium">John Doe</p>
+          </div>
+        </div>
+
+        {/* Action icons */}
+        <div className="flex items-center gap-4 text-primary-foreground">
+          <BadgeIcon 
+            onClick={() => alert("Bell clicked")}
+            icon={Bell} 
+            count={3} 
+            iconSize="lg"
+            className="hover:text-primary-foreground/80 transition-colors"
+          />
+          <BadgeIcon
+            icon={ShoppingCart}
+            count={5}
+            showNumber
+            iconSize="lg"
+            className="hover:text-primary-foreground/80 transition-colors"
+          />
+        </div>
+      </div>
+    </Card>
+  )
+}
+
+export default HelloBar
