@@ -31,7 +31,7 @@ function FeaturedCategories() {
               src={category.imageSrc}
               fallbackSrc={"#"}
               alt={category.name}
-              className="h-20 aspect-square rounded-full bg-white shadow-md flex items-center justify-center snap-center object-cover"
+              className="h-20 aspect-square rounded-full bg-card shadow-md flex items-center justify-center snap-center object-cover"
             />
         ))}
       </main>
