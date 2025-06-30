@@ -7,7 +7,7 @@ function Layout({children}) {
           <main className="h-full flex flex-col overflow-y-scroll pb-28">
             {children}
           </main>
-          <footer className="fixed bottom-0">
+          <footer className="fixed bottom-0 z-999">
             <Footer />
           </footer>
         </section>

@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ChevronsRight } from "lucide-react";
 import ImageWithFallback from "@/components/common/ImageWithFallback";
+import HorizontalScrollSection from "@/components/common/HorizontalScrollSection";
 
 const dummyCategories = [
   {id: 1, name: "Category 1", imageSrc: "https://picsum.photos/200/300"},
@@ -15,27 +16,29 @@ const dummyCategories = [
 
 function FeaturedCategories() {
   return (
-    <section className="w-full py-2">
-      <header className="flex justify-between items-center mb-2 px-3">
-        <h1 className="text-lg font-semibold text-primary-950">Categories</h1>
-        <Button variant="link" onClick={() => alert("View All")} className="!px-0">
-            View All
-            <ChevronsRight />
-        </Button>
-      </header>
-
-      <main className="flex gap-3 px-3 pb-2 scroll-horizontal">
-        {dummyCategories.map((category) => (
-            <ImageWithFallback
-              key={category.id}
-              src={category.imageSrc}
-              fallbackSrc={"#"}
-              alt={category.name}
-              className="h-20 aspect-square rounded-full bg-card shadow-md flex items-center justify-center snap-center object-cover"
-            />
-        ))}
-      </main>
-    </section>
+    <HorizontalScrollSection 
+        renderMain={() => ( 
+            dummyCategories.map((category) => (
+                <ImageWithFallback
+                  key={category.id}
+                  src={category.imageSrc}
+                  fallbackSrc={"#"}
+                  alt={category.name}
+                  className="h-20 aspect-square rounded-full bg-card shadow-md flex items-center justify-center snap-center object-cover"
+                />
+            ))
+         )}
+        renderHeader={() => (
+            <>
+                <h1 className="text-lg font-semibold text-primary-950">Categories</h1>
+                <Button variant="link" onClick={() => alert("View All")} className="!px-0">
+                    View All
+                    <ChevronsRight />
+                </Button>
+            </>
+        )}
+        hideIndicator
+    />
   );
 }
 
