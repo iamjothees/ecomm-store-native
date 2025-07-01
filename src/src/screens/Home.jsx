@@ -2,6 +2,7 @@ import HelloBar from "@/components/home/HelloBar"
 import FeaturedCategories from "@/components/home/FeaturedCategories"
 import FeaturedProducts from "@/components/home/FeaturedProducts"
 import Stories from "@/components/home/Stories"
+import RecentlyViewedProducts from "@/components/home/RecentlyViewedProducts"
 import Hero from "@/components/home/Hero"
 
 function Home() {
@@ -12,6 +13,7 @@ function Home() {
       <Hero />
       <FeaturedProducts />
       <Stories />
+      <RecentlyViewedProducts />
     </main>
   )
 }

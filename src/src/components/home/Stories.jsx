@@ -24,6 +24,7 @@ function Stories() {
             renderMain={() => ( dummyStories.map((story) => ( 
                 <video key={story.id} src={story.video.uri} controls className="snap-center" />
             )) )}
+            renderHeader={() => ( <h1 className="text-lg font-semibold text-primary-950">Stories</h1> )}
             styles={{ main: "h-[300px] align-end",  }}
         />
     )
