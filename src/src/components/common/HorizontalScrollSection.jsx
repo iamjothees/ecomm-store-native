@@ -1,13 +1,15 @@
 import { cn } from "@/lib/utils"
-import { ChevronRight } from "lucide-react"
-import { useEffect, useRef, useState } from "react"
+import { ChevronRightCircle } from "lucide-react"
+import { useCallback, useEffect, useRef, useState } from "react"
 
 function HorizontalScrollSection( { renderMain, renderHeader=null, renderFooter=null, styles={}, hideIndicator=false } ) {
     const scrollIdentifierEl = useRef(null);
     const observer = useRef(null);
     const [isScrolled, setIsScrolled] = useState(false);
 
-    useEffect(() => {
+    // initialize observer
+    useEffect(() => { 
+        if ( hideIndicator !== false ) return;
         if (!scrollIdentifierEl.current) return;
 
         observer.current = new IntersectionObserver(
@@ -36,14 +38,17 @@ function HorizontalScrollSection( { renderMain, renderHeader=null, renderFooter=
                 {renderMain()}
                 {
                     hideIndicator === false && isScrolled === false &&
-                    <div className="
-                        z-10 absolute top-1/2 -translate-y-1/2 right-3 animate-bounce
-                        flex items-center justify-center 
-                        h-8 aspect-square rounded-full bg-primary-200/80 border border-primary-500
-                        pointer-events-none
-                    ">
-                        <ChevronRight className="text-primary-800" />
-                    </div>
+                    <ChevronRightCircle 
+                        size={30} 
+                        className={cn(
+                            `
+                                z-10 absolute top-1/2 -translate-y-1/2 right-3 animate-bounce
+                                h-8 aspect-square rounded-full pointer-events-none
+                                bg-primary-200/80 text-primary-800
+                            `,
+                            styles.indicator
+                        )}
+                    />
                 }
             </main>
             {

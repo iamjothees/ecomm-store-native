@@ -176,3 +176,7 @@
 .scroll-horizontal {
     @apply overflow-x-auto snap-x snap-mandatory scroll-smooth;
 }
+
+.scroll-vertical {
+    @apply overflow-y-auto snap-y snap-mandatory scroll-smooth;
+}

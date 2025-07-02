@@ -36,10 +36,11 @@ function Hero() {
                 {
                     dummyHeroItems.map((item) => (
                         <div key={item.id} className="grow shrink-0 h-full w-screen snap-center flex justify-center">
-                            <ImageWithFallback 
+                            {/* <ImageWithFallback 
                                 className="h-full max-w-[98%] bg-card rounded-lg object-cover"
                                 src={item.image.uri}
-                            />
+                            /> */}
+                            <div className="h-full max-w-[98%] bg-card rounded-lg object-cover w-[500px] mx-2 bg-primary-300" />
                         </div>
                     ))
                 }
