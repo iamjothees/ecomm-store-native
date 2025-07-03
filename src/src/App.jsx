@@ -1,13 +1,13 @@
 import "@/App.css"
 import AppRouter from "@/AppRouter"
-import Layout from "@/components/Layout"
+import { ScreenContextProvider } from "@/contexts/ScreenContext"
 
 function App() {
-  return (
-    <Layout>
-      <AppRouter />
-    </Layout>
-  )
+    return (
+        <ScreenContextProvider>
+            <AppRouter />
+        </ScreenContextProvider>
+    )
 }
 
 export default App

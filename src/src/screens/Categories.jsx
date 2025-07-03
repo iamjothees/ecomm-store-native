@@ -1,5 +1,5 @@
-import VerticalScrollSection from "@/components/common/VerticalScrollSection";
-import ImageWithFallback from "@/components/common/ImageWithFallback";
+import { useContext, useEffect } from "react";
+import ScreenContext from "@/contexts/ScreenContext";
 
 const dummyCategories = [
     {id: 1, name: "Category 1", imageSrc: "https://picsum.photos/200/300"},
@@ -21,40 +21,17 @@ const dummyCategories = [
 ];
 
 function Categories() {
-  return (
-    <>
-        <header className="sticky top-0 h-20 bg-red-500"></header>
-        <main className="ms-2 ps-24 grow flex flex-col">
-            <aside className="absolute left-0 h-full">
-                <VerticalScrollSection 
-                    renderMain={() => ( 
-                        <>
-                            <div className="w-20 aspect-square rounded-full bg-blue-500 shadow-md flex items-center justify-center snap-center object-cover"/>
-                            {
+    const { setScreen } = useContext(ScreenContext);
 
-                                dummyCategories.map((category) => (
-                                    // <ImageWithFallback
-                                    //   key={category.id}
-                                    //   src={category.imageSrc}
-                                    //   fallbackSrc={"#"}
-                                    //   alt={category.name}
-                                    //   className="h-16 aspect-square rounded-full bg-card shadow-md flex items-center justify-center snap-center object-cover"
-                                    // />
-                                    <div key={category.id} className="w-20 aspect-square rounded-full bg-card shadow-md flex items-center justify-center snap-center object-cover"/>
-                                ))
-                            }
-                            <div className="w-20 aspect-square rounded-full bg-green-500 shadow-md flex items-center justify-center snap-center object-cover"/>
+    useEffect(() => { setScreen({ screenTitle: "Categories" }); }, []);
 
-                        </>
-                    )}
-                    styles={{container: "h-full z-50 bg-primary-200 px-3 pb-20", main: "gap-4"}}
-                    showIndicator
-                />
-            </aside>
-            Sub Categories
-        </main>
-    </>
-  )
+    return (
+        <>
+            <main className="pt-18">
+                SearchBar
+            </main>
+        </>
+    )
 }
 
 export default Categories

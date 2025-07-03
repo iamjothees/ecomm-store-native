@@ -1,2 +1,3 @@
 - Create Stories with images
 - fix `scrollIndicator` initially not in view port issue in HorizontalScrollSection component's mountScrollIndicator function
+- Upcoming Delivery details
