@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ChevronsRight } from "lucide-react";
-import ProductCard from "@/components/products/ProductCard";
+import ProductCard from "@/features/products/components/Card";
 import HorizontalScrollSection from "@/components/common/HorizontalScrollSection";
 
 const dummyProducts = [
