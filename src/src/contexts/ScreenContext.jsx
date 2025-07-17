@@ -3,9 +3,10 @@ import { createContext, useState } from 'react';
 const ScreenContext = createContext();
 
 const defaultScreen = {
-    screenTitle: "",
+    screenTitle: "Ecomm Store Native",
     showHeader: true,
-    showFooter: true
+    showFooter: true,
+    loading: false,
 }
 
 export function ScreenContextProvider({children}) {
