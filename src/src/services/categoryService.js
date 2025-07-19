@@ -1,5 +1,6 @@
 import { testCategories } from "@/tests/data";
 
+
 const index = () => (
     new Promise((resolve) => {
         setTimeout(() => {
@@ -16,7 +17,7 @@ const show = ({ slug }) => (
         if (Boolean(slug) === false) return resolve(null);
         setTimeout(() => {
             resolve(testCategories.find(category => category.slug === slug));
-        }, 1000);
+        }, 3000);
     })
 );
 

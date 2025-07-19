@@ -9,7 +9,7 @@ function ProductCard({ product = null }) {
         <Skeleton className="h-full w-full rounded-sm bg-primary-100" />
       </div>
       <div className="grow flex flex-col justify-end px-2 py-0.5 gap-1">
-        <Skeleton className="h-4 w-3/4 rounded-sm" />
+        <Skeleton className="h-4 w-3/4 rounded-sm bg-primary-400" />
         <Skeleton className="h-3 w-1/2 rounded-sm bg-secondary-200" />
         <Skeleton className="h-4 w-1/3 rounded-sm bg-secondary-300" />
       </div>

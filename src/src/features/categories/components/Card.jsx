@@ -7,7 +7,7 @@ const CategoryCard = ({ category }) => {
             <div className="grow-0 shrink-0 w-full aspect-square rounded-lg p-0.5">
                 <Skeleton className="h-full w-full bg-primary-100 rounded-lg" />
             </div>
-            <Skeleton className="h-4 w-3/4 mx-2 my-0.5 rounded-sm" />
+            <Skeleton className="h-3 w-3/4 mx-2 my-0.5 rounded-sm bg-primary-300" />
         </div>
     );
 

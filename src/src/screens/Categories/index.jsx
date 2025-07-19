@@ -6,6 +6,7 @@ import { index } from '@/services/categoryService';
 import ExploreProducts from "@/features/products/components/Explore";
 import { useNavigate } from "react-router";
 import CategoryCard from "@/features/categories/components/Card";
+import { Skeleton } from "@/components/ui/skeleton";
 
 function Categories() {
     const { screen, setScreen } = useContext(ScreenContext);
@@ -14,7 +15,6 @@ function Categories() {
         featured: [],
         all: [],
     });
-    const [ products, setProducts ] = useState([]);
 
     let navigate = useNavigate();
 
@@ -53,99 +53,122 @@ function Categories() {
                     }
                     <main className="flex flex-col gap-5">
                         {/* Featured Categories */}
-                        <section className="flex flex-col gap-2">
-                            <header>
-                                <p className="font-bold text-center">Explore</p>
-                            </header>
-                            <main>
-                                <ul className="grid grid-cols-3 md:grid-cols-6 flex-wrap justify-around md:justify-start gap-2 space-y-2">
-                                    {
-                                        screen.loading 
-                                            ? (
-                                                [...Array(4)].map((_, i) => (
-                                                    <li key={i}>
-                                                        <CategoryCard />
-                                                    </li>
-                                                ))
-                                            )
-                                            : (
-                                                categories.featured.map((category) => (
-                                                    <li key={category.id} data-slug={category.slug} onClick={handleCategoryClick}>
-                                                        <CategoryCard key={category.id} category={category} />
-                                                    </li>
-                                                ))
-                                            )
-                                    }
-                                </ul>
-                            </main>
-                        </section>
+                        <FeaturedCategories categories={categories.featured} handleCategoryClick={handleCategoryClick} screen={screen} />
 
                         {/* All Categories */}
-                        <section className="flex flex-col gap-2">
-                            <main className="flex flex-col gap-5">
-                                <section>
-                                    <main>
-                                        <ul className="flex flex-col gap-2">
-                                            {
-                                                categories.all.filter(category => category.subCategories.length > 0).map((category) => (
-                                                    <li key={category.id}>
-                                                        <p className="text-sm font-bold">{category.name}</p>
-                                                        <ul className="mt-1 flex flex-wrap justify-start gap-2 space-y-2">
-                                                            {
-                                                                screen.loading 
-                                                                    ? (
-                                                                        [...Array(4)].map((_, index) => (
-                                                                            <li key={index}>
-                                                                                <CategoryCard />
-                                                                            </li>
-                                                                        ))
-                                                                    )
-                                                                    : (
-                                                                        category.subCategories.map((category) => (
-                                                                            <li key={category.id}>
-                                                                                <CategoryCard key={category.id} category={category} />
-                                                                            </li>
-                                                                        ))
-                                                                    )
-                                                            }
-                                                        </ul>
-                                                    </li>
-                                                ))
-                                            }
-                                        </ul>
-                                    </main>
-                                </section>
-                                {/* All Other Categories */}
-                                {
-                                    categories.all.filter(category => Boolean(category.subCategories?.length > 0) === false).length > 0 &&
-                                    <section className="flex flex-col gap-2">
-                                        <header>
-                                            <p className="font-bold text-center">All Other Categories</p>
-                                        </header>
-                                        <main>
-                                            <ul className="grid grid-cols-3 md:grid-cols-6 flex-wrap justify-around md:justify-start gap-2 space-y-2">
-                                                {
-                                                    categories.all.filter(category => Boolean(category.subCategories?.length > 0) === false)
-                                                        .map((category) => (
-                                                            <li key={category.id}>
-                                                                <CategoryCard key={category.id} category={category} />
-                                                            </li>
-                                                    ))
-                                                }
-                                            </ul>
-                                        </main>
-                                    </section>
-                                }
-                            </main>
-                        </section>
+                        <AllCategories categories={categories.all} handleCategoryClick={handleCategoryClick} screen={screen} />
 
                         {/* Explore Products */}
-                        <ExploreProducts products={products} config={{ title: "Explore Products" }} />
+                        <ExploreProducts config={{ title: "Explore Products" }} />
                     </main>
                 </section>
             </main>
         </section>
-    )
+    );
 }
 
 export default Categories
+
+const FeaturedCategories = ({ categories, handleCategoryClick, screen }) => {
+    return (
+        <section className="flex flex-col gap-2">
+            <header>
+                <p className="font-bold text-center">Explore</p>
+            </header>
+            <main>
+                <ul className="grid grid-cols-3 md:grid-cols-6 flex-wrap justify-around md:justify-start gap-2 space-y-2">
+                    {
+                        screen.loading 
+                            ? (
+                                [...Array(4)].map((_, i) => (
+                                    <li key={i}>
+                                        <CategoryCard />
+                                    </li>
+                                ))
+                            )
+                            : (
+                                categories.map((category) => (
+                                    <li key={category.id} data-slug={category.slug} onClick={handleCategoryClick}>
+                                        <CategoryCard key={category.id} category={category} />
+                                    </li>
+                                ))
+                            )
+                    }
+                </ul>
+            </main>
+        </section>
+    );
+}
+
+
+const AllCategories = ({ categories, handleCategoryClick, screen }) => {
+
+    if (screen.loading) return (
+        <section className="flex flex-col gap-2 mt-5">
+            <main className="flex flex-col gap-5">
+                <Skeleton className="h-3 w-40 bg-primary-600 rounded-lg" />
+                <ul className="flex flex-wrap gap-2">
+                    {
+                        [...Array(4)].map((_, i) => (
+                            <li key={i} className="w-1/4">
+                                <CategoryCard />
+                            </li>
+                        ))
+                    }
+                </ul>
+            </main>
+        </section>
+    );
+
+    return (
+        <section className="flex flex-col gap-2 mt-5">
+            <main className="flex flex-col gap-5">
+                <section>
+                    <main>
+                        <ul className="flex flex-col gap-2">
+                            {
+                                categories.filter(category => category.subCategories.length > 0).map((category) => (
+                                    <li key={category.id}>
+                                        <p className="text-sm font-bold">{category.name}</p>
+                                        <ul className="mt-1 flex flex-wrap justify-start gap-2 space-y-2">
+                                            {
+                                                (
+                                                    category.subCategories.map((category) => (
+                                                        <li key={category.id} data-slug={category.slug} onClick={handleCategoryClick}>
+                                                            <CategoryCard key={category.id} category={category} />
+                                                        </li>
+                                                    ))
+                                                )
+                                            }
+                                        </ul>
+                                    </li>
+                                ))
+                            }
+                        </ul>
+                    </main>
+                </section>
+                {/* All Other Categories */}
+                {
+                    categories.filter(category => Boolean(category.subCategories?.length > 0) === false).length > 0 &&
+                    <section className="flex flex-col gap-2">
+                        <header>
+                            <p className="font-bold text-center">All Other Categories</p>
+                        </header>
+                        <main>
+                            <ul className="grid grid-cols-3 md:grid-cols-6 flex-wrap justify-around md:justify-start gap-2 space-y-2">
+                                {
+                                    categories.filter(category => Boolean(category.subCategories?.length > 0) === false)
+                                        .map((category) => (
+                                            <li key={category.id} data-slug={category.slug} onClick={handleCategoryClick}>
+                                                <CategoryCard key={category.id} category={category} />
+                                            </li>
+                                    ))
+                                }
+                            </ul>
+                        </main>
+                    </section>
+                }
+            </main>
+        </section>
+    )
+}

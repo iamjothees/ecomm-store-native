@@ -25,7 +25,7 @@ export default Layout
 
 const Header = function ({ title = "" }) {
     return (
-        <header className="fixed top-0 left-0 h-auto w-full py-4 px-3 bg-primary-300 text-primary flex items-end justify-between text-2xl font-semibold rounded-b-sm">
+        <header className="z-999 fixed top-0 left-0 h-auto w-full py-4 px-3 bg-primary-300 text-primary flex items-end justify-between text-2xl font-semibold rounded-b-sm">
             { title }
         </header>
     )

@@ -1,30 +1,21 @@
 
 
-import { testProducts } from "@/tests/data";
+import { fetchProducts } from "@/services/productService";
 import { useEffect, useState } from "react";
 import ProductCard from "@/features/products/components/Card";
 import usePagination from "@/hooks/usePagination";
-import { Loader2 } from "lucide-react"
 
 // interface ExploreProps {
-//     products: any,
+//     products: Product[],
 //     config: {
-//         title: string,
 //         apiEndpoint: string,
+//         title: string,
 //     }
 // }
 
-function Explore({ config = { title: "Explore Products", apiEndpoint: "/categories/products" } }) {
+function Explore({ config = { apiEndpoint, title: "Explore Products" } }) {
     const [products, setProducts] = useState([]);
     const { page, initiatePage, handlePageEndReached, handlePageLoading, handlePageLoaded, nextPageTrigger } = usePagination();
-
-    // TODO: Move to API
-    const fetchProducts = () => (
-        new Promise((resolve) => {
-            const pageSize = 4;
-            setTimeout( () => resolve( [...testProducts].slice((page.current-1) * (pageSize), pageSize*page.current) ), 2000);
-        })
-    );
 
     useEffect(() => {
         initiatePage();
@@ -37,7 +28,7 @@ function Explore({ config = { title: "Explore Products", apiEndpoint: "/categori
         
 
         handlePageLoading();
-        fetchProducts()
+        fetchProducts({ endPoint: config.apiEndpoint, currentPage: page.current })
             .then((newProducts) => {
                 if (newProducts.length === 0) return newProducts;
                 

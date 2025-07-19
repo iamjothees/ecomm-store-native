@@ -1,3 +1,5 @@
+import mediaType from "@/constants/enums/mediaType";
+
 const categories = [
   {
     id: 1,
@@ -5,8 +7,12 @@ const categories = [
     slug: "category-1",
     imageSrc: "https://picsum.photos/200/300?random=1",
     subCategories: [
-      { id: 101, name: "SubCategory 1-1", slug: "subcategory-1-1", imageSrc: "https://picsum.photos/100/100?random=101" },
-      { id: 102, name: "SubCategory 1-2", slug: "subcategory-1-2", imageSrc: "https://picsum.photos/100/100?random=102" },
+      { id: 101, name: "SubCategory 1-1", slug: "subcategory-1-1", imageSrc: "https://picsum.photos/100/200?random=101" },
+      { id: 102, name: "SubCategory 1-2", slug: "subcategory-1-2", imageSrc: "https://picsum.photos/100/200?random=102" },
+    ],
+    contents: [
+      { type: mediaType.IMAGE, src: "https://picsum.photos/500/200?random=101", },
+      { type: mediaType.IMAGE, src: "https://picsum.photos/500/200?random=102", },
     ],
   },
   {
@@ -15,8 +21,12 @@ const categories = [
     slug: "category-2-with-long-name",
     imageSrc: "https://picsum.photos/200/300?random=2",
     subCategories: [
-      { id: 201, name: "SubCategory 2-1", slug: "subcategory-2-1", imageSrc: "https://picsum.photos/100/100?random=201" },
-      { id: 202, name: "SubCategory 2-2", slug: "subcategory-2-2", imageSrc: "https://picsum.photos/100/100?random=202" },
+      { id: 201, name: "SubCategory 2-1", slug: "subcategory-2-1", imageSrc: "https://picsum.photos/100/200?random=201" },
+      { id: 202, name: "SubCategory 2-2", slug: "subcategory-2-2", imageSrc: "https://picsum.photos/100/200?random=202" },
+    ],
+    contents: [
+      { type: mediaType.IMAGE, src: "https://picsum.photos/500/200?random=201", },
+      { type: mediaType.IMAGE, src: "https://picsum.photos/500/200?random=202", },
     ],
   },
   {
@@ -25,7 +35,10 @@ const categories = [
     slug: "category-3",
     imageSrc: "https://picsum.photos/200/300?random=3",
     subCategories: [
-      { id: 301, name: "SubCategory 3-1", slug: "subcategory-3-1", imageSrc: "https://picsum.photos/100/100?random=301" },
+      { id: 301, name: "SubCategory 3-1", slug: "subcategory-3-1", imageSrc: "https://picsum.photos/100/200?random=301" },
+    ],
+    contents: [
+      { type: mediaType.IMAGE, src: "https://picsum.photos/500/200?random=301", },
     ],
   },
   {
@@ -34,6 +47,9 @@ const categories = [
     slug: "category-4",
     imageSrc: "https://picsum.photos/200/300?random=4",
     subCategories: [],
+    contents: [
+      { type: mediaType.IMAGE, src: "https://picsum.photos/500/200?random=401", },
+    ],
   },
   {
     id: 5,
@@ -41,9 +57,9 @@ const categories = [
     slug: "category-5",
     imageSrc: "https://picsum.photos/200/300?random=5",
     subCategories: [
-      { id: 501, name: "SubCategory 5-1", slug: "subcategory-5-1", imageSrc: "https://picsum.photos/100/100?random=501" },
-      { id: 502, name: "SubCategory 5-2", slug: "subcategory-5-2", imageSrc: "https://picsum.photos/100/100?random=502" },
-      { id: 503, name: "SubCategory 5-3", slug: "subcategory-5-3", imageSrc: "https://picsum.photos/100/100?random=503" },
+      { id: 501, name: "SubCategory 5-1", slug: "subcategory-5-1", imageSrc: "https://picsum.photos/100/200?random=501" },
+      { id: 502, name: "SubCategory 5-2", slug: "subcategory-5-2", imageSrc: "https://picsum.photos/100/200?random=502" },
+      { id: 503, name: "SubCategory 5-3", slug: "subcategory-5-3", imageSrc: "https://picsum.photos/100/200?random=503" },
     ],
   },
   {
@@ -59,7 +75,7 @@ const categories = [
     slug: "category-7",
     imageSrc: "https://picsum.photos/200/300?random=7",
     subCategories: [
-      { id: 701, name: "SubCategory 7-1", slug: "subcategory-7-1", imageSrc: "https://picsum.photos/100/100?random=701" },
+      { id: 701, name: "SubCategory 7-1", slug: "subcategory-7-1", imageSrc: "https://picsum.photos/100/200?random=701" },
     ],
   },
   {
@@ -75,8 +91,8 @@ const categories = [
     slug: "category-9",
     imageSrc: "https://picsum.photos/200/300?random=9",
     subCategories: [
-      { id: 901, name: "SubCategory 9-1", slug: "subcategory-9-1", imageSrc: "https://picsum.photos/100/100?random=901" },
-      { id: 902, name: "SubCategory 9-2", slug: "subcategory-9-2", imageSrc: "https://picsum.photos/100/100?random=902" },
+      { id: 901, name: "SubCategory 9-1", slug: "subcategory-9-1", imageSrc: "https://picsum.photos/100/200?random=901" },
+      { id: 902, name: "SubCategory 9-2", slug: "subcategory-9-2", imageSrc: "https://picsum.photos/100/200?random=902" },
     ],
   },
   {
