@@ -94,8 +94,7 @@ const SubCategories = ({ categories }) => {
     if (categories.length === 0) return <></>;
 
     const navigate = useNavigate();
-    const handleCategoryClick = (event) => {
-        const { slug } = event.currentTarget.dataset;
+    const handleCategoryClick = ({ slug }) => {
         navigate(`/categories/${slug}`);
     }
 
@@ -111,8 +110,8 @@ const SubCategories = ({ categories }) => {
                     {
                         (
                             categories.map((category) => (
-                                <li key={category.id} data-slug={category.slug} onClick={handleCategoryClick}>
-                                    <CategoryCard key={category.id} category={category} />
+                                <li key={category.id}>
+                                    <CategoryCard key={category.id} category={category} onClick={handleCategoryClick} />
                                 </li>
                             ))
                         )

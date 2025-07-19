@@ -1,7 +1,7 @@
 import ImageWithFallback from "@/components/common/ImageWithFallback";
 import { Skeleton } from "@/components/ui/skeleton";
 
-const CategoryCard = ({ category }) => {
+const CategoryCard = ({ category, onClick }) => {
     if (!category) return (
         <div className="w-full h-auto rounded-lg bg-card flex flex-col gap-1">
             <div className="grow-0 shrink-0 w-full aspect-square rounded-lg p-0.5">
@@ -12,7 +12,7 @@ const CategoryCard = ({ category }) => {
     );
 
     return (
-        <div className="w-full h-auto rounded-lg bg-card flex flex-col gap-1">
+        <div className="w-full h-auto rounded-lg bg-card flex flex-col gap-1" onClick={() => onClick(category)}>
             <div className="grow-0 shrink-0 w-full aspect-square rounded-lg p-0.5">
                 <ImageWithFallback 
                     src={category.imageSrc} 

@@ -12,8 +12,10 @@ function AppRouter() {
           <Route index element={<Home />} />
         </Route>
         <Route element={<Layout />}>
-          <Route path="categories" element={<Categories />} />
-          <Route path="categories/:slug" element={<Category />} />
+          <Route path="categories">
+            <Route index element={<Categories />} />
+            <Route path=":slug" element={<Category />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>

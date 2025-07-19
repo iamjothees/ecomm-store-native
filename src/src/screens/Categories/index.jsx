@@ -22,8 +22,7 @@ function Categories() {
         setSearchTerm(value);
     }
 
-    const handleCategoryClick = (event) => {
-        const { slug } = event.currentTarget.dataset;
+    const handleCategoryClick = ({ slug }) => {
         navigate(`/categories/${slug}`);
     }
 
@@ -53,7 +52,7 @@ function Categories() {
                     }
                     <main className="flex flex-col gap-5">
                         {/* Featured Categories */}
-                        <FeaturedCategories categories={categories.featured} handleCategoryClick={handleCategoryClick} screen={screen} />
+                        <FeaturedCategories categories={categories.featured} onClick={handleCategoryClick} screen={screen} />
 
                         {/* All Categories */}
                         <AllCategories categories={categories.all} handleCategoryClick={handleCategoryClick} screen={screen} />
@@ -69,7 +68,7 @@ function Categories() {
 
 export default Categories
 
-const FeaturedCategories = ({ categories, handleCategoryClick, screen }) => {
+const FeaturedCategories = ({ categories, onClick, screen }) => {
     return (
         <section className="flex flex-col gap-2">
             <header>
@@ -88,8 +87,8 @@ const FeaturedCategories = ({ categories, handleCategoryClick, screen }) => {
                             )
                             : (
                                 categories.map((category) => (
-                                    <li key={category.id} data-slug={category.slug} onClick={handleCategoryClick}>
-                                        <CategoryCard key={category.id} category={category} />
+                                    <li key={category.slug}>
+                                        <CategoryCard key={category.slug} category={category} onClick={onClick} />
                                     </li>
                                 ))
                             )
@@ -134,8 +133,8 @@ const AllCategories = ({ categories, handleCategoryClick, screen }) => {
                                             {
                                                 (
                                                     category.subCategories.map((category) => (
-                                                        <li key={category.id} data-slug={category.slug} onClick={handleCategoryClick}>
-                                                            <CategoryCard key={category.id} category={category} />
+                                                        <li key={category.id}>
+                                                            <CategoryCard key={category.id} category={category} onClick={handleCategoryClick} />
                                                         </li>
                                                     ))
                                                 )
@@ -159,8 +158,8 @@ const AllCategories = ({ categories, handleCategoryClick, screen }) => {
                                 {
                                     categories.filter(category => Boolean(category.subCategories?.length > 0) === false)
                                         .map((category) => (
-                                            <li key={category.id} data-slug={category.slug} onClick={handleCategoryClick}>
-                                                <CategoryCard key={category.id} category={category} />
+                                            <li key={category.id}>
+                                                <CategoryCard key={category.id} category={category} onClick={handleCategoryClick} />
                                             </li>
                                     ))
                                 }

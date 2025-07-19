@@ -17,7 +17,7 @@ const show = ({ slug }) => (
         if (Boolean(slug) === false) return resolve(null);
         setTimeout(() => {
             resolve(testCategories.find(category => category.slug === slug));
-        }, 3000);
+        }, 2000);
     })
 );
 
