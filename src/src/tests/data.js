@@ -183,6 +183,29 @@ const products = [
         "values": ["10 pcs", "20 pcs"]
       }
     ],
+    "info_tags": [
+      {
+        "icon": "truck",
+        "label": "Free Shipping",
+      },
+      {
+        "icon": "clock",
+        "label": "30 days return",
+      },
+      {
+        "icon": "heart",
+        "label": "100% satisfaction",
+      },
+      {
+        "icon": "tag",
+      },
+      {
+        "icon": "tag",
+      },
+      {
+        "icon": "tag",
+      },
+    ],
     "specs": [
       {"label": "Material", "value": "Wood"},
       {"label": "Lead Type", "value": "Extra Dark"},

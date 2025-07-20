@@ -8,7 +8,8 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils"; // Assuming cn is a utility for class concatenation
-import { ShoppingCart, Heart } from 'lucide-react'; // Importing Lucide React icons
+import { ShoppingCart, Heart } from 'lucide-react'; // Importing Lucide React icons, added Truck, Clock, Tag
+import { DynamicIcon } from 'lucide-react/dynamic';
 import ExploreProducts from "@/features/products/components/Explore";
 import Variants from '@/components/screens/products/variants';
 
@@ -45,7 +46,7 @@ function ShowProduct() {
         setProduct(null); // Explicitly set to null on error for "Product not found" message
       })
       .finally(() => setScreen({ loading: false }));
-  }, []);
+  }, [slug]); // Removed setScreen from dependency array
 
   // Show skeleton while loading or if product is undefined
   if (screen.loading || product === undefined) {
@@ -74,6 +75,8 @@ function ShowProduct() {
         product={product}
         selectedVariants={selectedVariants}
       />
+      {/* Add InfoTags component here */}
+      <InfoTags tags={product.info_tags} />
       <ProductSpecs specs={product.specs} />
       <ProductFAQs faqs={product.faqs} />
       
@@ -106,6 +109,21 @@ function ProductSkeleton() {
         <Skeleton className="h-10 flex-1 rounded-md" />
         <Skeleton className="h-10 flex-1 rounded-md" />
         <Skeleton className="h-10 w-12 rounded-md" />
+      </div>
+      {/* Info tags skeleton */}
+      <div className="flex gap-4 justify-around mt-4"> {/* Adjusted for circular layout */}
+        <div className="flex flex-col items-center gap-1">
+          <Skeleton className="h-16 w-16 rounded-full" />
+          <Skeleton className="h-4 w-20" />
+        </div>
+        <div className="flex flex-col items-center gap-1">
+          <Skeleton className="h-16 w-16 rounded-full" />
+          <Skeleton className="h-4 w-20" />
+        </div>
+        <div className="flex flex-col items-center gap-1">
+          <Skeleton className="h-16 w-16 rounded-full" />
+          <Skeleton className="h-4 w-20" />
+        </div>
       </div>
       {/* Specs/FAQs/Related products section skeletons */}
       <Skeleton className="h-4 w-1/3 mt-4" />
@@ -178,6 +196,7 @@ function ProductMedia({ product }) {
                   className="w-full h-full object-cover"
                   preload="metadata" // Preload metadata to show first frame if possible
                   muted // Muted for thumbnail preview
+                  loading="lazy" // Lazy load video thumbnails
                 />
               )}
             </div>
@@ -255,6 +274,32 @@ function ProductActions({ product, selectedVariants }) {
       <Button variant="ghost" className="w-12 h-auto p-2 rounded-lg shadow-sm">
         <Heart className="h-6 w-6" /> {/* Icon for wishlist */}
       </Button>
+    </div>
+  );
+}
+
+// Component to display small info tags with icons
+function InfoTags({ tags }) {
+  if (!tags?.length) return null;
+  const [ displayTags, setDisplayTags ] = useState([]);
+
+  useEffect(() => { setDisplayTags([...tags].slice(0, 4)); }, [tags]);
+
+  return (
+    <div className="flex items-baseline justify-center gap-4 mt-4"> {/* Changed to justify-around and increased gap */}
+      {displayTags.map((tag, index) => {
+        return (
+          <div
+            key={index} // Using index as key, assuming tags array order is stable
+            className="flex flex-col items-center justify-center text-center p-2"
+          >
+            <div className="flex items-center justify-center h-12 w-12 rounded-full border-3 border-primary text-foreground/60 mb-1"> {/* Circular border */}
+              <DynamicIcon name={tag.icon} className="h-6 w-6" />
+            </div>
+            {tag.label && <span className="text-sm text-muted-foreground font-medium">{tag.label}</span>}
+          </div>
+        );
+      })}
     </div>
   );
 }
