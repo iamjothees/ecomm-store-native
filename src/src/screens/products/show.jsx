@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils"; // Assuming cn is a utility for class concatenation
-import { ShoppingCart, Heart } from 'lucide-react'; // Importing Lucide React icons, added Truck, Clock, Tag
+import { ShoppingCart, Heart, Frown, Home } from 'lucide-react'; // Importing Lucide React icons, added Frown, Home
 import { DynamicIcon } from 'lucide-react/dynamic';
 import ExploreProducts from "@/features/products/components/Explore";
 import Variants from '@/components/screens/products/variants';
@@ -46,7 +46,7 @@ function ShowProduct() {
         setProduct(null); // Explicitly set to null on error for "Product not found" message
       })
       .finally(() => setScreen({ loading: false }));
-  }, [slug]); // Removed setScreen from dependency array
+  }, [slug]);
 
   // Show skeleton while loading or if product is undefined
   if (screen.loading || product === undefined) {
@@ -56,8 +56,20 @@ function ShowProduct() {
   // Show "Product not found" message if product is null
   if (product === null) {
     return (
-      <div className="p-4 text-center text-sm text-muted-foreground pt-18">
-        Product not found. Please try again later.
+      <div className="flex flex-col items-center justify-center min-h-[calc(100vh-100px)] p-4 text-center">
+        <Frown className="h-24 w-24 text-muted-foreground mb-4" />
+        <h2 className="text-2xl font-bold text-foreground mb-2">Product Not Found</h2>
+        <p className="text-base text-muted-foreground mb-6">
+          Oops! It looks like the product you're looking for doesn't exist or is currently unavailable.
+        </p>
+        <Button
+          variant="default"
+          className="flex items-center gap-2 px-6 py-3 rounded-lg shadow-md"
+          onClick={() => console.log("Navigate to Home")} // Placeholder for navigation
+        >
+          <Home className="h-5 w-5" />
+          Go to Home
+        </Button>
       </div>
     );
   }

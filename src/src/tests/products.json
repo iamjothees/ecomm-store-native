@@ -1,0 +1,298 @@
+
+    [
+    {
+        "id": "trendy-denim-jacket",
+        "slug": "trendy-denim-jacket",
+        "name": "Trendy Oversized Denim Jacket",
+        "description": "A stylish oversized denim jacket, perfect for layering and adding a cool vibe to any outfit. Made from durable, comfortable denim.",
+        "price": 1499,
+        "mrp": 1999,
+        "imageUrl": "https://placehold.co/600x800/A78BFA/FFFFFF?text=Denim+Jacket",
+        "media": [
+        {
+            "type": "image",
+            "url": "https://placehold.co/800x800/A78BFA/FFFFFF?text=Jacket+Front"
+        },
+        {
+            "type": "image",
+            "url": "https://placehold.co/800x800/A78BFA/FFFFFF?text=Jacket+Back"
+        },
+        {
+            "type": "video",
+            "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+        },
+        {
+            "type": "image",
+            "url": "https://placehold.co/800x800/A78BFA/FFFFFF?text=Jacket+Detail"
+        }
+        ],
+        "variants": [
+        {
+            "name": "Color",
+            "values": ["Light Blue", "Dark Blue", "Black"]
+        },
+        {
+            "name": "Size",
+            "values": ["XS", "S", "M", "L", "XL"]
+        }
+        ],
+        "info_tags": [
+        {
+            "icon": "truck",
+            "label": "Free Shipping"
+        },
+        {
+            "icon": "clock",
+            "label": "30 Days Return"
+        },
+        {
+            "icon": "heart",
+            "label": "Best Seller"
+        },
+        {
+            "icon": "tag",
+            "label": "New Arrival"
+        }
+        ],
+        "specs": [
+        { "label": "Material", "value": "100% Cotton Denim" },
+        { "label": "Fit", "value": "Oversized" },
+        { "label": "Closure", "value": "Button-front" },
+        { "label": "Pockets", "value": "4 functional pockets" },
+        { "label": "Care", "value": "Machine wash cold" }
+        ],
+        "faqs": [
+        { "q": "Is this jacket true to size?", "a": "It's designed to be oversized, so we recommend sticking to your usual size for the intended fit." },
+        { "q": "Can I wear this in winter?", "a": "It's suitable for mild winters or layering in colder weather." }
+        ],
+        "relatedProducts": [
+        {
+            "slug": "graphic-tshirt",
+            "name": "Cool Graphic T-Shirt",
+            "price": 499,
+            "imageUrl": "https://placehold.co/200x200/FDBA74/FFFFFF?text=Graphic+Tee"
+        },
+        {
+            "slug": "high-waist-jeans",
+            "name": "High-Waist Skinny Jeans",
+            "price": 999,
+            "imageUrl": "https://placehold.co/200x200/818CF8/FFFFFF?text=Skinny+Jeans"
+        }
+        ]
+    },
+    {
+        "id": "classic-hoodie",
+        "slug": "classic-hoodie",
+        "name": "Classic Comfort Hoodie",
+        "description": "Soft and comfortable hoodie, perfect for everyday wear or lounging. Features a spacious front pocket and adjustable drawstring hood.",
+        "price": 799,
+        "mrp": 1099,
+        "imageUrl": "https://placehold.co/600x800/FECDD6/FFFFFF?text=Comfort+Hoodie",
+        "media": [
+        {
+            "type": "image",
+            "url": "https://placehold.co/800x800/FECDD6/FFFFFF?text=Hoodie+Front"
+        },
+        {
+            "type": "image",
+            "url": "https://placehold.co/800x800/FECDD6/FFFFFF?text=Hoodie+Back"
+        },
+        {
+            "type": "image",
+            "url": "https://placehold.co/800x800/FECDD6/FFFFFF?text=Hoodie+Pocket"
+        }
+        ],
+        "variants": [
+        {
+            "name": "Color",
+            "values": ["Grey", "Black", "Navy Blue", "Maroon"]
+        },
+        {
+            "name": "Size",
+            "values": ["S", "M", "L", "XL", "XXL"]
+        }
+        ],
+        "info_tags": [
+        {
+            "icon": "truck",
+            "label": "Express Delivery"
+        },
+        {
+            "icon": "heart",
+            "label": "Customer Favorite"
+        },
+        {
+            "icon": "star",
+            "label": "4.8 Stars"
+        }
+        ],
+        "specs": [
+        { "label": "Material", "value": "60% Cotton, 40% Polyester Fleece" },
+        { "label": "Fit", "value": "Regular" },
+        { "label": "Sleeve Type", "value": "Long Sleeve" },
+        { "label": "Neckline", "value": "Hooded" }
+        ],
+        "faqs": [
+        { "q": "Does it shrink after washing?", "a": "Minimal shrinkage if washed according to instructions." },
+        { "q": "Is the fabric thick enough for winter?", "a": "It's a medium-weight fleece, suitable for mild to moderate cold." }
+        ],
+        "relatedProducts": [
+        {
+            "slug": "jogger-pants",
+            "name": "Comfy Jogger Pants",
+            "price": 699,
+            "imageUrl": "https://placehold.co/200x200/D1D5DB/FFFFFF?text=Joggers"
+        },
+        {
+            "slug": "sneakers",
+            "name": "Casual White Sneakers",
+            "price": 1299,
+            "imageUrl": "https://placehold.co/200x200/F3F4F6/FFFFFF?text=Sneakers"
+        }
+        ]
+    },
+    {
+        "id": "fashion-backpack",
+        "slug": "fashion-backpack",
+        "name": "Fashionable Mini Backpack",
+        "description": "A compact and stylish mini backpack, perfect for carrying essentials. Features multiple compartments and adjustable straps.",
+        "price": 899,
+        "mrp": 1199,
+        "imageUrl": "https://placehold.co/600x800/BFDBFE/FFFFFF?text=Mini+Backpack",
+        "media": [
+        {
+            "type": "image",
+            "url": "https://placehold.co/800x800/BFDBFE/FFFFFF?text=Backpack+Front"
+        },
+        {
+            "type": "image",
+            "url": "https://placehold.co/800x800/BFDBFE/FFFFFF?text=Backpack+Open"
+        },
+        {
+            "type": "image",
+            "url": "https://placehold.co/800x800/BFDBFE/FFFFFF?text=Backpack+Side"
+        }
+        ],
+        "variants": [
+        {
+            "name": "Color",
+            "values": ["Pink", "Lavender", "Mint Green", "Black"]
+        }
+        ],
+        "info_tags": [
+        {
+            "icon": "tag",
+            "label": "Limited Edition"
+        },
+        {
+            "icon": "clock",
+            "label": "Easy Returns"
+        },
+        {
+            "icon": "heart",
+            "label": "Trending Now"
+        }
+        ],
+        "specs": [
+        { "label": "Material", "value": "Durable Faux Leather" },
+        { "label": "Dimensions", "value": "25cm H x 20cm W x 10cm D" },
+        { "label": "Capacity", "value": "5 Liters" },
+        { "label": "Compartments", "value": "Main, front zip, inner slip" }
+        ],
+        "faqs": [
+        { "q": "Is it waterproof?", "a": "It's water-resistant, but not fully waterproof." },
+        { "q": "Can it fit a tablet?", "a": "It can fit smaller tablets, up to 8 inches." }
+        ],
+        "relatedProducts": [
+        {
+            "slug": "sunglasses",
+            "name": "Stylish Sunglasses",
+            "price": 399,
+            "imageUrl": "https://placehold.co/200x200/9CA3AF/FFFFFF?text=Sunglasses"
+        },
+        {
+            "slug": "phone-case",
+            "name": "Cute Phone Case",
+            "price": 249,
+            "imageUrl": "https://placehold.co/200x200/D1D5DB/FFFFFF?text=Phone+Case"
+        }
+        ]
+    },
+    {
+        "id": "oversized-tshirt",
+        "slug": "oversized-tshirt",
+        "name": "Oversized Graphic T-Shirt",
+        "description": "Unisex oversized t-shirt with a cool, vibrant graphic print. Made from soft, breathable cotton for ultimate comfort.",
+        "price": 599,
+        "mrp": 799,
+        "imageUrl": "https://placehold.co/600x800/D1FAE5/000000?text=Oversized+Tee",
+        "media": [
+        {
+            "type": "image",
+            "url": "https://placehold.co/800x800/D1FAE5/000000?text=Tee+Front"
+        },
+        {
+            "type": "image",
+            "url": "https://placehold.co/800x800/D1FAE5/000000?text=Tee+Back"
+        },
+        {
+            "type": "image",
+            "url": "https://placehold.co/800x800/D1FAE5/000000?text=Tee+Graphic"
+        }
+        ],
+        "variants": [
+        {
+            "name": "Color",
+            "values": ["White", "Black", "Lavender", "Forest Green"]
+        },
+        {
+            "name": "Size",
+            "values": ["S", "M", "L", "XL"]
+        }
+        ],
+        "info_tags": [
+        {
+            "icon": "percent",
+            "label": "Limited Stock"
+        },
+        {
+            "icon": "star",
+            "label": "Highly Rated"
+        }
+        ],
+        "specs": [
+        { "label": "Material", "value": "100% Premium Cotton" },
+        { "label": "Fit", "value": "Oversized" },
+        { "label": "Neckline", "value": "Crew Neck" },
+        { "label": "Print Type", "value": "DTG Print" }
+        ],
+        "faqs": [
+        { "q": "Will the print fade after washing?", "a": "The print is durable and designed to withstand regular washing." },
+        { "q": "Is it unisex?", "a": "Yes, this t-shirt is designed for both boys and girls." }
+        ],
+        "relatedProducts": [
+        {
+            "slug": "cargo-pants",
+            "name": "Streetwear Cargo Pants",
+            "price": 1199,
+            "imageUrl": "https://placehold.co/200x200/9CA3AF/000000?text=Cargo+Pants"
+        },
+        {
+            "slug": "bucket-hat",
+            "name": "Trendy Bucket Hat",
+            "price": 349,
+            "imageUrl": "https://placehold.co/200x200/D1D5DB/000000?text=Bucket+Hat"
+        }
+        ]
+    },
+    {"id": 1, "name": "Product 1", "price": "₹100", "featured_image": { "uri": "https://picsum.photos/200/300?random=1" }},
+    {"id": 2, "name": "Product 2", "price": "₹200", "featured_image": { "uri": "https://picsum.photos/200/300?random=2" }},
+    {"id": 3, "name": "Product 3", "price": "₹300", "featured_image": { "uri": "https://picsum.photos/200/300?random=3" }},
+    {"id": 4, "name": "Product 4", "price": "₹400", "featured_image": { "uri": "https://picsum.photos/200/300?random=4" }},
+    {"id": 5, "name": "Product 5", "price": "₹500", "featured_image": { "uri": "https://picsum.photos/200/300?random=5" }},
+    {"id": 6, "name": "Product 6", "price": "₹600", "featured_image": { "uri": "https://picsum.photos/200/300?random=6" }},
+    {"id": 7, "name": "Product 7", "price": "₹700", "featured_image": { "uri": "https://picsum.photos/200/300?random=7" }},
+    {"id": 8, "name": "Product 8", "price": "₹800", "featured_image": { "uri": "https://picsum.photos/200/300?random=8" }},
+    {"id": 9, "name": "Product 9", "price": "₹800", "featured_image": { "uri": "https://picsum.photos/200/300?random=9" }},
+    {"id": 10, "name": "Product 10", "price": "₹800", "featured_image": { "uri": "https://picsum.photos/200/300?random=10" }}
+]

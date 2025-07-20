@@ -9,11 +9,12 @@ const fetchProducts = ({ endPoint, currentPage = 1 }) => (
 
 
 const fetchProduct = ({slug = null}) => { // Product or null
-    if (import.meta.env.MODE === "development") slug = "apsara-pencils";
+    // if (import.meta.env.MODE === "development") slug = "trendy-denim-jacket";
     if (slug === null) return null;
 
     return new Promise((resolve) => {
-        setTimeout(() => resolve(testProducts.find(product => product.slug === slug)), 2000);
+        const product = testProducts.find((product) => product.slug === slug);
+        setTimeout(() => product ? resolve(product) : resolve(null), 2000);
     });
 
 }

@@ -1,4 +1,5 @@
 import mediaType from "@/constants/enums/mediaType";
+import products from "@/tests/products.json";
 
 const categories = [
   {
@@ -145,101 +146,6 @@ const categories = [
     subCategories: [],
   },
 ];
-
-const products = [
-  {
-    "id": "apsara-pencils",
-    "slug": "apsara-pencils",
-    "name": "Apsara Absolute Extra Dark Pencils",
-    "description": "High-quality pencils for smooth and dark writing.",
-    "price": 35,
-    "mrp": 50,
-    "imageUrl": "https://picsum.photos/200/300?random=1",
-    "media": [
-      {
-        "type": "image",
-        "url": "https://picsum.photos/200/200?random=media1"
-      },
-      {
-        "type": "image",
-        "url": "https://picsum.photos/400/300?random=media2"
-      },
-      {
-        "type": "image",
-        "url": "https://picsum.photos/300/300?random=media3"
-      },
-      {
-        "type": "video",
-        "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
-      }
-    ],
-    "variants": [
-      {
-        "name": "Color",
-        "values": ["Black", "Blue"]
-      },
-      {
-        "name": "Size",
-        "values": ["10 pcs", "20 pcs"]
-      }
-    ],
-    "info_tags": [
-      {
-        "icon": "truck",
-        "label": "Free Shipping",
-      },
-      {
-        "icon": "clock",
-        "label": "30 days return",
-      },
-      {
-        "icon": "heart",
-        "label": "100% satisfaction",
-      },
-      {
-        "icon": "tag",
-        "label": "New Arrivals",
-      },
-    ],
-    "specs": [
-      {"label": "Material", "value": "Wood"},
-      {"label": "Lead Type", "value": "Extra Dark"},
-      {"label": "Eraser Tip", "value": "Yes"},
-      {"label": "Length", "value": "10 cm"},
-      {"label": "Thickness", "value": "0.5 mm"},
-      {"label": "Weight", "value": "10 g"},
-    ],
-    "faqs": [
-      {"q": "Are these pencils suitable for exams?", "a": "Yes, they meet standard exam writing quality."},
-      {"q": "Do they come pre-sharpened?", "a": "Yes, all pencils are pre-sharpened."},
-      {"q": "How long are the pencils?", "a": "Each pencil is 10 cm long."},
-      {"q": "How thick are the pencils?", "a": "Each pencil is 0.5 mm thick."},
-      {"q": "How much weight do the pencils have?", "a": "Each pencil weighs 10 g."},
-    ],
-    "relatedProducts": [
-      {
-        "name": "Nataraj Pencils",
-        "price": 30,
-        "imageUrl": "https://picsum.photos/200/300?random=related1"
-      },
-      {
-        "name": "Camlin Geometry Box",
-        "price": 120,
-        "imageUrl": "https://picsum.photos/200/300?random=related2"
-      }
-    ]
-  },
-  {id: 1, name: "Product 1", price: "₹100", featured_image: { uri: "https://picsum.photos/200/300?random=1" }},
-  {id: 2, name: "Product 2", price: "₹200", featured_image: { uri: "https://picsum.photos/200/300?random=2" }},
-  {id: 3, name: "Product 3", price: "₹300", featured_image: { uri: "https://picsum.photos/200/300?random=3" }},
-  {id: 4, name: "Product 4", price: "₹400", featured_image: { uri: "https://picsum.photos/200/300?random=4" }},
-  {id: 5, name: "Product 5", price: "₹500", featured_image: { uri: "https://picsum.photos/200/300?random=5" }},
-  {id: 6, name: "Product 6", price: "₹600", featured_image: { uri: "https://picsum.photos/200/300?random=6" }},
-  {id: 7, name: "Product 7", price: "₹700", featured_image: { uri: "https://picsum.photos/200/300?random=7" }},
-  {id: 8, name: "Product 8", price: "₹800", featured_image: { uri: "https://picsum.photos/200/300?random=8" }},
-  {id: 9, name: "Product 9", price: "₹800", featured_image: { uri: "https://picsum.photos/200/300?random=9" }},
-  {id: 10, name: "Product 10", price: "₹800", featured_image: { uri: "https://picsum.photos/200/300?random=10" }},
-]
 
 export { categories as testCategories };
 export { products as testProducts };
