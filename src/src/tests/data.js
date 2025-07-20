@@ -147,6 +147,64 @@ const categories = [
 ];
 
 const products = [
+  {
+    "id": "apsara-pencils",
+    "slug": "apsara-pencils",
+    "name": "Apsara Absolute Extra Dark Pencils",
+    "description": "High-quality pencils for smooth and dark writing.",
+    "price": 35,
+    "mrp": 50,
+    "imageUrl": "https://picsum.photos/200/300?random=1",
+    "media": [
+      {
+        "type": "image",
+        "url": "https://picsum.photos/200/200?random=media1"
+      },
+      {
+        "type": "image",
+        "url": "https://picsum.photos/400/300?random=media2"
+      },
+      {
+        "type": "image",
+        "url": "https://picsum.photos/300/300?random=media3"
+      },
+      {
+        "type": "video",
+        "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      }
+    ],
+    "variants": [
+      {
+        "name": "Color",
+        "values": ["Black", "Blue"]
+      },
+      {
+        "name": "Size",
+        "values": ["10 pcs", "20 pcs"]
+      }
+    ],
+    "specs": [
+      {"label": "Material", "value": "Wood"},
+      {"label": "Lead Type", "value": "Extra Dark"},
+      {"label": "Eraser Tip", "value": "Yes"}
+    ],
+    "faqs": [
+      {"q": "Are these pencils suitable for exams?", "a": "Yes, they meet standard exam writing quality."},
+      {"q": "Do they come pre-sharpened?", "a": "Yes, all pencils are pre-sharpened."}
+    ],
+    "relatedProducts": [
+      {
+        "name": "Nataraj Pencils",
+        "price": 30,
+        "imageUrl": "https://picsum.photos/200/300?random=related1"
+      },
+      {
+        "name": "Camlin Geometry Box",
+        "price": 120,
+        "imageUrl": "https://picsum.photos/200/300?random=related2"
+      }
+    ]
+  },
   {id: 1, name: "Product 1", price: "₹100", featured_image: { uri: "https://picsum.photos/200/300?random=1" }},
   {id: 2, name: "Product 2", price: "₹200", featured_image: { uri: "https://picsum.photos/200/300?random=2" }},
   {id: 3, name: "Product 3", price: "₹300", featured_image: { uri: "https://picsum.photos/200/300?random=3" }},
@@ -157,7 +215,6 @@ const products = [
   {id: 8, name: "Product 8", price: "₹800", featured_image: { uri: "https://picsum.photos/200/300?random=8" }},
   {id: 9, name: "Product 9", price: "₹800", featured_image: { uri: "https://picsum.photos/200/300?random=9" }},
   {id: 10, name: "Product 10", price: "₹800", featured_image: { uri: "https://picsum.photos/200/300?random=10" }},
-
 ]
 
 export { categories as testCategories };

@@ -1,6 +1,6 @@
 
 
-import { fetchProducts } from "@/services/productService";
+import { fetchProducts } from "@/features/services/productService";
 import { useEffect, useState } from "react";
 import ProductCard from "@/features/products/components/Card";
 import usePagination from "@/hooks/usePagination";

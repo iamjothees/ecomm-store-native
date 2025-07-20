@@ -1,8 +1,13 @@
 import { Card } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 import ImageWithFallback from "@/components/common/ImageWithFallback";
+import { useNavigate } from "react-router";
 
-function ProductCard({ product = null }) {
+function ProductCard({ product = null, onClick = null }) {
+  const navigate = useNavigate();
+
+  if (onClick === null) onClick = ({ slug }) => navigate(`/products/${slug}`)
+
   if (!product) return (
     <Card className="w-full h-auto flex flex-col gap-1 rounded-lg p-0 shadow-md snap-center">
       <div className="grow-0 shrink-0 h-2/3 aspect-square p-0.5">
@@ -17,7 +22,7 @@ function ProductCard({ product = null }) {
   )
 
   return (
-    <Card className="w-full h-auto flex flex-col gap-1 rounded-lg p-0 shadow-md snap-center">
+    <Card className="w-full h-auto flex flex-col gap-1 rounded-lg p-0 shadow-md snap-center" onClick={() => onClick(product)}>
       <div className="grow-0 shrink-0 h-2/3 aspect-square p-0.5">
         {/* <ImageWithFallback 
           src={product.featured_image.uri} 

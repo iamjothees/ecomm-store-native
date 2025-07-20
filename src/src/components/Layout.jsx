@@ -1,10 +1,9 @@
 import Footer from "@/components/layout/Footer"
-import { useContext } from "react";
 import { Outlet } from "react-router"
-import ScreenContext from "@/contexts/ScreenContext";
+import useScreenContext from "@/contexts/ScreenContext";
 
 function Layout() {
-    const { screen } = useContext(ScreenContext);
+    const { screen } = useScreenContext();
 
     return (
         <div className='w-screen h-screen overflow-y-scroll overflow-x-hidden m-0 p-0 bg-background text-foreground'>

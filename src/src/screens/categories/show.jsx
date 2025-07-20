@@ -1,7 +1,7 @@
-import { useContext, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router';
-import { show } from '@/services/categoryService';
-import ScreenContext from "@/contexts/ScreenContext";
+import { show } from '@/features/services/categoryService';
+import useScreenContext from "@/contexts/ScreenContext";
 import SearchBar from "@/components/common/SearchBar";
 import ImageWithFallback from "@/components/common/ImageWithFallback";
 import CategoryCard from "@/features/categories/components/Card";
@@ -10,7 +10,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 import { cn } from "@/lib/utils"
 
 function Category() {
-    const { screen, setScreen } = useContext(ScreenContext);
+    const { screen, setScreen } = useScreenContext();
     const { slug } = useParams();
     const [category, setCategory] = useState(null);
 
@@ -21,7 +21,9 @@ function Category() {
     }
 
     useEffect(() => {
-        show({ slug }).then(category => setCategory(category));
+        setScreen({ loading: true });
+        show({ slug }).then(category => setCategory(category))
+            .finally(() => setScreen({ loading: false }));
     }, [slug]);
 
     useEffect(() => { 

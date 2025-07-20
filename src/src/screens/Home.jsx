@@ -1,5 +1,5 @@
-import { useContext, useEffect } from "react";
-import ScreenContext from "@/contexts/ScreenContext";
+import { useEffect } from "react";
+import useScreenContext from "@/contexts/ScreenContext";
 import HelloBar from "@/components/home/HelloBar"
 import FeaturedCategories from "@/components/home/FeaturedCategories"
 import FeaturedProducts from "@/components/home/FeaturedProducts"
@@ -8,7 +8,7 @@ import RecentlyViewedProducts from "@/components/home/RecentlyViewedProducts"
 import Hero from "@/components/home/Hero"
 
 function Home() {
-  const { setScreen } = useContext(ScreenContext);
+  const { setScreen } = useScreenContext();
 
   useEffect(() => { setScreen({ screenTitle: "Home", showHeader: false, showFooter: true }); }, []);
 

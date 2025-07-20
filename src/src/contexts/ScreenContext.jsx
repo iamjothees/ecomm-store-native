@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 
 const ScreenContext = createContext();
 
@@ -19,4 +19,4 @@ export function ScreenContextProvider({children}) {
     )
 }
 
-export default ScreenContext
+export default () => useContext(ScreenContext);

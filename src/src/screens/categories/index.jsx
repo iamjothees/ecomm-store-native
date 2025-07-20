@@ -1,15 +1,15 @@
-import { useContext, useEffect, useState } from "react";
-import ScreenContext from "@/contexts/ScreenContext";
+import { useEffect, useState } from "react";
+import useScreenContext from "@/contexts/ScreenContext";
 import { Button } from "@/components/ui/button"
 import SearchBar from "@/components/common/SearchBar";
-import { index } from '@/services/categoryService';
+import { index } from '@/features/services/categoryService';
 import ExploreProducts from "@/features/products/components/Explore";
 import { useNavigate } from "react-router";
 import CategoryCard from "@/features/categories/components/Card";
 import { Skeleton } from "@/components/ui/skeleton";
 
 function Categories() {
-    const { screen, setScreen } = useContext(ScreenContext);
+    const { screen, setScreen } = useScreenContext();
     const [searchTerm, setSearchTerm] = useState("");
     const [ categories, setCategories ] = useState({
         featured: [],
