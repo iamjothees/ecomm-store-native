@@ -198,22 +198,23 @@ const products = [
       },
       {
         "icon": "tag",
-      },
-      {
-        "icon": "tag",
-      },
-      {
-        "icon": "tag",
+        "label": "New Arrivals",
       },
     ],
     "specs": [
       {"label": "Material", "value": "Wood"},
       {"label": "Lead Type", "value": "Extra Dark"},
-      {"label": "Eraser Tip", "value": "Yes"}
+      {"label": "Eraser Tip", "value": "Yes"},
+      {"label": "Length", "value": "10 cm"},
+      {"label": "Thickness", "value": "0.5 mm"},
+      {"label": "Weight", "value": "10 g"},
     ],
     "faqs": [
       {"q": "Are these pencils suitable for exams?", "a": "Yes, they meet standard exam writing quality."},
-      {"q": "Do they come pre-sharpened?", "a": "Yes, all pencils are pre-sharpened."}
+      {"q": "Do they come pre-sharpened?", "a": "Yes, all pencils are pre-sharpened."},
+      {"q": "How long are the pencils?", "a": "Each pencil is 10 cm long."},
+      {"q": "How thick are the pencils?", "a": "Each pencil is 0.5 mm thick."},
+      {"q": "How much weight do the pencils have?", "a": "Each pencil weighs 10 g."},
     ],
     "relatedProducts": [
       {

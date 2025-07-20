@@ -293,7 +293,7 @@ function InfoTags({ tags }) {
             key={index} // Using index as key, assuming tags array order is stable
             className="flex flex-col items-center justify-center text-center p-2"
           >
-            <div className="flex items-center justify-center h-12 w-12 rounded-full border-3 border-primary text-foreground/60 mb-1"> {/* Circular border */}
+            <div className="flex items-center justify-center h-12 w-12 rounded-full border-2 border-primary text-primary mb-1"> {/* Circular border */}
               <DynamicIcon name={tag.icon} className="h-6 w-6" />
             </div>
             {tag.label && <span className="text-sm text-muted-foreground font-medium">{tag.label}</span>}
@@ -307,17 +307,32 @@ function InfoTags({ tags }) {
 // Component to display Product Specifications
 function ProductSpecs({ specs }) {
   if (!specs?.length) return null;
+
+  const [showAllSpecs, setShowAllSpecs] = useState(false);
+  const initialDisplayCount = 4;
+  const specsToDisplay = showAllSpecs ? specs : specs.slice(0, initialDisplayCount);
+  const hasMoreSpecs = specs.length > initialDisplayCount;
+
   return (
     <div className="mt-4 p-4 bg-card rounded-lg shadow-sm">
       <h3 className="text-lg font-semibold mb-2 text-foreground">Specifications</h3>
       <ul className="text-sm text-muted-foreground space-y-2">
-        {specs.map((s, i) => (
+        {specsToDisplay.map((s, i) => (
           <li key={i} className="flex justify-between items-center border-b border-dashed border-gray-200 pb-1 last:border-b-0 last:pb-0">
             <span className="font-medium text-gray-800">{s.label}:</span>
             <span>{s.value}</span>
           </li>
         ))}
       </ul>
+      {hasMoreSpecs && (
+        <Button
+          variant="link"
+          className="w-full text-primary mt-2 text-sm justify-center"
+          onClick={() => setShowAllSpecs(!showAllSpecs)}
+        >
+          {showAllSpecs ? "Show Less" : "See More"}
+        </Button>
+      )}
     </div>
   );
 }
@@ -325,17 +340,32 @@ function ProductSpecs({ specs }) {
 // Component to display Product FAQs
 function ProductFAQs({ faqs }) {
   if (!faqs?.length) return null;
+
+  const [showAllFAQs, setShowAllFAQs] = useState(false);
+  const initialDisplayCount = 2; // Display first 2 FAQs
+  const faqsToDisplay = showAllFAQs ? faqs : faqs.slice(0, initialDisplayCount);
+  const hasMoreFAQs = faqs.length > initialDisplayCount;
+
   return (
     <div className="mt-4 p-4 bg-card rounded-lg shadow-sm">
       <h3 className="text-lg font-semibold mb-2 text-foreground">FAQs</h3>
       <ul className="text-sm text-muted-foreground space-y-3">
-        {faqs.map((faq, i) => (
+        {faqsToDisplay.map((faq, i) => (
           <li key={i}>
             <strong className="text-gray-900 block mb-1">{faq.q}</strong>
             <p className="text-gray-700">{faq.a}</p>
           </li>
         ))}
       </ul>
+      {hasMoreFAQs && (
+        <Button
+          variant="link"
+          className="w-full text-primary mt-2 text-sm justify-center"
+          onClick={() => setShowAllFAQs(!showAllFAQs)}
+        >
+          {showAllFAQs ? "Show Less" : "See More"}
+        </Button>
+      )}
     </div>
   );
 }
