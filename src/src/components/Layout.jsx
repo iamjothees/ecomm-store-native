@@ -9,7 +9,7 @@ function Layout() {
         <div className='w-screen h-screen overflow-y-scroll overflow-x-hidden m-0 p-0 bg-background text-foreground'>
             <section className="h-screen">
                 { screen.showHeader && <Header title={screen.screenTitle} /> }
-                <main className="h-full flex flex-col overflow-y-scroll pb-24">
+                <main id="app-main" className="h-full flex flex-col overflow-y-scroll pb-24">
                     <Outlet />
                 </main>
                 <footer className="fixed bottom-0 z-999">

@@ -4,24 +4,27 @@ import Home from "@/screens/Home"
 import Categories from "@/screens/categories/index"
 import Category from "@/screens/categories/show"
 import Product from "@/screens/products/show"
+import ScrollToTopOnNavigate from "@/components/ScrollToTopOnNavigate"
 
 function AppRouter() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route element={<Layout hideHeader />}>
-          <Route index element={<Home />} />
-        </Route>
-        <Route element={<Layout />}>
-          <Route path="categories">
-            <Route index element={<Categories />} />
-            <Route path=":slug" element={<Category />} />
+      <ScrollToTopOnNavigate>
+        <Routes>
+          <Route element={<Layout hideHeader />}>
+            <Route index element={<Home />} />
           </Route>
-          <Route path="products">
-            <Route path=":slug" element={<Product />} />
+          <Route element={<Layout />}>
+            <Route path="categories">
+              <Route index element={<Categories />} />
+              <Route path=":slug" element={<Category />} />
+            </Route>
+            <Route path="products">
+              <Route path=":slug" element={<Product />} />
+            </Route>
           </Route>
-        </Route>
-      </Routes>
+        </Routes>
+      </ScrollToTopOnNavigate>
     </BrowserRouter>
   )
 }
