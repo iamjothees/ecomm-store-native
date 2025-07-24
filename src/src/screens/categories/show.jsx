@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router';
-import { show } from '@/features/services/categoryService';
+import { show } from '@/features/categories/categoryService';
 import useScreenContext from "@/contexts/ScreenContext";
 import SearchBar from "@/components/common/SearchBar";
 import ImageWithFallback from "@/components/common/ImageWithFallback";

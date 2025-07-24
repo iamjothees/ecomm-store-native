@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import useScreenContext from '@/contexts/ScreenContext';
-import { fetchProduct } from '@/features/services/productService';
+import { fetchProduct } from '@/features/products/productService';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -13,14 +13,24 @@ import { DynamicIcon } from 'lucide-react/dynamic';
 import ExploreProducts from "@/features/products/components/Explore";
 import Variants from '@/components/screens/products/variants';
 
+const Context = createContext({ isScreen: true });
+
 // Main Product Display Component
-function ShowProduct() {
+function ShowProduct({ slug: propSlug, isScreen=true }) {
   const { screen, setScreen } = useScreenContext();
-  const { slug } = useParams();
+  const routeParams = useParams();
+  const slug = propSlug || routeParams.slug;
+
   const [product, setProduct] = useState(undefined);
   const [selectedVariants, setSelectedVariants] = useState({});
 
   useEffect(() => {
+    if (!slug) { // Handle case where slug might be undefined initially
+      setProduct(null);
+      setScreen({ screenTitle: "Product", loading: false });
+      return;
+    }
+
     setScreen({ screenTitle: "Product", loading: true });
 
     fetchProduct({ slug })
@@ -46,11 +56,11 @@ function ShowProduct() {
         setProduct(null); // Explicitly set to null on error for "Product not found" message
       })
       .finally(() => setScreen({ loading: false }));
-  }, [slug]);
+  }, [slug]); // Depend on slug prop now
 
   // Show skeleton while loading or if product is undefined
   if (screen.loading || product === undefined) {
-    return <ProductSkeleton />;
+    return <Context value={{ isScreen }}><ProductSkeleton /></Context>;
   }
 
   // Show "Product not found" message if product is null
@@ -75,33 +85,36 @@ function ShowProduct() {
   }
 
   return (
-    <div className="flex flex-col p-4 space-y-4 pt-18">
-      <ProductMedia product={product} />
-      <Variants
-        product={product}
-        selectedVariants={selectedVariants}
-        setSelectedVariants={setSelectedVariants}
-      />
-      <ProductDetails product={product} />
-      <ProductActions
-        product={product}
-        selectedVariants={selectedVariants}
-      />
-      {/* Add InfoTags component here */}
-      <InfoTags tags={product.info_tags} />
-      <ProductSpecs specs={product.specs} />
-      <ProductFAQs faqs={product.faqs} />
-      
-      {/* Related Products */}
-      <ExploreProducts config={{ title: "Related Products" }} />
-    </div>
+    <Context value={{ isScreen }}>
+      <div className={cn("flex flex-col p-4 space-y-4", isScreen ? "pt-18" : "pt-5")}>
+        <ProductMedia product={product} />
+        <Variants
+          product={product}
+          selectedVariants={selectedVariants}
+          setSelectedVariants={setSelectedVariants}
+        />
+        <ProductDetails product={product} />
+        <ProductActions
+          product={product}
+          selectedVariants={selectedVariants}
+        />
+        {/* Add InfoTags component here */}
+        <InfoTags tags={product.info_tags} />
+        <ProductSpecs specs={product.specs} />
+        <ProductFAQs faqs={product.faqs} />
+        
+        {/* Related Products */}
+        <ExploreProducts config={{ title: "Related Products" }} />
+      </div>
+    </Context>
   );
 }
 
 // Skeleton Loader for Product Page
 function ProductSkeleton() {
+  const { isScreen } = useContext(Context);
   return (
-    <div className="flex flex-col gap-4 p-4 pt-18">
+    <div className={cn("flex flex-col gap-4 p-4", isScreen ? "pt-18" : "pt-5")}>
       {/* Main image skeleton */}
       <Skeleton className="h-64 w-full rounded-xl" />
       {/* Thumbnails skeleton */}
@@ -243,6 +256,8 @@ function ProductDetails({ product }) {
 
 // Component for Product Actions (Buy Now, Add to Cart, Wishlist)
 function ProductActions({ product, selectedVariants }) {
+  const { isScreen } = useContext(Context);
+
   const handleAddToCart = () => {
     // Implement add to cart logic here
     console.log("Added to cart:", {
@@ -264,28 +279,30 @@ function ProductActions({ product, selectedVariants }) {
   const areAllVariantsSelected = product.variants.every(variant => selectedVariants[variant.name] !== undefined);
 
   return (
-    <div className="flex gap-2 mt-4">
-      <Button
-        className="flex-1 py-3 text-lg font-semibold rounded-lg shadow-md transition-all duration-200 ease-in-out hover:scale-[1.01]"
-        variant="default"
-        onClick={handleBuyNow}
-        disabled={!areAllVariantsSelected}
-      >
-        Buy Now
-      </Button>
+    <div className={cn("sticky z-10 bg-background p-4 shadow-md -mx-4", isScreen ? "top-16" : "top-0")}>
+      <div className="flex gap-2">
+        <Button
+          className="flex-1 py-3 text-lg font-semibold rounded-lg shadow-md transition-all duration-200 ease-in-out hover:scale-[1.01]"
+          variant="default"
+          onClick={handleBuyNow}
+          disabled={!areAllVariantsSelected}
+        >
+          Buy Now
+        </Button>
 
-      <Button
-        className="w-12 h-auto p-2 rounded-lg shadow-sm"
-        variant="secondary"
-        onClick={handleAddToCart}
-        disabled={!areAllVariantsSelected}
-      >
-        <ShoppingCart className="h-6 w-6" />
-      </Button>
+        <Button
+          className="w-12 h-auto p-2 rounded-lg shadow-sm"
+          variant="secondary"
+          onClick={handleAddToCart}
+          disabled={!areAllVariantsSelected}
+        >
+          <ShoppingCart className="h-6 w-6" />
+        </Button>
 
-      <Button variant="ghost" className="w-12 h-auto p-2 rounded-lg shadow-sm">
-        <Heart className="h-6 w-6" /> {/* Icon for wishlist */}
-      </Button>
+        <Button variant="ghost" className="w-12 h-auto p-2 rounded-lg shadow-sm">
+          <Heart className="h-6 w-6" /> {/* Icon for wishlist */}
+        </Button>
+      </div>
     </div>
   );
 }
@@ -293,25 +310,28 @@ function ProductActions({ product, selectedVariants }) {
 // Component to display small info tags with icons
 function InfoTags({ tags }) {
   if (!tags?.length) return null;
-  const [ displayTags, setDisplayTags ] = useState([]);
-
-  useEffect(() => { setDisplayTags([...tags].slice(0, 4)); }, [tags]);
 
   return (
-    <div className="flex items-baseline justify-center gap-4 mt-4"> {/* Changed to justify-around and increased gap */}
-      {displayTags.map((tag, index) => {
-        return (
-          <div
-            key={index} // Using index as key, assuming tags array order is stable
-            className="flex flex-col items-center justify-center text-center p-2"
-          >
-            <div className="flex items-center justify-center h-12 w-12 rounded-full border-2 border-primary text-primary mb-1"> {/* Circular border */}
-              <DynamicIcon name={tag.icon} className="h-6 w-6" />
+    <div className="relative overflow-hidden mt-4">
+      <div className="flex items-baseline justify-start gap-4 pr-8 overflow-x-auto scrollbar-hide">
+        {tags.map((tag, index) => {
+          return (
+            <div
+              key={index}
+              className="flex flex-col items-center justify-center text-center p-2 flex-shrink-0"
+            >
+              <div className="flex items-center justify-center h-12 w-12 rounded-full border-2 border-primary text-primary mb-1">
+                <DynamicIcon name={tag.icon} className="h-6 w-6" />
+              </div>
+              {tag.label && <span className="text-sm text-muted-foreground font-medium">{tag.label}</span>}
             </div>
-            {tag.label && <span className="text-sm text-muted-foreground font-medium">{tag.label}</span>}
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
+      {/* Gradient overlay to indicate more content */}
+      {tags.length > 3 && ( // Only show gradient if there are more than 3 tags (adjust as needed based on visible count)
+        <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
+      )}
     </div>
   );
 }

@@ -16,7 +16,18 @@ const fetchProduct = ({slug = null}) => { // Product or null
         const product = testProducts.find((product) => product.slug === slug);
         setTimeout(() => product ? resolve(product) : resolve(null), 2000);
     });
-
 }
 
-export { fetchProducts, fetchProduct };
+const fetchFeaturedProducts = () => (
+    new Promise((resolve) => {
+        setTimeout(() => resolve(testProducts), 2000);
+    })
+);
+
+const fetchRecentlyViewedProducts = () => (
+    new Promise((resolve) => {
+        setTimeout(() => resolve(testProducts), 2000);
+    })
+);
+
+export { fetchProducts, fetchProduct, fetchFeaturedProducts, fetchRecentlyViewedProducts };

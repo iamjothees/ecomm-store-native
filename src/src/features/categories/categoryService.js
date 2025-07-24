@@ -1,6 +1,5 @@
 import { testCategories } from "@/tests/data";
 
-
 const index = () => (
     new Promise((resolve) => {
         setTimeout(() => {
@@ -21,4 +20,12 @@ const show = ({ slug }) => (
     })
 );
 
-export { index, show };
+const fetchFeaturedCategories = () => (
+    new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(testCategories.slice(3, 10));
+        }, 2000);
+    })
+);
+
+export { index, show, fetchFeaturedCategories };

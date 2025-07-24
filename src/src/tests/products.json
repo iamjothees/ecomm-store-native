@@ -7,7 +7,7 @@
         "description": "A stylish oversized denim jacket, perfect for layering and adding a cool vibe to any outfit. Made from durable, comfortable denim.",
         "price": 1499,
         "mrp": 1999,
-        "imageUrl": "https://placehold.co/600x800/A78BFA/FFFFFF?text=Denim+Jacket",
+        "featured_image": { "uri": "https://placehold.co/600x800/A78BFA/FFFFFF?text=Denim+Jacket" },
         "media": [
         {
             "type": "image",
@@ -70,13 +70,13 @@
             "slug": "graphic-tshirt",
             "name": "Cool Graphic T-Shirt",
             "price": 499,
-            "imageUrl": "https://placehold.co/200x200/FDBA74/FFFFFF?text=Graphic+Tee"
+            "featured_image": { "uri": "https://placehold.co/200x200/FDBA74/FFFFFF?text=Graphic+Tee" }
         },
         {
             "slug": "high-waist-jeans",
             "name": "High-Waist Skinny Jeans",
             "price": 999,
-            "imageUrl": "https://placehold.co/200x200/818CF8/FFFFFF?text=Skinny+Jeans"
+            "featured_image": { "uri": "https://placehold.co/200x200/818CF8/FFFFFF?text=Skinny+Jeans" }
         }
         ]
     },
@@ -87,7 +87,7 @@
         "description": "Soft and comfortable hoodie, perfect for everyday wear or lounging. Features a spacious front pocket and adjustable drawstring hood.",
         "price": 799,
         "mrp": 1099,
-        "imageUrl": "https://placehold.co/600x800/FECDD6/FFFFFF?text=Comfort+Hoodie",
+        "featured_image": { "uri": "https://placehold.co/600x800/FECDD6/FFFFFF?text=Comfort+Hoodie" },
         "media": [
         {
             "type": "image",
@@ -141,13 +141,13 @@
             "slug": "jogger-pants",
             "name": "Comfy Jogger Pants",
             "price": 699,
-            "imageUrl": "https://placehold.co/200x200/D1D5DB/FFFFFF?text=Joggers"
+            "featured_image": { "uri": "https://placehold.co/200x200/D1D5DB/FFFFFF?text=Joggers" }
         },
         {
             "slug": "sneakers",
             "name": "Casual White Sneakers",
             "price": 1299,
-            "imageUrl": "https://placehold.co/200x200/F3F4F6/FFFFFF?text=Sneakers"
+            "featured_image": { "uri": "https://placehold.co/200x200/F3F4F6/FFFFFF?text=Sneakers" }
         }
         ]
     },
@@ -158,7 +158,7 @@
         "description": "A compact and stylish mini backpack, perfect for carrying essentials. Features multiple compartments and adjustable straps.",
         "price": 899,
         "mrp": 1199,
-        "imageUrl": "https://placehold.co/600x800/BFDBFE/FFFFFF?text=Mini+Backpack",
+        "featured_image": { "uri": "https://placehold.co/600x800/BFDBFE/FFFFFF?text=Mini+Backpack" },
         "media": [
         {
             "type": "image",
@@ -208,13 +208,13 @@
             "slug": "sunglasses",
             "name": "Stylish Sunglasses",
             "price": 399,
-            "imageUrl": "https://placehold.co/200x200/9CA3AF/FFFFFF?text=Sunglasses"
+            "featured_image": { "uri": "https://placehold.co/200x200/9CA3AF/FFFFFF?text=Sunglasses" }
         },
         {
             "slug": "phone-case",
             "name": "Cute Phone Case",
             "price": 249,
-            "imageUrl": "https://placehold.co/200x200/D1D5DB/FFFFFF?text=Phone+Case"
+            "featured_image": { "uri": "https://placehold.co/200x200/D1D5DB/FFFFFF?text=Phone+Case" }
         }
         ]
     },
@@ -225,7 +225,7 @@
         "description": "Unisex oversized t-shirt with a cool, vibrant graphic print. Made from soft, breathable cotton for ultimate comfort.",
         "price": 599,
         "mrp": 799,
-        "imageUrl": "https://placehold.co/600x800/D1FAE5/000000?text=Oversized+Tee",
+        "featured_image": { "uri": "https://placehold.co/600x800/D1FAE5/000000?text=Oversized+Tee" },
         "media": [
         {
             "type": "image",
@@ -275,13 +275,13 @@
             "slug": "cargo-pants",
             "name": "Streetwear Cargo Pants",
             "price": 1199,
-            "imageUrl": "https://placehold.co/200x200/9CA3AF/000000?text=Cargo+Pants"
+            "featured_image": { "uri": "https://placehold.co/200x200/9CA3AF/000000?text=Cargo+Pants" }
         },
         {
             "slug": "bucket-hat",
             "name": "Trendy Bucket Hat",
             "price": 349,
-            "imageUrl": "https://placehold.co/200x200/D1D5DB/000000?text=Bucket+Hat"
+            "featured_image": { "uri": "https://placehold.co/200x200/D1D5DB/000000?text=Bucket+Hat" }
         }
         ]
     },

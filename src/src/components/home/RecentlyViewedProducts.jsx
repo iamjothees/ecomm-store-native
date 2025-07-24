@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { ChevronsRight } from "lucide-react";
 import ProductCard from "@/features/products/components/Card";
 import HorizontalScrollSection from "@/components/common/HorizontalScrollSection";
+import { fetchRecentlyViewedProducts } from '@/features/products/productService';
+import { useEffect, useState } from "react";
 
 const dummyProducts = [
   {id: 1, name: "Product 1", price: "₹100", featured_image: { uri: "https://picsum.photos/200/300" }},
@@ -15,9 +17,18 @@ const dummyProducts = [
 ];
 
 function RecentlyViewedProducts() {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchRecentlyViewedProducts()
+      .then((products) => setProducts(products))
+      .finally(() => setLoading(false));
+  }, []);
+
   return (
     <HorizontalScrollSection 
-        renderMain={() => ( dummyProducts.map((product) => ( <ProductCard key={product.id} product={product} /> )) )}
+        renderMain={() => ( loading ? <Skeleton /> : products.map((product) => ( <ProductCard key={product.id} product={product} /> )) )}
         renderHeader={() => (
             <>
                 <h1 className="text-lg font-semibold text-primary-950">Recently Viewed Products</h1>
@@ -27,9 +38,11 @@ function RecentlyViewedProducts() {
                 </Button>
             </>
         )}
-        styles={{ main: "h-50" }}
+        styles={{ main: "min-h-50" }}
     />
   );
 }
 
 export default RecentlyViewedProducts;
+
+const Skeleton = () => ( [...Array(4).keys()].map((_, i) => ( <ProductCard key={i} /> ))  );

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import useScreenContext from "@/contexts/ScreenContext";
 import { Button } from "@/components/ui/button"
 import SearchBar from "@/components/common/SearchBar";
-import { index } from '@/features/services/categoryService';
+import { index } from '@/features/categories/categoryService';
 import ExploreProducts from "@/features/products/components/Explore";
 import { useNavigate } from "react-router";
 import CategoryCard from "@/features/categories/components/Card";
