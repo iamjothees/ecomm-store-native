@@ -1,10 +1,9 @@
 import { ChevronsRight } from "lucide-react";
-import ImageWithFallback from "@/components/common/ImageWithFallback";
+import CategoryCard from "@/features/categories/components/Card";
 import HorizontalScrollSection from "@/components/common/HorizontalScrollSection";
 import { Link } from "react-router";
 import { useEffect, useState } from "react";
 import { fetchFeaturedCategories } from "@/features/categories/categoryService";
-import { Skeleton } from "@/components/ui/skeleton"; // Import Skeleton component
 
 function FeaturedCategories() {
     const [ categories, setCategories ] = useState([]);
@@ -23,16 +22,10 @@ function FeaturedCategories() {
                 loading 
                     ? <ComponentSkeleton />
                     : categories.map((category) => (
-                    <Link to={`/categories/${category.slug}`} key={category.id} className="h-24 aspect-square"> {/* Added Link for navigation */}
-                        <ImageWithFallback
-                            src={category.imageSrc}
-                            fallbackSrc={"https://placehold.co/100x100/E2E8F0/FFFFFF?text=Category"} // Placeholder fallback
-                            alt={category.name}
-                            className="flex-1 h-full w-full rounded-full bg-primary-200 shadow-md flex items-center justify-center snap-center object-cover"
-                        />
-                        {/* <div key={category.id} className="h-full w-full rounded-full bg-primary-200 shadow-md flex items-center justify-center snap-center object-cover"/> */}
-                    </Link>
-                ))
+                        <Link to={`/categories/${category.slug}`} key={category.id} className="min-w-24 h-auto"> {/* Added Link for navigation */}
+                            <CategoryCard key={category.id} category={category} hideName />
+                        </Link>
+                    ))
             )}
             renderHeader={() => (
                 <>
@@ -53,6 +46,8 @@ export default FeaturedCategories;
 // Skeleton component for FeaturedCategories
 const ComponentSkeleton = () => (
         Array.from({ length: 4 }).map((_, index) => ( // Render 4 skeleton items
-            <Skeleton key={index} className="h-24 aspect-square rounded-full bg-primary-200 shadow-md snap-center" />
+            <div key={index} className="min-w-24">
+                <CategoryCard key={index} hideName />
+            </div>
         ))
 );

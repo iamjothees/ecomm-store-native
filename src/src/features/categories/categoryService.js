@@ -28,4 +28,13 @@ const fetchFeaturedCategories = () => (
     })
 );
 
-export { index, show, fetchFeaturedCategories };
+const searchCategories = ({ searchQuery }) => (
+    new Promise((resolve, reject) => {
+        if (!searchQuery) reject("Search query is empty");
+        setTimeout(
+            () => resolve(testCategories.filter(category => category.name.toLowerCase().includes(searchQuery.toLowerCase())))
+        , 2000);
+    })
+);
+
+export { index, show, fetchFeaturedCategories, searchCategories };

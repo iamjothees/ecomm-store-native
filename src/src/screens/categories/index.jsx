@@ -35,6 +35,8 @@ function Categories() {
             .finally(() => setScreen({ loading: false }));
     }, []);
 
+    // TODO: Add search functionality
+
     return (
         <section className="flex-1 flex flex-col gap-3 pt-18 px-4">
             <header>
@@ -75,19 +77,19 @@ const FeaturedCategories = ({ categories, onClick, screen }) => {
                 <p className="font-bold text-center">Explore</p>
             </header>
             <main>
-                <ul className="grid grid-cols-3 md:grid-cols-6 flex-wrap justify-around md:justify-start gap-2 space-y-2">
+                <ul className="grid grid-cols-3 md:grid-cols-6 flex-wrap justify-around md:justify-start place-items-center gap-5 space-y-2">
                     {
                         screen.loading 
                             ? (
                                 [...Array(4)].map((_, i) => (
-                                    <li key={i}>
+                                    <li key={i} className="w-24">
                                         <CategoryCard />
                                     </li>
                                 ))
                             )
                             : (
                                 categories.map((category) => (
-                                    <li key={category.slug}>
+                                    <li key={category.slug} className="w-24">
                                         <CategoryCard key={category.slug} category={category} onClick={onClick} />
                                     </li>
                                 ))
@@ -106,7 +108,7 @@ const AllCategories = ({ categories, handleCategoryClick, screen }) => {
         <section className="flex flex-col gap-2 mt-5">
             <main className="flex flex-col gap-5">
                 <Skeleton className="h-3 w-40 bg-primary-600 rounded-lg" />
-                <ul className="flex flex-wrap gap-2">
+                <ul className="flex flex-wrap gap-8">
                     {
                         [...Array(4)].map((_, i) => (
                             <li key={i} className="w-1/4">
@@ -124,16 +126,16 @@ const AllCategories = ({ categories, handleCategoryClick, screen }) => {
             <main className="flex flex-col gap-5">
                 <section>
                     <main>
-                        <ul className="flex flex-col gap-2">
+                        <ul className="flex flex-col gap-8">
                             {
                                 categories.filter(category => category.subCategories.length > 0).map((category) => (
                                     <li key={category.id}>
                                         <p className="text-sm font-bold">{category.name}</p>
-                                        <ul className="mt-1 flex flex-wrap justify-start gap-2 space-y-2">
+                                        <ul className="mt-1 flex flex-wrap justify-start gap-5 space-y-2">
                                             {
                                                 (
                                                     category.subCategories.map((category) => (
-                                                        <li key={category.id}>
+                                                        <li key={category.id} className="w-22">
                                                             <CategoryCard key={category.id} category={category} onClick={handleCategoryClick} />
                                                         </li>
                                                     ))
@@ -149,16 +151,16 @@ const AllCategories = ({ categories, handleCategoryClick, screen }) => {
                 {/* All Other Categories */}
                 {
                     categories.filter(category => Boolean(category.subCategories?.length > 0) === false).length > 0 &&
-                    <section className="flex flex-col gap-2">
+                    <section className="flex flex-col gap-5">
                         <header>
                             <p className="font-bold text-center">All Other Categories</p>
                         </header>
                         <main>
-                            <ul className="grid grid-cols-3 md:grid-cols-6 flex-wrap justify-around md:justify-start gap-2 space-y-2">
+                            <ul className="grid grid-cols-3 md:grid-cols-6 flex-wrap justify-around place-items-center md:justify-start gap-5 space-y-2">
                                 {
                                     categories.filter(category => Boolean(category.subCategories?.length > 0) === false)
                                         .map((category) => (
-                                            <li key={category.id}>
+                                            <li key={category.id} className="w-22">
                                                 <CategoryCard key={category.id} category={category} onClick={handleCategoryClick} />
                                             </li>
                                     ))

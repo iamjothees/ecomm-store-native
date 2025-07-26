@@ -30,4 +30,13 @@ const fetchRecentlyViewedProducts = () => (
     })
 );
 
-export { fetchProducts, fetchProduct, fetchFeaturedProducts, fetchRecentlyViewedProducts };
+const searchProducts = ({ searchQuery }) => (
+    new Promise((resolve, reject) => {
+        if (!searchQuery) reject("Search query is empty");
+        setTimeout(
+            () => resolve(testProducts.filter(product => product.name.toLowerCase().includes(searchQuery.toLowerCase())))
+        , 2000);
+    })
+);
+
+export { fetchProducts, fetchProduct, fetchFeaturedProducts, fetchRecentlyViewedProducts, searchProducts };

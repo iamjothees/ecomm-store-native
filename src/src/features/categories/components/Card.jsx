@@ -1,25 +1,23 @@
 import ImageWithFallback from "@/components/common/ImageWithFallback";
 import { Skeleton } from "@/components/ui/skeleton";
 
-const CategoryCard = ({ category, onClick }) => {
+const CategoryCard = ({ category, onClick, hideName }) => {
     if (!category) return (
-        <div className="w-full h-auto rounded-lg bg-card flex flex-col gap-1">
-            <div className="grow-0 shrink-0 w-full aspect-square rounded-lg p-0.5">
-                <Skeleton className="h-full w-full bg-primary-100 rounded-lg" />
-            </div>
-            <Skeleton className="h-3 w-3/4 mx-2 my-0.5 rounded-sm bg-primary-300" />
+        <div className="w-full h-auto flex flex-col items-center justify-end">
+            <Skeleton className="w-full aspect-square rounded-full bg-primary-100" />
+            { !hideName && <Skeleton className="h-3 w-3/4 mt-1 rounded-sm bg-primary-300" />}
         </div>
     );
 
     return (
-        <div className="w-full h-auto rounded-lg bg-card flex flex-col gap-1" onClick={() => onClick(category)}>
-            <div className="grow-0 shrink-0 w-full aspect-square rounded-lg p-0.5">
-                <ImageWithFallback 
-                    src={category.imageSrc} 
-                    className="h-full w-full bg-primary-100 object-cover aspect-square rounded-lg" 
-                />
-            </div>
-            <p className="text-sm truncate px-2 py-0.5">{category.name}</p>
+        <div key={category.id} className="w-full h-auto cursor-pointer flex flex-col items-center justify-end" onClick={onClick}>
+            <ImageWithFallback
+                src={category.imageSrc}
+                fallbackSrc="https://placehold.co/100x100/E2E8F0/FFFFFF?text=Cat"
+                alt={category.name}
+                className="w-full aspect-square rounded-full object-cover border border-gray-200"
+            />
+            { !hideName && <span className="text-xs text-center mt-1 text-foreground text-wrap">{category.name}</span>}
         </div>
     );
 };

@@ -9,9 +9,11 @@ import { useForm } from "react-hook-form";
 import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input"
-import { Search } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Search, X } from 'lucide-react';
+import { useRef } from "react";
 
-const SearchBar = ({placeholder = "Search", onChange = null, value="" }) => {
+const SearchBar = ({placeholder = "Search", onChange = null, value="", debounce = 500 }) => {
     const formSchema = z.object({
         searchTerm: z.string(),
     });
@@ -24,11 +26,20 @@ const SearchBar = ({placeholder = "Search", onChange = null, value="" }) => {
         },
     });
 
+    const debouncer = useRef(null);
+
     const handleOnChange = (searchTerm) => {
         if (!onChange) return;
-        if (!searchTerm) return;
 
-        onChange(searchTerm);
+        if (debouncer.current) clearTimeout(debouncer.current);
+        debouncer.current = setTimeout(() => {
+            onChange(searchTerm || "");
+        }, debounce);
+    };
+
+    const handleClearSearch = () => {
+        form.setValue("searchTerm", "");
+        handleOnChange("");
     };
 
     return (
@@ -42,6 +53,7 @@ const SearchBar = ({placeholder = "Search", onChange = null, value="" }) => {
                             <FormItem>
                                 <FormControl>
                                     <div className="relative">
+                                        <Search className="h-5 absolute left-2 top-1/2 -translate-y-1/2 text-muted-foreground" />
                                         <Input 
                                             placeholder={placeholder} 
                                             {...field} 
@@ -49,9 +61,18 @@ const SearchBar = ({placeholder = "Search", onChange = null, value="" }) => {
                                                 field.onChange(e);
                                                 handleOnChange(e.target.value);
                                             }}
-                                            className="placeholder:text-sm"
+                                            className="placeholder:text-sm ps-10 focus:border-primary focus-visible:ring-0"
                                         />
-                                        <Search className="h-5 absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground" />
+                                        {field.value && (
+                                            <Button
+                                            variant="ghost"
+                                            size="icon"
+                                            className="absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 rounded-full text-muted-foreground hover:bg-gray-100"
+                                            onClick={handleClearSearch}
+                                            >
+                                            <X className="h-4 w-4" />
+                                            </Button>
+                                        )}
                                     </div>
                                 </FormControl>
                                 <FormMessage>
