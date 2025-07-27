@@ -31,8 +31,8 @@
         { "label": "Care", "value": "Machine wash cold" }
         ],
         "faqs": [
-        { "q": "Is this jacket true to size?", "a": "It's designed to be oversized, so we recommend sticking to your usual size for the intended fit." },
-        { "q": "Can I wear this in winter?", "a": "It's suitable for mild winters or layering in colder weather." }
+        { "question": "Is this jacket true to size?", "answer": "It's designed to be oversized, so we recommend sticking to your usual size for the intended fit." },
+        { "question": "Can I wear this in winter?", "answer": "It's suitable for mild winters or layering in colder weather." }
         ],
         "relatedProducts": [
         { "slug": "graphic-tshirt", "name": "Cool Graphic T-Shirt", "price": 499, "featured_image": { "uri": "https://picsum.photos/seed/graphictee1/200/200" } },
@@ -68,8 +68,8 @@
         { "label": "Neckline", "value": "Hooded" }
         ],
         "faqs": [
-        { "q": "Does it shrink after washing?", "a": "Minimal shrinkage if washed according to instructions." },
-        { "q": "Is the fabric thick enough for winter?", "a": "It's a medium-weight fleece, suitable for mild to moderate cold." }
+        { "question": "Does it shrink after washing?", "answer": "Minimal shrinkage if washed according to instructions." },
+        { "question": "Is the fabric thick enough for winter?", "answer": "It's a medium-weight fleece, suitable for mild to moderate cold." }
         ],
         "relatedProducts": [
         { "slug": "jogger-pants", "name": "Comfy Jogger Pants", "price": 699, "featured_image": { "uri": "https://picsum.photos/seed/jogger1/200/200" } },
@@ -104,8 +104,8 @@
         { "label": "Compartments", "value": "Main, front zip, inner slip" }
         ],
         "faqs": [
-        { "q": "Is it waterproof?", "a": "It's water-resistant, but not fully waterproof." },
-        { "q": "Can it fit a tablet?", "a": "It can fit smaller tablets, up to 8 inches." }
+        { "question": "Is it waterproof?", "answer": "It's water-resistant, but not fully waterproof." },
+        { "question": "Can it fit a tablet?", "answer": "It can fit smaller tablets, up to 8 inches." }
         ],
         "relatedProducts": [
         { "slug": "sunglasses", "name": "Stylish Sunglasses", "price": 399, "featured_image": { "uri": "https://picsum.photos/seed/sunglasses1/200/200" } },
@@ -140,8 +140,8 @@
         { "label": "Print Type", "value": "DTG Print" }
         ],
         "faqs": [
-        { "q": "Will the print fade after washing?", "a": "The print is durable and designed to withstand regular washing." },
-        { "q": "Is it unisex?", "a": "Yes, this t-shirt is designed for both boys and girls." }
+        { "question": "Will the print fade after washing?", "answer": "The print is durable and designed to withstand regular washing." },
+        { "question": "Is it unisex?", "answer": "Yes, this t-shirt is designed for both boys and girls." }
         ],
         "relatedProducts": [
         { "slug": "cargo-pants", "name": "Streetwear Cargo Pants", "price": 1199, "featured_image": { "uri": "https://picsum.photos/seed/cargopants1/200/200" } },
@@ -173,7 +173,7 @@
         { "label": "Neckline", "value": "Round Neck" }
         ],
         "faqs": [
-        { "q": "Is it transparent?", "a": "No, the fabric is thick enough to be opaque." }
+        { "question": "Is it transparent?", "answer": "No, the fabric is thick enough to be opaque." }
         ],
         "relatedProducts": [
         { "slug": "high-waist-shorts", "name": "High-Waist Denim Shorts", "price": 750, "featured_image": { "uri": "https://picsum.photos/seed/shorts1/200/200" } }
@@ -204,7 +204,7 @@
         { "label": "Pockets", "value": "6 Pockets" }
         ],
         "faqs": [
-        { "q": "Are these suitable for sports?", "a": "They are designed for casual wear, not intense sports." }
+        { "question": "Are these suitable for sports?", "answer": "They are designed for casual wear, not intense sports." }
         ],
         "relatedProducts": [
         { "slug": "oversized-tshirt", "name": "Oversized Graphic T-Shirt", "price": 599, "featured_image": { "uri": "https://picsum.photos/seed/graphictee3/200/200" } }
@@ -235,7 +235,7 @@
         { "label": "Sleeve Type", "value": "Short Sleeve" }
         ],
         "faqs": [
-        { "q": "Is it suitable for daily wear?", "a": "It's more suited for special occasions due to its elegant design." }
+        { "question": "Is it suitable for daily wear?", "answer": "It's more suited for special occasions due to its elegant design." }
         ],
         "relatedProducts": [
         { "slug": "heels", "name": "Block Heels", "price": 999, "featured_image": { "uri": "https://picsum.photos/seed/heels1/200/200" } }
@@ -266,7 +266,7 @@
         { "label": "Closure", "value": "Lace-up" }
         ],
         "faqs": [
-        { "q": "Are they good for running?", "a": "They are designed for casual wear, not performance running." }
+        { "question": "Are they good for running?", "answer": "They are designed for casual wear, not performance running." }
         ],
         "relatedProducts": [
         { "slug": "sports-socks", "name": "Ankle Sports Socks", "price": 199, "featured_image": { "uri": "https://picsum.photos/seed/socks1/200/200" } }
@@ -297,7 +297,7 @@
         { "label": "Features", "value": "Kangaroo Pocket, Drawstring Hood" }
         ],
         "faqs": [
-        { "q": "Is it suitable for summer?", "a": "It's a fleece material, more suitable for cooler weather." }
+        { "question": "Is it suitable for summer?", "answer": "It's a fleece material, more suitable for cooler weather." }
         ],
         "relatedProducts": [
         { "slug": "track-pants", "name": "Matching Track Pants", "price": 899, "featured_image": { "uri": "https://picsum.photos/seed/trackpants1/200/200" } }
@@ -328,7 +328,7 @@
         { "label": "Waist", "value": "High-Waist" }
         ],
         "faqs": [
-        { "q": "Does it stretch?", "a": "It's 100% cotton, so minimal stretch after wear." }
+        { "question": "Does it stretch?", "answer": "It's 100% cotton, so minimal stretch after wear." }
         ],
         "relatedProducts": [
         { "slug": "graphic-tshirt", "name": "Oversized Graphic T-Shirt", "price": 599, "featured_image": { "uri": "https://picsum.photos/seed/graphictee4/200/200" } }
@@ -359,7 +359,7 @@
         { "label": "Waist", "value": "Elasticated" }
         ],
         "faqs": [
-        { "q": "Does it wrinkle easily?", "a": "The fabric is wrinkle-resistant for easy care." }
+        { "question": "Does it wrinkle easily?", "answer": "The fabric is wrinkle-resistant for easy care." }
         ],
         "relatedProducts": [
         { "slug": "crop-top", "name": "Basic Crop Top", "price": 299, "featured_image": { "uri": "https://picsum.photos/seed/croptop2/200/200" } }
@@ -390,7 +390,7 @@
         { "label": "Style", "value": "Unisex" }
         ],
         "faqs": [
-        { "q": "Is it warm enough for winter?", "a": "Suitable for mild winters and layering." }
+        { "question": "Is it warm enough for winter?", "answer": "Suitable for mild winters and layering." }
         ],
         "relatedProducts": [
         { "slug": "baseball-cap", "name": "Classic Baseball Cap", "price": 299, "featured_image": { "uri": "https://picsum.photos/seed/baseballcap1/200/200" } }
@@ -421,7 +421,7 @@
         { "label": "Closure", "value": "Lace-up" }
         ],
         "faqs": [
-        { "q": "Are they heavy?", "a": "They are lightweight for their size, designed for comfort." }
+        { "question": "Are they heavy?", "answer": "They are lightweight for their size, designed for comfort." }
         ],
         "relatedProducts": [
         { "slug": "ankle-socks", "name": "No-Show Ankle Socks", "price": 149, "featured_image": { "uri": "https://picsum.photos/seed/socks2/200/200" } }
@@ -452,7 +452,7 @@
         { "label": "Waist", "value": "High-Waist" }
         ],
         "faqs": [
-        { "q": "Is it suitable for actual tennis?", "a": "Yes, it's designed for both sports and casual wear." }
+        { "question": "Is it suitable for actual tennis?", "answer": "Yes, it's designed for both sports and casual wear." }
         ],
         "relatedProducts": [
         { "slug": "sports-bra", "name": "Comfort Sports Bra", "price": 499, "featured_image": { "uri": "https://picsum.photos/seed/sportsbra1/200/200" } }
@@ -482,7 +482,7 @@
         { "label": "Neckline", "value": "Crewneck" }
         ],
         "faqs": [
-        { "q": "Is the print durable?", "a": "Yes, it's a high-quality screen print designed to last." }
+        { "question": "Is the print durable?", "answer": "Yes, it's a high-quality screen print designed to last." }
         ],
         "relatedProducts": [
         { "slug": "denim-shorts", "name": "Distressed Denim Shorts", "price": 799, "featured_image": { "uri": "https://picsum.photos/seed/shorts2/200/200" } }
@@ -512,7 +512,7 @@
         { "label": "Leg Style", "value": "Straight" }
         ],
         "faqs": [
-        { "q": "Are these unisex?", "a": "Yes, designed for a relaxed fit on all genders." }
+        { "question": "Are these unisex?", "answer": "Yes, designed for a relaxed fit on all genders." }
         ],
         "relatedProducts": [
         { "slug": "oversized-hoodie", "name": "Oversized Fleece Hoodie", "price": 999, "featured_image": { "uri": "https://picsum.photos/seed/hoodie3/200/200" } }
@@ -542,7 +542,7 @@
         { "label": "Closure", "value": "Open Front" }
         ],
         "faqs": [
-        { "q": "Is it itchy?", "a": "No, it's made from a soft, non-itchy acrylic blend." }
+        { "question": "Is it itchy?", "answer": "No, it's made from a soft, non-itchy acrylic blend." }
         ],
         "relatedProducts": [
         { "slug": "basic-camisole", "name": "Basic Spaghetti Strap Camisole", "price": 250, "featured_image": { "uri": "https://picsum.photos/seed/camisole1/200/200" } }
@@ -572,7 +572,7 @@
         { "label": "Print", "value": "Back Graphic" }
         ],
         "faqs": [
-        { "q": "Does it have front pockets?", "a": "Yes, it has a split kangaroo pocket." }
+        { "question": "Does it have front pockets?", "answer": "Yes, it has a split kangaroo pocket." }
         ],
         "relatedProducts": [
         { "slug": "track-pants", "name": "Matching Track Pants", "price": 899, "featured_image": { "uri": "https://picsum.photos/seed/trackpants2/200/200" } }
@@ -602,7 +602,7 @@
         { "label": "Features", "value": "Distressed Details" }
         ],
         "faqs": [
-        { "q": "Are the distressed areas reinforced?", "a": "Yes, they are designed to be durable." }
+        { "question": "Are the distressed areas reinforced?", "answer": "Yes, they are designed to be durable." }
         ],
         "relatedProducts": [
         { "slug": "graphic-tshirt", "name": "Oversized Graphic T-Shirt", "price": 599, "featured_image": { "uri": "https://picsum.photos/seed/graphictee5/200/200" } }
@@ -632,7 +632,7 @@
         { "label": "Closure", "value": "Single Button" }
         ],
         "faqs": [
-        { "q": "Is it lined?", "a": "Yes, it's fully lined for a smooth finish." }
+        { "question": "Is it lined?", "answer": "Yes, it's fully lined for a smooth finish." }
         ],
         "relatedProducts": [
         { "slug": "straight-leg-pants", "name": "High-Waist Straight Leg Pants", "price": 1200, "featured_image": { "uri": "https://picsum.photos/seed/pants1/200/200" } }
@@ -662,7 +662,7 @@
         { "label": "Style", "value": "Sleeveless" }
         ],
         "faqs": [
-        { "q": "Is it itchy?", "a": "No, it's made from soft, comfortable yarn." }
+        { "question": "Is it itchy?", "answer": "No, it's made from soft, comfortable yarn." }
         ],
         "relatedProducts": [
         { "slug": "oxford-shirt", "name": "Classic White Oxford Shirt", "price": 600, "featured_image": { "uri": "https://picsum.photos/seed/oxfordshirt1/200/200" } }
@@ -692,7 +692,7 @@
         { "label": "Waist", "value": "High-Waist" }
         ],
         "faqs": [
-        { "q": "Do they wrinkle easily?", "a": "The fabric is designed to be wrinkle-resistant." }
+        { "question": "Do they wrinkle easily?", "answer": "The fabric is designed to be wrinkle-resistant." }
         ],
         "relatedProducts": [
         { "slug": "fitted-blouse", "name": "Satin Fitted Blouse", "price": 850, "featured_image": { "uri": "https://picsum.photos/seed/blouse1/200/200" } }
@@ -722,7 +722,7 @@
         { "label": "Fit", "value": "Cropped" }
         ],
         "faqs": [
-        { "q": "Is it waterproof?", "a": "It's water-resistant, suitable for light rain." }
+        { "question": "Is it waterproof?", "answer": "It's water-resistant, suitable for light rain." }
         ],
         "relatedProducts": [
         { "slug": "beanie-hat", "name": "Knitted Beanie Hat", "price": 300, "featured_image": { "uri": "https://picsum.photos/seed/beanie1/200/200" } }
@@ -752,7 +752,7 @@
         { "label": "Length", "value": "Mini" }
         ],
         "faqs": [
-        { "q": "Does it have pockets?", "a": "No, this design does not include pockets." }
+        { "question": "Does it have pockets?", "answer": "No, this design does not include pockets." }
         ],
         "relatedProducts": [
         { "slug": "fitted-turtleneck", "name": "Ribbed Turtleneck Top", "price": 450, "featured_image": { "uri": "https://picsum.photos/seed/turtleneck1/200/200" } }
@@ -782,7 +782,7 @@
         { "label": "Print", "value": "Front Graphic" }
         ],
         "faqs": [
-        { "q": "Is it thick?", "a": "It's a medium-weight cotton, suitable for layering." }
+        { "question": "Is it thick?", "answer": "It's a medium-weight cotton, suitable for layering." }
         ],
         "relatedProducts": [
         { "slug": "cargo-pants", "name": "Streetwear Cargo Pants", "price": 1199, "featured_image": { "uri": "https://picsum.photos/seed/cargopants2/200/200" } }
@@ -812,7 +812,7 @@
         { "label": "Closure", "value": "Full Zip" }
         ],
         "faqs": [
-        { "q": "Does it have a hood lining?", "a": "Yes, the hood is lined for extra comfort." }
+        { "question": "Does it have a hood lining?", "answer": "Yes, the hood is lined for extra comfort." }
         ],
         "relatedProducts": [
         { "slug": "matching-joggers", "name": "Matching Fleece Joggers", "price": 950, "featured_image": { "uri": "https://picsum.photos/seed/matchingjoggers1/200/200" } }
@@ -842,7 +842,7 @@
         { "label": "Pockets", "value": "Front Bib, Side, Back" }
         ],
         "faqs": [
-        { "q": "Are they true to size?", "a": "Yes, they fit true to size with a relaxed feel." }
+        { "question": "Are they true to size?", "answer": "Yes, they fit true to size with a relaxed feel." }
         ],
         "relatedProducts": [
         { "slug": "striped-tshirt", "name": "Basic Striped T-Shirt", "price": 350, "featured_image": { "uri": "https://picsum.photos/seed/stripedtee1/200/200" } }
@@ -872,7 +872,7 @@
         { "label": "Style", "value": "Shirt-Jacket" }
         ],
         "faqs": [
-        { "q": "Is it warm?", "a": "It's a light jacket, good for layering in cool weather." }
+        { "question": "Is it warm?", "answer": "It's a light jacket, good for layering in cool weather." }
         ],
         "relatedProducts": [
         { "slug": "basic-hoodie", "name": "Plain Basic Hoodie", "price": 700, "featured_image": { "uri": "https://picsum.photos/seed/plainhoodie1/200/200" } }
@@ -902,7 +902,7 @@
         { "label": "Waist", "value": "High-Waist" }
         ],
         "faqs": [
-        { "q": "Is the fabric soft?", "a": "Yes, it's a soft, comfortable denim." }
+        { "question": "Is the fabric soft?", "answer": "Yes, it's a soft, comfortable denim." }
         ],
         "relatedProducts": [
         { "slug": "crop-top", "name": "Basic Crop Top", "price": 299, "featured_image": { "uri": "https://picsum.photos/seed/croptop3/200/200" } }
@@ -932,7 +932,7 @@
         { "label": "Print", "value": "Side Graphic" }
         ],
         "faqs": [
-        { "q": "Does it have pockets?", "a": "Yes, it has side pockets." }
+        { "question": "Does it have pockets?", "answer": "Yes, it has side pockets." }
         ],
         "relatedProducts": [
         { "slug": "oversized-tshirt", "name": "Oversized Graphic T-Shirt", "price": 599, "featured_image": { "uri": "https://picsum.photos/seed/graphictee6/200/200" } }
@@ -962,7 +962,7 @@
         { "label": "Waist", "value": "High-Waist" }
         ],
         "faqs": [
-        { "q": "Are they squat-proof?", "a": "Yes, they are designed to be squat-proof." }
+        { "question": "Are they squat-proof?", "answer": "Yes, they are designed to be squat-proof." }
         ],
         "relatedProducts": [
         { "slug": "sports-bra", "name": "Comfort Sports Bra", "price": 499, "featured_image": { "uri": "https://picsum.photos/seed/sportsbra2/200/200" } }
@@ -992,7 +992,7 @@
         { "label": "Fit", "value": "Regular" }
         ],
         "faqs": [
-        { "q": "Will the colors bleed?", "a": "Wash separately for the first few washes to prevent color bleeding." }
+        { "question": "Will the colors bleed?", "answer": "Wash separately for the first few washes to prevent color bleeding." }
         ],
         "relatedProducts": [
         { "slug": "denim-shorts", "name": "Distressed Denim Shorts", "price": 650, "featured_image": { "uri": "https://picsum.photos/seed/shorts3/200/200" } }
@@ -1022,7 +1022,7 @@
         { "label": "Closure", "value": "Button-front" }
         ],
         "faqs": [
-        { "q": "Is it thick?", "a": "It's a medium-weight flannel, suitable for layering." }
+        { "question": "Is it thick?", "answer": "It's a medium-weight flannel, suitable for layering." }
         ],
         "relatedProducts": [
         { "slug": "basic-jeans", "name": "Classic Straight Jeans", "price": 999, "featured_image": { "uri": "https://picsum.photos/seed/straightjeans1/200/200" } }
@@ -1052,7 +1052,7 @@
         { "label": "Length", "value": "Mini" }
         ],
         "faqs": [
-        { "q": "Is it stretchy?", "a": "Yes, it has good stretch for comfort." }
+        { "question": "Is it stretchy?", "answer": "Yes, it has good stretch for comfort." }
         ],
         "relatedProducts": [
         { "slug": "heels", "name": "Stiletto Heels", "price": 1200, "featured_image": { "uri": "https://picsum.photos/seed/heels2/200/200" } }
@@ -1082,7 +1082,7 @@
         { "label": "Pieces", "value": "Jacket & Joggers" }
         ],
         "faqs": [
-        { "q": "Can I buy pieces separately?", "a": "This is sold as a set only." }
+        { "question": "Can I buy pieces separately?", "answer": "This is sold as a set only." }
         ],
         "relatedProducts": [
         { "slug": "sneakers", "name": "Running Sneakers", "price": 1500, "featured_image": { "uri": "https://picsum.photos/seed/sneaker3/200/200" } }
@@ -1112,7 +1112,7 @@
         { "label": "Fit", "value": "A-Line" }
         ],
         "faqs": [
-        { "q": "Are the buttons functional?", "a": "Yes, all buttons are functional." }
+        { "question": "Are the buttons functional?", "answer": "Yes, all buttons are functional." }
         ],
         "relatedProducts": [
         { "slug": "basic-tshirt", "name": "Plain White T-Shirt", "price": 250, "featured_image": { "uri": "https://picsum.photos/seed/plaintee1/200/200" } }
@@ -1142,7 +1142,7 @@
         { "label": "Knit Type", "value": "Chunky" }
         ],
         "faqs": [
-        { "q": "Is it heavy?", "a": "It's a chunky knit, so it has some weight but is comfortable." }
+        { "question": "Is it heavy?", "answer": "It's a chunky knit, so it has some weight but is comfortable." }
         ],
         "relatedProducts": [
         { "slug": "basic-turtleneck", "name": "Basic Turtleneck Top", "price": 400, "featured_image": { "uri": "https://picsum.photos/seed/turtleneck2/200/200" } }
@@ -1172,7 +1172,7 @@
         { "label": "Features", "value": "Side Stripe" }
         ],
         "faqs": [
-        { "q": "Does it have pockets?", "a": "Yes, it has two side pockets." }
+        { "question": "Does it have pockets?", "answer": "Yes, it has two side pockets." }
         ],
         "relatedProducts": [
         { "slug": "zip-hoodie", "name": "Basic Zip Hoodie", "price": 850, "featured_image": { "uri": "https://picsum.photos/seed/plainziphoodie1/200/200" } }
@@ -1202,7 +1202,7 @@
         { "label": "Print", "value": "Front Graphic" }
         ],
         "faqs": [
-        { "q": "Is it warm?", "a": "It's a light fleece, suitable for mild weather." }
+        { "question": "Is it warm?", "answer": "It's a light fleece, suitable for mild weather." }
         ],
         "relatedProducts": [
         { "slug": "high-waist-jeans", "name": "High-Waist Skinny Jeans", "price": 999, "featured_image": { "uri": "https://picsum.photos/seed/skinnyjeans2/200/200" } }
@@ -1232,7 +1232,7 @@
         { "label": "Waist", "value": "Elasticated" }
         ],
         "faqs": [
-        { "q": "Does it wrinkle easily?", "a": "No, the fabric is wrinkle-resistant." }
+        { "question": "Does it wrinkle easily?", "answer": "No, the fabric is wrinkle-resistant." }
         ],
         "relatedProducts": [
         { "slug": "fitted-top", "name": "Ribbed Fitted Top", "price": 350, "featured_image": { "uri": "https://picsum.photos/seed/fittedtop1/200/200" } }
@@ -1262,7 +1262,7 @@
         { "label": "Features", "value": "Water-Resistant" }
         ],
         "faqs": [
-        { "q": "Is it heavy?", "a": "It's a medium-weight coat, suitable for spring/fall." }
+        { "question": "Is it heavy?", "answer": "It's a medium-weight coat, suitable for spring/fall." }
         ],
         "relatedProducts": [
         { "slug": "scarf", "name": "Silk Scarf", "price": 500, "featured_image": { "uri": "https://picsum.photos/seed/scarf1/200/200" } }
@@ -1292,7 +1292,7 @@
         { "label": "Length", "value": "Mini" }
         ],
         "faqs": [
-        { "q": "Is it see-through?", "a": "No, the fabric is opaque." }
+        { "question": "Is it see-through?", "answer": "No, the fabric is opaque." }
         ],
         "relatedProducts": [
         { "slug": "sneakers", "name": "Casual White Sneakers", "price": 1299, "featured_image": { "uri": "https://picsum.photos/seed/sneaker4/200/200" } }
@@ -1322,7 +1322,7 @@
         { "label": "Closure", "value": "Button-front" }
         ],
         "faqs": [
-        { "q": "Is it warm?", "a": "It's a medium-weight fabric, good for layering." }
+        { "question": "Is it warm?", "answer": "It's a medium-weight fabric, good for layering." }
         ],
         "relatedProducts": [
         { "slug": "basic-tshirt", "name": "Plain White T-Shirt", "price": 250, "featured_image": { "uri": "https://picsum.photos/seed/plaintee2/200/200" } }
@@ -1352,7 +1352,7 @@
         { "label": "Waist", "value": "High-Waist" }
         ],
         "faqs": [
-        { "q": "Do they have pockets?", "a": "Yes, they have side pockets." }
+        { "question": "Do they have pockets?", "answer": "Yes, they have side pockets." }
         ],
         "relatedProducts": [
         { "slug": "blazer", "name": "Fitted Blazer", "price": 1800, "featured_image": { "uri": "https://picsum.photos/seed/blazer2/200/200" } }
@@ -1382,7 +1382,7 @@
         { "label": "Style", "value": "Biker" }
         ],
         "faqs": [
-        { "q": "Is it suitable for winter?", "a": "It's a light jacket, suitable for mild weather or layering." }
+        { "question": "Is it suitable for winter?", "answer": "It's a light jacket, suitable for mild weather or layering." }
         ],
         "relatedProducts": [
         { "slug": "band-tshirt", "name": "Vintage Band T-Shirt", "price": 400, "featured_image": { "uri": "https://picsum.photos/seed/bandtee1/200/200" } }
@@ -1412,7 +1412,7 @@
         { "label": "Neckline", "value": "Crew Neck" }
         ],
         "faqs": [
-        { "q": "Is it itchy?", "a": "No, it's made from soft yarn." }
+        { "question": "Is it itchy?", "answer": "No, it's made from soft yarn." }
         ],
         "relatedProducts": [
         { "slug": "high-waist-jeans", "name": "High-Waist Skinny Jeans", "price": 999, "featured_image": { "uri": "https://picsum.photos/seed/skinnyjeans3/200/200" } }
@@ -1442,7 +1442,7 @@
         { "label": "Pockets", "value": "8 Pockets" }
         ],
         "faqs": [
-        { "q": "Are they durable?", "a": "Yes, made from durable twill fabric for long-lasting wear." }
+        { "question": "Are they durable?", "answer": "Yes, made from durable twill fabric for long-lasting wear." }
         ],
         "relatedProducts": [
         { "slug": "oversized-tshirt", "name": "Oversized Graphic T-Shirt", "price": 599, "featured_image": { "uri": "https://picsum.photos/seed/graphictee7/200/200" } }
@@ -1472,7 +1472,7 @@
         { "label": "Style", "value": "Shirt Dress" }
         ],
         "faqs": [
-        { "q": "Does it come with a belt?", "a": "No, the belt is for styling purposes only." }
+        { "question": "Does it come with a belt?", "answer": "No, the belt is for styling purposes only." }
         ],
         "relatedProducts": [
         { "slug": "white-sneakers", "name": "Classic White Sneakers", "price": 1299, "featured_image": { "uri": "https://picsum.photos/seed/sneaker5/200/200" } }
@@ -1502,7 +1502,7 @@
         { "label": "Neckline", "value": "Round Neck" }
         ],
         "faqs": [
-        { "q": "Is it see-through?", "a": "No, the fabric is opaque." }
+        { "question": "Is it see-through?", "answer": "No, the fabric is opaque." }
         ],
         "relatedProducts": [
         { "slug": "high-waist-trousers", "name": "High-Waist Straight Leg Trousers", "price": 1199, "featured_image": { "uri": "https://picsum.photos/seed/trousers2/200/200" } }
@@ -1532,7 +1532,7 @@
         { "label": "Lining", "value": "Satin Lined" }
         ],
         "faqs": [
-        { "q": "Is it heavy?", "a": "It's a substantial jacket but comfortable to wear." }
+        { "question": "Is it heavy?", "answer": "It's a substantial jacket but comfortable to wear." }
         ],
         "relatedProducts": [
         { "slug": "knit-beanie", "name": "Chunky Knit Beanie", "price": 350, "featured_image": { "uri": "https://picsum.photos/seed/beanie2/200/200" } }
@@ -1562,7 +1562,7 @@
         { "label": "Neckline", "value": "Crew Neck" }
         ],
         "faqs": [
-        { "q": "Is it itchy?", "a": "No, it's made from a soft, comfortable yarn." }
+        { "question": "Is it itchy?", "answer": "No, it's made from a soft, comfortable yarn." }
         ],
         "relatedProducts": [
         { "slug": "leggings", "name": "Basic Black Leggings", "price": 400, "featured_image": { "uri": "https://picsum.photos/seed/leggings2/200/200" } }
@@ -1592,7 +1592,7 @@
         { "label": "Waist", "value": "High-Waist" }
         ],
         "faqs": [
-        { "q": "Are they true to size?", "a": "Yes, they fit true to size." }
+        { "question": "Are they true to size?", "answer": "Yes, they fit true to size." }
         ],
         "relatedProducts": [
         { "slug": "blouse", "name": "Silk Blouse", "price": 900, "featured_image": { "uri": "https://picsum.photos/seed/blouse2/200/200" } }
@@ -1622,7 +1622,7 @@
         { "label": "Features", "value": "Distressed Details" }
         ],
         "faqs": [
-        { "q": "Are the rips reinforced?", "a": "Yes, they are designed to be durable." }
+        { "question": "Are the rips reinforced?", "answer": "Yes, they are designed to be durable." }
         ],
         "relatedProducts": [
         { "slug": "black-jeans", "name": "Black Skinny Jeans", "price": 950, "featured_image": { "uri": "https://picsum.photos/seed/blackjeans1/200/200" } }
@@ -1652,7 +1652,7 @@
         { "label": "Neckline", "value": "Round Neck" }
         ],
         "faqs": [
-        { "q": "Is it see-through?", "a": "No, it's made from a good quality opaque cotton." }
+        { "question": "Is it see-through?", "answer": "No, it's made from a good quality opaque cotton." }
         ],
         "relatedProducts": [
         { "slug": "high-waist-shorts", "name": "High-Waist Denim Shorts", "price": 750, "featured_image": { "uri": "https://picsum.photos/seed/shorts4/200/200" } }
@@ -1682,7 +1682,7 @@
         { "label": "Print", "value": "Front Graphic" }
         ],
         "faqs": [
-        { "q": "Is it warm?", "a": "It's a medium-weight fleece, suitable for cool weather." }
+        { "question": "Is it warm?", "answer": "It's a medium-weight fleece, suitable for cool weather." }
         ],
         "relatedProducts": [
         { "slug": "cargo-pants", "name": "Utility Cargo Pants", "price": 1200, "featured_image": { "uri": "https://picsum.photos/seed/utilitycargo2/200/200" } }
@@ -1712,7 +1712,7 @@
         { "label": "Waist", "value": "Mid-Rise" }
         ],
         "faqs": [
-        { "q": "Do they stretch?", "a": "Minimal stretch for a classic denim feel." }
+        { "question": "Do they stretch?", "answer": "Minimal stretch for a classic denim feel." }
         ],
         "relatedProducts": [
         { "slug": "basic-tshirt", "name": "Plain White T-Shirt", "price": 250, "featured_image": { "uri": "https://picsum.photos/seed/plaintee3/200/200" } }
@@ -1742,7 +1742,7 @@
         { "label": "Length", "value": "Midi" }
         ],
         "faqs": [
-        { "q": "Is it suitable for summer?", "a": "It's a breathable knit, suitable for spring/fall." }
+        { "question": "Is it suitable for summer?", "answer": "It's a breathable knit, suitable for spring/fall." }
         ],
         "relatedProducts": [
         { "slug": "ankle-boots", "name": "Faux Leather Ankle Boots", "price": 1500, "featured_image": { "uri": "https://picsum.photos/seed/ankleboots1/200/200" } }
@@ -1772,7 +1772,7 @@
         { "label": "Closure", "value": "Zip-up" }
         ],
         "faqs": [
-        { "q": "Is it warm?", "a": "It's a light fleece, suitable for mild weather." }
+        { "question": "Is it warm?", "answer": "It's a light fleece, suitable for mild weather." }
         ],
         "relatedProducts": [
         { "slug": "high-waist-leggings", "name": "High-Waist Leggings", "price": 600, "featured_image": { "uri": "https://picsum.photos/seed/leggings3/200/200" } }
@@ -1802,7 +1802,7 @@
         { "label": "Neckline", "value": "Crew Neck" }
         ],
         "faqs": [
-        { "q": "Does it shrink?", "a": "Minimal shrinkage if washed according to instructions." }
+        { "question": "Does it shrink?", "answer": "Minimal shrinkage if washed according to instructions." }
         ],
         "relatedProducts": [
         { "slug": "jogger-pants", "name": "Comfort Fit Jogger Pants", "price": 699, "featured_image": { "uri": "https://picsum.photos/seed/jogger2/200/200" } }
@@ -1832,7 +1832,7 @@
         { "label": "Neckline", "value": "Scoop Neck" }
         ],
         "faqs": [
-        { "q": "Is it see-through?", "a": "No, the fabric is opaque." }
+        { "question": "Is it see-through?", "answer": "No, the fabric is opaque." }
         ],
         "relatedProducts": [
         { "slug": "denim-shorts", "name": "High-Waist Denim Shorts", "price": 650, "featured_image": { "uri": "https://picsum.photos/seed/shorts5/200/200" } }
@@ -1862,7 +1862,7 @@
         { "label": "Length", "value": "Mini" }
         ],
         "faqs": [
-        { "q": "Is it true to size?", "a": "Yes, it fits true to size." }
+        { "question": "Is it true to size?", "answer": "Yes, it fits true to size." }
         ],
         "relatedProducts": [
         { "slug": "crop-top", "name": "Basic Crop Top", "price": 299, "featured_image": { "uri": "https://picsum.photos/seed/croptop4/200/200" } }
@@ -1892,7 +1892,7 @@
         { "label": "Print", "value": "Front & Back Graphic" }
         ],
         "faqs": [
-        { "q": "Will the print fade?", "a": "The print is high-quality and designed to last." }
+        { "question": "Will the print fade?", "answer": "The print is high-quality and designed to last." }
         ],
         "relatedProducts": [
         { "slug": "jogger-pants", "name": "Matching Jogger Pants", "price": 800, "featured_image": { "uri": "https://picsum.photos/seed/jogger3/200/200" } }
@@ -1922,7 +1922,7 @@
         { "label": "Length", "value": "Mini" }
         ],
         "faqs": [
-        { "q": "Is it lined?", "a": "Yes, it's fully lined." }
+        { "question": "Is it lined?", "answer": "Yes, it's fully lined." }
         ],
         "relatedProducts": [
         { "slug": "sandals", "name": "Strappy Flat Sandals", "price": 500, "featured_image": { "uri": "https://picsum.photos/seed/sandals1/200/200" } }
@@ -1952,7 +1952,7 @@
         { "label": "Closure", "value": "Button-front" }
         ],
         "faqs": [
-        { "q": "Is it heavy?", "a": "It's a medium-weight denim, comfortable for all-day wear." }
+        { "question": "Is it heavy?", "answer": "It's a medium-weight denim, comfortable for all-day wear." }
         ],
         "relatedProducts": [
         { "slug": "basic-tshirt", "name": "Plain Black T-Shirt", "price": 250, "featured_image": { "uri": "https://picsum.photos/seed/plaintee4/200/200" } }
@@ -1982,7 +1982,7 @@
         { "label": "Length", "value": "Midi" }
         ],
         "faqs": [
-        { "q": "Is it stretchy?", "a": "It has minimal stretch for a structured fit." }
+        { "question": "Is it stretchy?", "answer": "It has minimal stretch for a structured fit." }
         ],
         "relatedProducts": [
         { "slug": "crop-top", "name": "Ribbed Crop Top", "price": 399, "featured_image": { "uri": "https://picsum.photos/seed/croptop5/200/200" } }
@@ -2012,7 +2012,7 @@
         { "label": "Print", "value": "Front Graphic" }
         ],
         "faqs": [
-        { "q": "Is it warm?", "a": "It's a medium-weight fleece, suitable for cool weather." }
+        { "question": "Is it warm?", "answer": "It's a medium-weight fleece, suitable for cool weather." }
         ],
         "relatedProducts": [
         { "slug": "jogger-pants", "name": "Comfort Fit Jogger Pants", "price": 699, "featured_image": { "uri": "https://picsum.photos/seed/jogger4/200/200" } }
@@ -2042,7 +2042,7 @@
         { "label": "Waist", "value": "High-Rise" }
         ],
         "faqs": [
-        { "q": "Do they stretch?", "a": "Yes, they have some stretch for comfort." }
+        { "question": "Do they stretch?", "answer": "Yes, they have some stretch for comfort." }
         ],
         "relatedProducts": [
         { "slug": "platform-shoes", "name": "Platform Boots", "price": 1600, "featured_image": { "uri": "https://picsum.photos/seed/platformboots1/200/200" } }
@@ -2072,7 +2072,7 @@
         { "label": "Closure", "value": "Open Front" }
         ],
         "faqs": [
-        { "q": "Is it warm?", "a": "It's a light knit, suitable for layering in mild weather." }
+        { "question": "Is it warm?", "answer": "It's a light knit, suitable for layering in mild weather." }
         ],
         "relatedProducts": [
         { "slug": "basic-camisole", "name": "Basic Spaghetti Strap Camisole", "price": 250, "featured_image": { "uri": "https://picsum.photos/seed/camisole2/200/200" } }
@@ -2102,7 +2102,7 @@
         { "label": "Neckline", "value": "Hooded" }
         ],
         "faqs": [
-        { "q": "Does it shrink?", "a": "Minimal shrinkage if washed according to instructions." }
+        { "question": "Does it shrink?", "answer": "Minimal shrinkage if washed according to instructions." }
         ],
         "relatedProducts": [
         { "slug": "matching-joggers", "name": "Matching Fleece Joggers", "price": 950, "featured_image": { "uri": "https://picsum.photos/seed/matchingjoggers2/200/200" } }
@@ -2132,7 +2132,7 @@
         { "label": "Waist", "value": "High-Waist" }
         ],
         "faqs": [
-        { "q": "Is the fabric soft?", "a": "Yes, it's a soft, comfortable denim." }
+        { "question": "Is the fabric soft?", "answer": "Yes, it's a soft, comfortable denim." }
         ],
         "relatedProducts": [
         { "slug": "crop-top", "name": "Basic Crop Top", "price": 299, "featured_image": { "uri": "https://picsum.photos/seed/croptop6/200/200" } }
@@ -2162,7 +2162,7 @@
         { "label": "Print", "value": "Distressed Graphic" }
         ],
         "faqs": [
-        { "q": "Will the print fade?", "a": "The print is designed for a vintage look and will age gracefully." }
+        { "question": "Will the print fade?", "answer": "The print is designed for a vintage look and will age gracefully." }
         ],
         "relatedProducts": [
         { "slug": "denim-shorts", "name": "Distressed Denim Shorts", "price": 650, "featured_image": { "uri": "https://picsum.photos/seed/shorts6/200/200" } }
@@ -2192,7 +2192,7 @@
         { "label": "Length", "value": "Mini" }
         ],
         "faqs": [
-        { "q": "Is it see-through?", "a": "No, the fabric is opaque." }
+        { "question": "Is it see-through?", "answer": "No, the fabric is opaque." }
         ],
         "relatedProducts": [
         { "slug": "sneakers", "name": "Chunky Sneakers", "price": 1699, "featured_image": { "uri": "https://picsum.photos/seed/sneaker6/200/200" } }
@@ -2222,7 +2222,7 @@
         { "label": "Closure", "value": "Zipper" }
         ],
         "faqs": [
-        { "q": "Is it warm?", "a": "It's a light jacket, suitable for mild weather." }
+        { "question": "Is it warm?", "answer": "It's a light jacket, suitable for mild weather." }
         ],
         "relatedProducts": [
         { "slug": "cargo-pants", "name": "Utility Cargo Pants", "price": 1200, "featured_image": { "uri": "https://picsum.photos/seed/utilitycargo3/200/200" } }
@@ -2252,7 +2252,7 @@
         { "label": "Neckline", "value": "Round Neck" }
         ],
         "faqs": [
-        { "q": "Is it see-through?", "a": "No, the fabric is opaque." }
+        { "question": "Is it see-through?", "answer": "No, the fabric is opaque." }
         ],
         "relatedProducts": [
         { "slug": "high-waist-jeans", "name": "High-Waist Mom Jeans", "price": 1399, "featured_image": { "uri": "https://picsum.photos/seed/momjeans2/200/200" } }
@@ -2282,7 +2282,7 @@
         { "label": "Length", "value": "Mini" }
         ],
         "faqs": [
-        { "q": "Does it have built-in shorts?", "a": "No, this design does not include built-in shorts." }
+        { "question": "Does it have built-in shorts?", "answer": "No, this design does not include built-in shorts." }
         ],
         "relatedProducts": [
         { "slug": "oversized-sweater-vest", "name": "Knitted Sweater Vest", "price": 750, "featured_image": { "uri": "https://picsum.photos/seed/sweatervest2/200/200" } }
@@ -2312,7 +2312,7 @@
         { "label": "Closure", "value": "Button-front" }
         ],
         "faqs": [
-        { "q": "Does it fade?", "a": "Minimal fading if washed according to instructions." }
+        { "question": "Does it fade?", "answer": "Minimal fading if washed according to instructions." }
         ],
         "relatedProducts": [
         { "slug": "graphic-tshirt", "name": "Cool Graphic T-Shirt", "price": 499, "featured_image": { "uri": "https://picsum.photos/seed/graphictee8/200/200" } }
@@ -2342,7 +2342,7 @@
         { "label": "Neckline", "value": "Hooded" }
         ],
         "faqs": [
-        { "q": "Is it warm?", "a": "It's a light fleece, suitable for mild weather." }
+        { "question": "Is it warm?", "answer": "It's a light fleece, suitable for mild weather." }
         ],
         "relatedProducts": [
         { "slug": "high-waist-joggers", "name": "High-Waist Joggers", "price": 800, "featured_image": { "uri": "https://picsum.photos/seed/jogger5/200/200" } }
@@ -2372,7 +2372,7 @@
         { "label": "Pattern", "value": "Plaid" }
         ],
         "faqs": [
-        { "q": "Are they stretchy?", "a": "They have minimal stretch for a structured fit." }
+        { "question": "Are they stretchy?", "answer": "They have minimal stretch for a structured fit." }
         ],
         "relatedProducts": [
         { "slug": "basic-turtleneck", "name": "Ribbed Turtleneck Top", "price": 450, "featured_image": { "uri": "https://picsum.photos/seed/turtleneck3/200/200" } }
@@ -2402,7 +2402,7 @@
         { "label": "Fit", "value": "Regular" }
         ],
         "faqs": [
-        { "q": "Does it have pockets?", "a": "Yes, it has front and back pockets." }
+        { "question": "Does it have pockets?", "answer": "Yes, it has front and back pockets." }
         ],
         "relatedProducts": [
         { "slug": "basic-tshirt", "name": "Plain White T-Shirt", "price": 250, "featured_image": { "uri": "https://picsum.photos/seed/plaintee5/200/200" } }
@@ -2432,7 +2432,7 @@
         { "label": "Print", "value": "Front Graphic" }
         ],
         "faqs": [
-        { "q": "Will the print fade?", "a": "The print is durable and designed to last." }
+        { "question": "Will the print fade?", "answer": "The print is durable and designed to last." }
         ],
         "relatedProducts": [
         { "slug": "denim-jeans", "name": "Classic Straight Leg Jeans", "price": 1100, "featured_image": { "uri": "https://picsum.photos/seed/straightjeans2/200/200" } }
@@ -2462,7 +2462,7 @@
         { "label": "Closure", "value": "Button-front" }
         ],
         "faqs": [
-        { "q": "Is it warm?", "a": "It's a light knit, suitable for mild weather." }
+        { "question": "Is it warm?", "answer": "It's a light knit, suitable for mild weather." }
         ],
         "relatedProducts": [
         { "slug": "basic-camisole", "name": "Basic Spaghetti Strap Camisole", "price": 250, "featured_image": { "uri": "https://picsum.photos/seed/camisole3/200/200" } }
@@ -2492,7 +2492,7 @@
         { "label": "Pockets", "value": "6 Pockets" }
         ],
         "faqs": [
-        { "q": "Are they stretchy?", "a": "They have a slight stretch for comfort." }
+        { "question": "Are they stretchy?", "answer": "They have a slight stretch for comfort." }
         ],
         "relatedProducts": [
         { "slug": "hoodie", "name": "Basic Hoodie", "price": 799, "featured_image": { "uri": "https://picsum.photos/seed/hoodie4/200/200" } }
@@ -2522,7 +2522,7 @@
         { "label": "Features", "value": "Distressed, Raw Hem" }
         ],
         "faqs": [
-        { "q": "Does it have pockets?", "a": "Yes, it has front and back pockets." }
+        { "question": "Does it have pockets?", "answer": "Yes, it has front and back pockets." }
         ],
         "relatedProducts": [
         { "slug": "crop-top", "name": "Basic White Crop Top", "price": 299, "featured_image": { "uri": "https://picsum.photos/seed/croptop7/200/200" } }
@@ -2552,7 +2552,7 @@
         { "label": "Pattern", "value": "Striped" }
         ],
         "faqs": [
-        { "q": "Does it shrink?", "a": "Minimal shrinkage if washed according to instructions." }
+        { "question": "Does it shrink?", "answer": "Minimal shrinkage if washed according to instructions." }
         ],
         "relatedProducts": [
         { "slug": "denim-shorts", "name": "High-Waist Denim Shorts", "price": 750, "featured_image": { "uri": "https://picsum.photos/seed/shorts7/200/200" } }
@@ -2582,7 +2582,7 @@
         { "label": "Neckline", "value": "Crew Neck" }
         ],
         "faqs": [
-        { "q": "Is it itchy?", "a": "No, it's made from a soft, comfortable yarn." }
+        { "question": "Is it itchy?", "answer": "No, it's made from a soft, comfortable yarn." }
         ],
         "relatedProducts": [
         { "slug": "leggings", "name": "Basic Black Leggings", "price": 400, "featured_image": { "uri": "https://picsum.photos/seed/leggings4/200/200" } }
@@ -2612,7 +2612,7 @@
         { "label": "Pockets", "value": "6 Pockets" }
         ],
         "faqs": [
-        { "q": "Are these suitable for sports?", "a": "They are designed for casual wear, not intense sports." }
+        { "question": "Are these suitable for sports?", "answer": "They are designed for casual wear, not intense sports." }
         ],
         "relatedProducts": [
         { "slug": "oversized-tshirt", "name": "Oversized Graphic T-Shirt", "price": 599, "featured_image": { "uri": "https://picsum.photos/seed/graphictee10/200/200" } }
@@ -2642,7 +2642,7 @@
         { "label": "Length", "value": "Mini" }
         ],
         "faqs": [
-        { "q": "Does it have built-in shorts?", "a": "No, this design does not include built-in shorts." }
+        { "question": "Does it have built-in shorts?", "answer": "No, this design does not include built-in shorts." }
         ],
         "relatedProducts": [
         { "slug": "button-up-shirt", "name": "Classic White Button-Up Shirt", "price": 600, "featured_image": { "uri": "https://picsum.photos/seed/buttonupshirt1/200/200" } }
@@ -2675,8 +2675,8 @@
         { "label": "Print Type", "value": "DTG Print" }
         ],
         "faqs": [
-        { "q": "Will the print fade after washing?", "a": "The print is durable and designed to withstand regular washing." },
-        { "q": "Is it unisex?", "a": "Yes, this t-shirt is designed for both boys and girls." }
+        { "question": "Will the print fade after washing?", "answer": "The print is durable and designed to withstand regular washing." },
+        { "question": "Is it unisex?", "answer": "Yes, this t-shirt is designed for both boys and girls." }
         ],
         "relatedProducts": [
         { "slug": "cargo-pants", "name": "Streetwear Cargo Pants", "price": 1199, "featured_image": { "uri": "https://picsum.photos/seed/cargopants4/200/200" } },
@@ -2707,7 +2707,7 @@
         { "label": "Neckline", "value": "Round Neck" }
         ],
         "faqs": [
-        { "q": "Is it stretchy?", "a": "Yes, it has good stretch for comfort." }
+        { "question": "Is it stretchy?", "answer": "Yes, it has good stretch for comfort." }
         ],
         "relatedProducts": [
         { "slug": "mini-skirt", "name": "A-Line Mini Skirt", "price": 550, "featured_image": { "uri": "https://picsum.photos/seed/miniskirt2/200/200" } }
@@ -2737,7 +2737,7 @@
         { "label": "Waist", "value": "High-Waist" }
         ],
         "faqs": [
-        { "q": "Do they make noise when walking?", "a": "Minimal noise due to soft lining." }
+        { "question": "Do they make noise when walking?", "answer": "Minimal noise due to soft lining." }
         ],
         "relatedProducts": [
         { "slug": "graphic-tshirt", "name": "Vintage Graphic T-Shirt", "price": 500, "featured_image": { "uri": "https://picsum.photos/seed/vintagetee2/200/200" } }
@@ -2767,7 +2767,7 @@
         { "label": "Dye Type", "value": "Hand-Dyed" }
         ],
         "faqs": [
-        { "q": "Will the colors bleed?", "a": "Wash separately for the first few washes." }
+        { "question": "Will the colors bleed?", "answer": "Wash separately for the first few washes." }
         ],
         "relatedProducts": [
         { "slug": "matching-joggers", "name": "Matching Tie-Dye Joggers", "price": 900, "featured_image": { "uri": "https://picsum.photos/seed/tiedyejoggers1/200/200" } }
@@ -2796,7 +2796,7 @@
         { "label": "Waist", "value": "High-Waist" }
         ],
         "faqs": [
-        { "q": "Is it suitable for actual tennis?", "a": "Yes, it's designed for both sports and casual wear." }
+        { "question": "Is it suitable for actual tennis?", "answer": "Yes, it's designed for both sports and casual wear." }
         ],
         "relatedProducts": [
         { "slug": "sports-top", "name": "Basic Sports Crop Top", "price": 350, "featured_image": { "uri": "https://picsum.photos/seed/sportstop1/200/200" } }
@@ -2826,7 +2826,7 @@
         { "label": "Style", "value": "Unisex" }
         ],
         "faqs": [
-        { "q": "Is it warm enough for winter?", "a": "Suitable for mild winters and layering." }
+        { "question": "Is it warm enough for winter?", "answer": "Suitable for mild winters and layering." }
         ],
         "relatedProducts": [
         { "slug": "baseball-cap", "name": "Classic Baseball Cap", "price": 299, "featured_image": { "uri": "https://picsum.photos/seed/baseballcap2/200/200" } }
@@ -2856,7 +2856,7 @@
         { "label": "Closure", "value": "Side Zipper" }
         ],
         "faqs": [
-        { "q": "Are they comfortable for walking?", "a": "Yes, designed with a comfortable sole for daily wear." }
+        { "question": "Are they comfortable for walking?", "answer": "Yes, designed with a comfortable sole for daily wear." }
         ],
         "relatedProducts": [
         { "slug": "fishnet-socks", "name": "Fishnet Ankle Socks", "price": 150, "featured_image": { "uri": "https://picsum.photos/seed/fishnetsocks1/200/200" } }
@@ -2886,7 +2886,7 @@
         { "label": "Closure", "value": "Open Front" }
         ],
         "faqs": [
-        { "q": "Is it lined?", "a": "Yes, it's fully lined." }
+        { "question": "Is it lined?", "answer": "Yes, it's fully lined." }
         ],
         "relatedProducts": [
         { "slug": "high-waist-trousers", "name": "High-Waist Wide Leg Trousers", "price": 1199, "featured_image": { "uri": "https://picsum.photos/seed/widetrousers2/200/200" } }
@@ -2916,7 +2916,7 @@
         { "label": "Neckline", "value": "Crew Neck" }
         ],
         "faqs": [
-        { "q": "Is it itchy?", "a": "No, it's made from soft yarn." }
+        { "question": "Is it itchy?", "answer": "No, it's made from soft yarn." }
         ],
         "relatedProducts": [
         { "slug": "denim-jeans", "name": "Classic Straight Leg Jeans", "price": 1100, "featured_image": { "uri": "https://picsum.photos/seed/straightjeans3/200/200" } }
@@ -2946,7 +2946,7 @@
         { "label": "Length", "value": "Knee-length" }
         ],
         "faqs": [
-        { "q": "Are they durable?", "a": "Yes, made from durable twill fabric." }
+        { "question": "Are they durable?", "answer": "Yes, made from durable twill fabric." }
         ],
         "relatedProducts": [
         { "slug": "graphic-tshirt", "name": "Oversized Graphic T-Shirt", "price": 599, "featured_image": { "uri": "https://picsum.photos/seed/graphictee12/200/200" } }
@@ -2975,7 +2975,7 @@
         { "label": "Neckline", "value": "Hooded" }
         ],
         "faqs": [
-        { "q": "Does it shrink?", "a": "Minimal shrinkage if washed according to instructions." }
+        { "question": "Does it shrink?", "answer": "Minimal shrinkage if washed according to instructions." }
         ],
         "relatedProducts": [
         { "slug": "matching-joggers", "name": "Matching Fleece Joggers", "price": 950, "featured_image": { "uri": "https://picsum.photos/seed/matchingjoggers3/200/200" } }
@@ -3005,7 +3005,7 @@
         { "label": "Waist", "value": "Elasticated" }
         ],
         "faqs": [
-        { "q": "Does it wrinkle easily?", "a": "No, the fabric is wrinkle-resistant." }
+        { "question": "Does it wrinkle easily?", "answer": "No, the fabric is wrinkle-resistant." }
         ],
         "relatedProducts": [
         { "slug": "basic-camisole", "name": "Basic White Camisole", "price": 250, "featured_image": { "uri": "https://picsum.photos/seed/camisole4/200/200" } }
@@ -3035,7 +3035,7 @@
         { "label": "Pockets", "value": "Front Bib, Side, Back" }
         ],
         "faqs": [
-        { "q": "Are they true to size?", "a": "Yes, they fit true to size with a relaxed feel." }
+        { "question": "Are they true to size?", "answer": "Yes, they fit true to size with a relaxed feel." }
         ],
         "relatedProducts": [
         { "slug": "striped-tshirt", "name": "Basic Striped T-Shirt", "price": 350, "featured_image": { "uri": "https://picsum.photos/seed/stripedtee2/200/200" } }
@@ -3064,7 +3064,7 @@
         { "label": "Neckline", "value": "Crew Neck" }
         ],
         "faqs": [
-        { "q": "Does it shrink?", "a": "Minimal shrinkage if washed according to instructions." }
+        { "question": "Does it shrink?", "answer": "Minimal shrinkage if washed according to instructions." }
         ],
         "relatedProducts": [
         { "slug": "matching-joggers", "name": "Matching Fleece Joggers", "price": 950, "featured_image": { "uri": "https://picsum.photos/seed/matchingjoggers4/200/200" } }
@@ -3094,7 +3094,7 @@
         { "label": "Neckline", "value": "Round Neck" }
         ],
         "faqs": [
-        { "q": "Is it see-through?", "a": "No, the fabric is opaque." }
+        { "question": "Is it see-through?", "answer": "No, the fabric is opaque." }
         ],
         "relatedProducts": [
         { "slug": "high-waist-trousers", "name": "High-Waist Straight Leg Trousers", "price": 1199, "featured_image": { "uri": "https://picsum.photos/seed/trousers3/200/200" } }
@@ -3124,7 +3124,7 @@
         { "label": "Lining", "value": "Faux Fur Lined" }
         ],
         "faqs": [
-        { "q": "Is it heavy?", "a": "It's a substantial jacket but comfortable to wear." }
+        { "question": "Is it heavy?", "answer": "It's a substantial jacket but comfortable to wear." }
         ],
         "relatedProducts": [
         { "slug": "knit-beanie", "name": "Chunky Knit Beanie", "price": 350, "featured_image": { "uri": "https://picsum.photos/seed/beanie3/200/200" } }
@@ -3154,7 +3154,7 @@
         { "label": "Knit Type", "value": "Chunky" }
         ],
         "faqs": [
-        { "q": "Is it heavy?", "a": "It's a chunky knit, so it has some weight but is comfortable." }
+        { "question": "Is it heavy?", "answer": "It's a chunky knit, so it has some weight but is comfortable." }
         ],
         "relatedProducts": [
         { "slug": "basic-turtleneck", "name": "Basic Turtleneck Top", "price": 400, "featured_image": { "uri": "https://picsum.photos/seed/turtleneck4/200/200" } }
@@ -3184,7 +3184,7 @@
         { "label": "Pockets", "value": "6 Pockets" }
         ],
         "faqs": [
-        { "q": "Are they durable?", "a": "Yes, made from durable twill fabric for long-lasting wear." }
+        { "question": "Are they durable?", "answer": "Yes, made from durable twill fabric for long-lasting wear." }
         ],
         "relatedProducts": [
         { "slug": "oversized-tshirt", "name": "Oversized Graphic T-Shirt", "price": 599, "featured_image": { "uri": "https://picsum.photos/seed/graphictee13/200/200" } }
@@ -3214,7 +3214,7 @@
         { "label": "Length", "value": "Midi" }
         ],
         "faqs": [
-        { "q": "Are the buttons functional?", "a": "Yes, all buttons are functional." }
+        { "question": "Are the buttons functional?", "answer": "Yes, all buttons are functional." }
         ],
         "relatedProducts": [
         { "slug": "basic-tshirt", "name": "Plain White T-Shirt", "price": 250, "featured_image": { "uri": "https://picsum.photos/seed/plaintee6/200/200" } }
@@ -3245,8 +3245,8 @@
         { "label": "Print Type", "value": "DTG Print" }
         ],
         "faqs": [
-        { "q": "Will the print fade after washing?", "a": "The print is durable and designed to withstand regular washing." },
-        { "q": "Is it unisex?", "a": "Yes, this t-shirt is designed for both boys and girls." }
+        { "question": "Will the print fade after washing?", "answer": "The print is durable and designed to withstand regular washing." },
+        { "question": "Is it unisex?", "answer": "Yes, this t-shirt is designed for both boys and girls." }
         ],
         "relatedProducts": [
         { "slug": "cargo-pants", "name": "Streetwear Cargo Pants", "price": 1199, "featured_image": { "uri": "https://picsum.photos/seed/cargopants5/200/200" } },
@@ -3277,7 +3277,7 @@
         { "label": "Length", "value": "Midi" }
         ],
         "faqs": [
-        { "q": "Is it stretchy?", "a": "Yes, it has good stretch for comfort." }
+        { "question": "Is it stretchy?", "answer": "Yes, it has good stretch for comfort." }
         ],
         "relatedProducts": [
         { "slug": "heels", "name": "Stiletto Heels", "price": 1200, "featured_image": { "uri": "https://picsum.photos/seed/heels3/200/200" } }
@@ -3307,7 +3307,7 @@
         { "label": "Length", "value": "Mini" }
         ],
         "faqs": [
-        { "q": "Does it have pockets?", "a": "No, this design does not include pockets." }
+        { "question": "Does it have pockets?", "answer": "No, this design does not include pockets." }
         ],
         "relatedProducts": [
         { "slug": "graphic-tshirt", "name": "Vintage Graphic T-Shirt", "price": 500, "featured_image": { "uri": "https://picsum.photos/seed/vintagetee3/200/200" } }
@@ -3336,7 +3336,7 @@
         { "label": "Neckline", "value": "Hooded" }
         ],
         "faqs": [
-        { "q": "Does it shrink?", "a": "Minimal shrinkage if washed according to instructions." }
+        { "question": "Does it shrink?", "answer": "Minimal shrinkage if washed according to instructions." }
         ],
         "relatedProducts": [
         { "slug": "matching-joggers", "name": "Matching Fleece Joggers", "price": 950, "featured_image": { "uri": "https://picsum.photos/seed/matchingjoggers5/200/200" } }
@@ -3366,7 +3366,7 @@
         { "label": "Waist", "value": "Elasticated" }
         ],
         "faqs": [
-        { "q": "Does it wrinkle easily?", "a": "No, the fabric is wrinkle-resistant." }
+        { "question": "Does it wrinkle easily?", "answer": "No, the fabric is wrinkle-resistant." }
         ],
         "relatedProducts": [
         { "slug": "fitted-top", "name": "Ribbed Fitted Top", "price": 350, "featured_image": { "uri": "https://picsum.photos/seed/fittedtop2/200/200" } }
@@ -3395,7 +3395,7 @@
         { "label": "Pockets", "value": "Front Bib, Side, Back" }
         ],
         "faqs": [
-        { "q": "Are they true to size?", "a": "Yes, they fit true to size with a relaxed feel." }
+        { "question": "Are they true to size?", "answer": "Yes, they fit true to size with a relaxed feel." }
         ],
         "relatedProducts": [
         { "slug": "striped-tshirt", "name": "Basic Striped T-Shirt", "price": 350, "featured_image": { "uri": "https://picsum.photos/seed/stripedtee3/200/200" } }
@@ -3424,7 +3424,7 @@
         { "label": "Neckline", "value": "Crew Neck" }
         ],
         "faqs": [
-        { "q": "Does it shrink?", "a": "Minimal shrinkage if washed according to instructions." }
+        { "question": "Does it shrink?", "answer": "Minimal shrinkage if washed according to instructions." }
         ],
         "relatedProducts": [
         { "slug": "matching-joggers", "name": "Matching Fleece Joggers", "price": 950, "featured_image": { "uri": "https://picsum.photos/seed/matchingjoggers6/200/200" } }
@@ -3453,7 +3453,7 @@
         { "label": "Neckline", "value": "Round Neck" }
         ],
         "faqs": [
-        { "q": "Is it see-through?", "a": "No, the fabric is opaque." }
+        { "question": "Is it see-through?", "answer": "No, the fabric is opaque." }
         ],
         "relatedProducts": [
         { "slug": "high-waist-trousers", "name": "High-Waist Straight Leg Trousers", "price": 1199, "featured_image": { "uri": "https://picsum.photos/seed/trousers4/200/200" } }
@@ -3483,7 +3483,7 @@
         { "label": "Lining", "value": "Faux Fur Lined" }
         ],
         "faqs": [
-        { "q": "Is it heavy?", "a": "It's a substantial vest but comfortable to wear." }
+        { "question": "Is it heavy?", "answer": "It's a substantial vest but comfortable to wear." }
         ],
         "relatedProducts": [
         { "slug": "knit-beanie", "name": "Chunky Knit Beanie", "price": 350, "featured_image": { "uri": "https://picsum.photos/seed/beanie4/200/200" } }
