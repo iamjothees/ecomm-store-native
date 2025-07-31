@@ -36,7 +36,7 @@ export function HelloBar() {
           <Link to="/cart">
             <BadgeIcon
               icon={ShoppingCart}
-              count={cart.length}
+              count={cart.items.length}
               showNumber
               iconSize="lg"
               className="hover:text-primary-foreground/80 transition-colors"

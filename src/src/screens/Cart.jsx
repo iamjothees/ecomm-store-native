@@ -20,11 +20,11 @@ function Cart() {
     return (
         <div className="p-4 pt-18">
             <h1 className="text-2xl font-bold mb-4">Shopping Cart</h1>
-            {cart.length === 0 ? (
+            {cart.items.length === 0 ? (
                 <p>Your cart is empty.</p>
             ) : (
                 <div>
-                    {cart.map((item) => (
+                    {cart.items.map((item) => (
                         <div key={item.id} className="flex items-center justify-between border-b py-2">
                             <div>
                                 <p className="font-semibold">{item.name}</p>

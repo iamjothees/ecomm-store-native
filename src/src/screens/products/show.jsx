@@ -282,7 +282,7 @@ function ProductActions({ product, selectedVariants }) {
   // Check if all variant types have a selected option
   const areAllVariantsSelected = product.variants.every(variant => selectedVariants[variant.name] !== undefined);
 
-  const isItemInCart = cart.some(item => item.id === product.id && JSON.stringify(item.selectedVariants) === JSON.stringify(selectedVariants));
+  const isItemInCart = cart.items.some(item => item.id === product.id && JSON.stringify(item.selectedVariants) === JSON.stringify(selectedVariants));
 
   return (
     <div className={cn("sticky z-10 bg-background p-4 shadow-md -mx-4", isScreen ? "top-16" : "top-0")}>
