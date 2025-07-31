@@ -7,7 +7,8 @@ const index = () => (
                 featured: [...testCategories].slice(0, 8),
                 all: testCategories.sort((category, nextCategory) => nextCategory.subCategories.length - category.subCategories.length),
             });
-        }, 2000);
+
+        }, 100);
     })
 );
 
@@ -16,7 +17,7 @@ const show = ({ slug }) => (
         if (Boolean(slug) === false) return resolve(null);
         setTimeout(() => {
             resolve(testCategories.find(category => category.slug === slug));
-        }, 2000);
+        }, 100);
     })
 );
 
@@ -24,7 +25,7 @@ const fetchFeaturedCategories = () => (
     new Promise((resolve) => {
         setTimeout(() => {
             resolve(testCategories.slice(3, 10));
-        }, 2000);
+        }, 100);
     })
 );
 
@@ -33,7 +34,7 @@ const searchCategories = ({ searchQuery }) => (
         if (!searchQuery) reject("Search query is empty");
         setTimeout(
             () => resolve(testCategories.filter(category => category.name.toLowerCase().includes(searchQuery.toLowerCase())))
-        , 2000);
+        , 100);
     })
 );
 

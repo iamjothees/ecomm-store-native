@@ -10,7 +10,7 @@ const CategoryCard = ({ category, onClick, hideName }) => {
     );
 
     return (
-        <div key={category.id} className="w-full h-auto cursor-pointer flex flex-col items-center justify-end" onClick={onClick}>
+        <div key={category.id} className="w-full h-auto cursor-pointer flex flex-col items-center justify-end" onClick={() => onClick(category)}>
             <ImageWithFallback
                 src={category.imageSrc}
                 fallbackSrc="https://placehold.co/100x100/E2E8F0/FFFFFF?text=Cat"

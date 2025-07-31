@@ -4,22 +4,19 @@ import { Product } from "@/features/products/models/productModel";
 const products: Product[] = testProducts
 .map((data: Record<string, any>) => {
     try {
-    return new Product(data);
+        return new Product(data);
     } catch (error) {
-    console.error("Invalid product:", data, error);
-    return null;
+        console.error("Invalid product:", data, error);
+        return null;
     }
 })
-.filter((p): p is Product => p !== null);
+.filter((p: Product): p is Product => p !== null);
 
 
 const fetchProducts = ({ endPoint, currentPage = 1 }: { endPoint?: string; currentPage?: number }): Promise<Product[]> => (
     new Promise((resolve) => {
         const pageSize = 4;
-        setTimeout(
-        () => resolve(products.slice((currentPage - 1) * pageSize, pageSize * currentPage)),
-        2000
-        );
+        setTimeout( () => resolve(products.slice((currentPage - 1) * pageSize, pageSize * currentPage)), 100 );
     })
 );
 
@@ -28,36 +25,31 @@ const fetchProduct = ({ slug = null }: { slug: string | null }): Promise<Product
 
     return new Promise((resolve) => {
         const product = products.find((product) => product.slug === slug);
-        setTimeout(() => resolve(product ?? null), 0);
+        setTimeout(() => resolve(product ?? null), 100);
     });
 };
 
 const fetchFeaturedProducts = (): Promise<Product[]> => (
     new Promise((resolve) => {
-        setTimeout(() => resolve(products), 0);
+        setTimeout(() => resolve(products), 100);
     })
 );
 
 const fetchRecentlyViewedProducts = (): Promise<Product[]> => (
     new Promise((resolve) => {
-        setTimeout(() => resolve(products), 2000);
+        setTimeout(() => resolve(products), 100);
     })
 );
 
 const searchProducts = ({ searchQuery }: { searchQuery: string }): Promise<Product[]> => (
     new Promise((resolve, reject) => {
         if (!searchQuery) {
-        reject("Search query is empty");
-        return;
+            reject("Search query is empty");
+            return;
         }
         setTimeout(
-        () =>
-            resolve(
-            products.filter((product) =>
-                product.name.toLowerCase().includes(searchQuery.toLowerCase())
-            )
-            ),
-        2000
+            () => resolve( products.filter((product) => product.name.toLowerCase().includes(searchQuery.toLowerCase()) ) )
+            , 100
         );
     })
 );

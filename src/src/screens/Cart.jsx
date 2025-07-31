@@ -1,9 +1,12 @@
 import { useCart } from '@/contexts/CartContext';
+import useScreenContext from "@/contexts/ScreenContext";
 import { Button } from '@/components/ui/button';
 import { X } from 'lucide-react';
 import { useToast } from '@/contexts/ToastContext';
+import { useEffect } from 'react';
 
 function Cart() {
+    const { screen, setScreen } = useScreenContext();
     const { cart, dispatch } = useCart();
     const { showToast } = useToast();
 
@@ -11,6 +14,8 @@ function Cart() {
         dispatch({ type: 'REMOVE_FROM_CART', payload: item });
         showToast('Item removed from cart', 'error');
     };
+
+    useEffect(() => { setScreen({ screenTitle: "Cart" }); }, []);
 
     return (
         <div className="p-4 pt-18">
