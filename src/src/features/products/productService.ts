@@ -28,13 +28,13 @@ const fetchProduct = ({ slug = null }: { slug: string | null }): Promise<Product
 
     return new Promise((resolve) => {
         const product = products.find((product) => product.slug === slug);
-        setTimeout(() => resolve(product ?? null), 2000);
+        setTimeout(() => resolve(product ?? null), 0);
     });
 };
 
 const fetchFeaturedProducts = (): Promise<Product[]> => (
     new Promise((resolve) => {
-        setTimeout(() => resolve(products), 2000);
+        setTimeout(() => resolve(products), 0);
     })
 );
 

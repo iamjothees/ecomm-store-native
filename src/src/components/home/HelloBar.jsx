@@ -2,8 +2,12 @@ import { User, ShoppingCart, Bell } from "lucide-react"
 import { BadgeIcon } from "@/components/common/BadgeIcon"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Card } from "@/components/ui/card"
+import { useCart } from "@/contexts/CartContext";
+import { Link } from "react-router";
 
 export function HelloBar() {
+  const { cart } = useCart();
+
   return (
     <Card className="w-[98%] p-4 bg-gradient-to-r from-primary to-primary/90 text-primary-foreground rounded-lg">
       <div className="flex items-center justify-between">
@@ -29,13 +33,15 @@ export function HelloBar() {
             iconSize="lg"
             className="hover:text-primary-foreground/80 transition-colors"
           />
-          <BadgeIcon
-            icon={ShoppingCart}
-            count={5}
-            showNumber
-            iconSize="lg"
-            className="hover:text-primary-foreground/80 transition-colors"
-          />
+          <Link to="/cart">
+            <BadgeIcon
+              icon={ShoppingCart}
+              count={cart.length}
+              showNumber
+              iconSize="lg"
+              className="hover:text-primary-foreground/80 transition-colors"
+            />
+          </Link>
         </div>
       </div>
     </Card>

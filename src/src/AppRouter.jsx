@@ -5,6 +5,7 @@ import Categories from "@/screens/categories/index"
 import Category from "@/screens/categories/show"
 import Product from "@/screens/products/show"
 import SearchScreen from "@/screens/Search"
+import Cart from "@/screens/Cart";
 import ScrollToTopOnNavigate from "@/components/ScrollToTopOnNavigate"
 
 function AppRouter() {
@@ -24,6 +25,7 @@ function AppRouter() {
               <Route path=":slug" element={<Product />} />
             </Route>
             <Route path="/search" element={<SearchScreen />} />
+            <Route path="/cart" element={<Cart />} />
             <Route path="">
             </Route>
           </Route>

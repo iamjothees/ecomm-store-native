@@ -1,27 +1,51 @@
 import { cn } from "@/lib/utils"
 import { ChevronRightCircle } from "lucide-react"
-import { useCallback, useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 function HorizontalScrollSection( { renderMain, renderHeader=null, renderFooter=null, styles={}, hideIndicator=false } ) {
+    const scrollContainerRef = useRef(null);
     const scrollIdentifierEl = useRef(null);
     const observer = useRef(null);
     const [isScrolled, setIsScrolled] = useState(false);
 
     // initialize observer
-    useEffect(() => { 
+    useEffect(() => {
         if ( hideIndicator !== false ) return;
-        if (!scrollIdentifierEl.current) return;
+        const container = scrollContainerRef.current;
+        const target = scrollIdentifierEl.current;
+
+        if (!container || !target) return;
+
+        // Only show indicator if scrollable
+        if (container.scrollWidth <= container.clientWidth) {
+            setIsScrolled(true);
+            return;
+        }
 
         observer.current = new IntersectionObserver(
-            (entries) => entries.forEach(entry => entry.isIntersecting === false && setIsScrolled(true)), 
-            { threshold: 0.1 }
+            (entries) => entries.forEach(entry => {
+                if (entry.isIntersecting === false) {
+                    setIsScrolled(true)
+                }
+            }),
+            { root: container, threshold: 0.1 }
         );
 
-        observer.current.observe(scrollIdentifierEl.current);
+        observer.current.observe(target);
+
+        return () => {
+            if(observer.current) {
+                observer.current.disconnect();
+            }
+        }
     }, []);
 
     // unobserve when scrolled
-    useEffect(() => { if (isScrolled) observer.current.unobserve(scrollIdentifierEl.current); }, [ isScrolled ]);
+    useEffect(() => {
+        if (isScrolled && observer.current) {
+            observer.current.disconnect();
+        }
+     }, [ isScrolled ]);
 
 
     return (
@@ -33,7 +57,7 @@ function HorizontalScrollSection( { renderMain, renderHeader=null, renderFooter=
                 </header>
             }
 
-            <main className={cn("relative flex scroll-horizontal gap-3 px-3 pb-2", styles.main)}>
+            <main ref={scrollContainerRef} className={cn("relative flex scroll-horizontal gap-3 px-3 pb-2", styles.main)}>
                 <div ref={scrollIdentifierEl} className="absolute left-0 h-full w-0.5 opacity-0"></div>
                 {renderMain()}
                 {

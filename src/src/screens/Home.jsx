@@ -6,6 +6,7 @@ import FeaturedProducts from "@/components/home/FeaturedProducts"
 import Stories from "@/components/home/Stories"
 import RecentlyViewedProducts from "@/components/home/RecentlyViewedProducts"
 import Hero from "@/components/home/Hero"
+import UpcomingDelivery from "@/components/home/UpcomingDelivery";
 
 function Home() {
   const { setScreen } = useScreenContext();
@@ -17,6 +18,7 @@ function Home() {
       <HelloBar />
       <FeaturedCategories />
       <Hero />
+      <UpcomingDelivery />
       <FeaturedProducts />
       <Stories />
       <RecentlyViewedProducts />

@@ -12,6 +12,9 @@ import { ShoppingCart, Heart, Frown, Home } from 'lucide-react'; // Importing Lu
 import { DynamicIcon } from 'lucide-react/dynamic';
 import ExploreProducts from "@/features/products/components/Explore";
 import Variants from '@/components/screens/products/variants';
+import { useToast } from '@/contexts/ToastContext';
+import { useCart } from '@/contexts/CartContext';
+import { Link, useNavigate } from 'react-router';
 
 const Context = createContext({ isScreen: true });
 
@@ -27,11 +30,13 @@ function ShowProduct({ slug: propSlug, isScreen=true }) {
   useEffect(() => {
     if (!slug) { // Handle case where slug might be undefined initially
       setProduct(null);
-      setScreen({ screenTitle: "Product", loading: false });
+      if (isScreen) setScreen({ ...screen, screenTitle: "Product", loading: false })
+      else setScreen({ ...screen, loading: false });
       return;
     }
 
-    setScreen({ screenTitle: "Product", loading: true });
+    if (isScreen) setScreen({ ...screen, screenTitle: "Product", loading: true })
+    else setScreen({ ...screen, loading: true });
 
     fetchProduct({ slug })
       .then(productData => {
@@ -50,12 +55,12 @@ function ShowProduct({ slug: propSlug, isScreen=true }) {
         }
         return productData;
       })
-      .then((productData) => setScreen({ screenTitle: productData.name }))
+      .then((productData) => setScreen({ ...screen, screenTitle: productData.name }))
       .catch((error) => {
         console.error("Error fetching product:", error);
         setProduct(null); // Explicitly set to null on error for "Product not found" message
       })
-      .finally(() => setScreen({ loading: false }));
+      .finally(() => setScreen({ ...screen, loading: false }));
   }, [slug]); // Depend on slug prop now
 
   // Show skeleton while loading or if product is undefined
@@ -257,14 +262,13 @@ function ProductDetails({ product }) {
 // Component for Product Actions (Buy Now, Add to Cart, Wishlist)
 function ProductActions({ product, selectedVariants }) {
   const { isScreen } = useContext(Context);
+  const { cart, dispatch } = useCart();
+  const { showToast } = useToast();
+  const navigate = useNavigate();
 
   const handleAddToCart = () => {
-    // Implement add to cart logic here
-    console.log("Added to cart:", {
-      product: product.name,
-      ...selectedVariants, // Spread the selectedVariants object
-    });
-    // You would typically dispatch an action to a cart state management system here
+    dispatch({ type: 'ADD_TO_CART', payload: { ...product, selectedVariants } });
+    showToast('Item added to cart', 'success');
   };
 
   const handleBuyNow = () => {
@@ -278,6 +282,8 @@ function ProductActions({ product, selectedVariants }) {
   // Check if all variant types have a selected option
   const areAllVariantsSelected = product.variants.every(variant => selectedVariants[variant.name] !== undefined);
 
+  const isItemInCart = cart.some(item => item.id === product.id && JSON.stringify(item.selectedVariants) === JSON.stringify(selectedVariants));
+
   return (
     <div className={cn("sticky z-10 bg-background p-4 shadow-md -mx-4", isScreen ? "top-16" : "top-0")}>
       <div className="flex gap-2">
@@ -290,14 +296,32 @@ function ProductActions({ product, selectedVariants }) {
           Buy Now
         </Button>
 
-        <Button
-          className="w-12 h-auto p-2 rounded-lg shadow-sm"
-          variant="secondary"
-          onClick={handleAddToCart}
-          disabled={!areAllVariantsSelected}
-        >
-          <ShoppingCart className="h-6 w-6" />
-        </Button>
+        {
+          isItemInCart 
+            ? (
+              <Link to="/cart" className="w-12 h-auto" onClick={(e) => {
+                e.preventDefault(); // Prevent immediate navigation
+                showToast(`${product.name} with selected options already in cart. Redirecting...`, 'info');
+                setTimeout(() => {
+                  navigate('/cart'); 
+                }, 800);
+              }}>
+                <Button className="w-full h-full p-2 rounded-lg shadow-sm" variant="secondary">
+                  <ShoppingCart className="h-6 w-6" />
+                </Button>
+              </Link>
+            ) 
+            : (
+              <Button
+                className="w-12 h-auto p-2 rounded-lg shadow-sm"
+                variant="secondary"
+                onClick={handleAddToCart}
+                disabled={!areAllVariantsSelected}
+              >
+                <ShoppingCart className="h-6 w-6" />
+              </Button>
+            )
+        }
 
         <Button variant="ghost" className="w-12 h-auto p-2 rounded-lg shadow-sm">
           <Heart className="h-6 w-6" /> {/* Icon for wishlist */}
