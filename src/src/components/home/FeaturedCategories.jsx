@@ -22,7 +22,7 @@ function FeaturedCategories() {
                 loading 
                     ? <ComponentSkeleton />
                     : categories.map((category) => (
-                        <Link to={`/categories/${category.slug}`} key={category.id} className="min-w-24 h-auto"> {/* Added Link for navigation */}
+                        <Link to={`/categories/${category.slug}`} key={category.id} className="w-24 h-auto"> {/* Added Link for navigation */}
                             <CategoryCard key={category.id} category={category} hideName />
                         </Link>
                     ))

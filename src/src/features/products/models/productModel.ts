@@ -1,5 +1,7 @@
 // models/product.ts
 
+import { Category, CategoryData } from "@/features/categories/models/CategoryModel";
+
 interface ProductVariant {
 	name: string;
 	values: string[];
@@ -38,6 +40,7 @@ export class Product {
 	id: string;
 	slug: string;
 	name: string;
+	category: Category;
 	description: string;
 	price: number;
 	mrp: number;
@@ -53,12 +56,12 @@ export class Product {
 		if (typeof data.id !== 'string') throw new Error("Invalid or missing 'id'");
 		if (typeof data.slug !== 'string') throw new Error("Invalid or missing 'slug'");
 		if (typeof data.name !== 'string') throw new Error("Invalid or missing 'name'");
+		if (typeof data.category !== 'object') throw new Error("Invalid or missing 'category'");
 		if (typeof data.description !== 'string') throw new Error("Invalid or missing 'description'");
 		if (typeof data.price !== 'number') throw new Error("Invalid or missing 'price'");
 		if (typeof data.mrp !== 'number') throw new Error("Invalid or missing 'mrp'");
-		if (!data.featured_image || typeof data.featured_image.uri !== 'string') {
-		throw new Error("Invalid or missing 'featured_image.uri'");
-		}
+		if (!data.featured_image || typeof data.featured_image.uri !== 'string') 
+			throw new Error("Invalid or missing 'featured_image.uri'");
 		
 		if (!Array.isArray(data.media) || !data.media.every(m => typeof m.url === 'string' && (m.type === 'image' || m.type === 'video')))
 		throw new Error("Invalid or missing 'media'");
@@ -76,6 +79,7 @@ export class Product {
 		this.id = data.id;
 		this.slug = data.slug;
 		this.name = data.name;
+		this.category = new Category(data.category); // Instantiate Category object
 		this.description = data.description;
 		this.price = data.price;
 		this.mrp = data.mrp;

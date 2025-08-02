@@ -25,7 +25,7 @@ const fetchProduct = ({ slug = null }: { slug: string | null }): Promise<Product
 
     return new Promise((resolve) => {
         const product = products.find((product) => product.slug === slug);
-        setTimeout(() => resolve(product ?? null), 100);
+        setTimeout(() => resolve(product ?? null), 2000);
     });
 };
 

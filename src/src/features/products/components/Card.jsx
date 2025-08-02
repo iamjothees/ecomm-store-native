@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/card"
 import { Skeleton } from "@/components/ui/skeleton"
 import ImageWithFallback from "@/components/common/ImageWithFallback";
 import { useState } from 'react'; // Import useState
-import { Drawer, DrawerTrigger, DrawerContent, DrawerTitle, DrawerClose } from '@/components/ui/drawer'; // Import Drawer components
+import { Drawer, DrawerTrigger, DrawerContent, DrawerTitle, DrawerClose, DrawerDescription } from '@/components/ui/drawer'; // Import Drawer components
 import ShowProduct from '@/screens/products/show'; // Import ShowProduct
 import { Button } from '@/components/ui/button'; // Import Button for close icon
 import { ExternalLink } from "lucide-react";
@@ -18,6 +18,11 @@ function ProductCard({ product = null, onClick = null }) {
 
     setIsDrawerOpen(true);
   };
+
+  const handleDrawerClose = () => {
+    navigate(`/products/${product.slug}`);
+    setIsDrawerOpen(false);
+  }
 
   if (!product) return (
     <Card className="w-full h-auto flex flex-col gap-1 rounded-lg p-0 shadow-md snap-center">
@@ -37,12 +42,12 @@ function ProductCard({ product = null, onClick = null }) {
       <DrawerTrigger asChild>
         <Card 
           className="w-full h-auto flex flex-col gap-1 rounded-lg p-0 shadow-md snap-center cursor-pointer" 
-          onClick={handleClick} // Use the determined handleClick
+          onClick={handleClick}
         >
           <div className="flex-1 p-0.5">
             <ImageWithFallback 
               src={product.featured_image.uri} 
-              className="h-full min-w-[40vw] aspect-square bg-primary-100 object-cover rounded-sm" 
+              className="min-h-full w-full min-w-[40vw] aspect-square bg-primary-100 object-cover rounded-sm" 
             />
             {/* <div className="h-full w-32 bg-primary-100 object-cover rounded-sm" /> */}
           </div>
@@ -58,10 +63,11 @@ function ProductCard({ product = null, onClick = null }) {
       <DrawerContent className="h-[90vh]">
         <DrawerTitle className="px-4 py-2 flex justify-between">
           {product.name}
-          <Button variant="ghost" size="icon" onClick={() => navigate(`/products/${product.slug}`)}>
+          <Button variant="ghost" size="icon" onClick={handleDrawerClose}>
             <ExternalLink />
           </Button>
         </DrawerTitle>
+        <DrawerDescription className="hidden">{product.category.name}</DrawerDescription>
         <DrawerClose asChild>
         </DrawerClose>
         <div className="h-full flex flex-col overflow-y-scroll pb-24">

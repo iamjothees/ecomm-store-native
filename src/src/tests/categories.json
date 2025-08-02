@@ -1,0 +1,222 @@
+[
+    {
+        "id": 1,
+        "name": "Men's Fashion",
+        "slug": "mens-fashion",
+        "featuredImage": {
+            "type": "image",
+            "url": "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        },
+        "subCategories": [
+            {
+                "id": 101,
+                "name": "Tops",
+                "slug": "mens-tops",
+                "featuredImage": {
+                    "type": "image",
+                    "url": "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2"
+                },
+                "subCategories": [
+                    {
+                        "id": 1011,
+                        "name": "T-Shirts",
+                        "slug": "mens-t-shirts",
+                        "featuredImage": {
+                            "type": "image",
+                            "url": "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2"
+                        }
+                    },
+                    {
+                        "id": 1012,
+                        "name": "Shirts",
+                        "slug": "mens-shirts",
+                        "featuredImage": {
+                            "type": "image",
+                            "url": "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2"
+                        }
+                    },
+                    {
+                        "id": 1013,
+                        "name": "Hoodies & Sweatshirts",
+                        "slug": "mens-hoodies-sweatshirts",
+                        "featuredImage": {
+                            "type": "image",
+                            "url": "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2"
+                        }
+                    }
+                ]
+            },
+            {
+                "id": 102,
+                "name": "Bottoms",
+                "slug": "mens-bottoms",
+                "featuredImage": {
+                    "type": "image",
+                    "url": "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2"
+                },
+                "subCategories": [
+                    {
+                        "id": 1021,
+                        "name": "Jeans",
+                        "slug": "mens-jeans",
+                        "featuredImage": {
+                            "type": "image",
+                            "url": "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2"
+                        }
+                    },
+                    {
+                        "id": 1022,
+                        "name": "Trousers",
+                        "slug": "mens-trousers",
+                        "featuredImage": {
+                            "type": "image",
+                            "url": "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2"
+                        }
+                    },
+                    {
+                        "id": 1023,
+                        "name": "Shorts",
+                        "slug": "mens-shorts",
+                        "featuredImage": {
+                            "type": "image",
+                            "url": "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2"
+                        }
+                    }
+                ]
+            }
+        ],
+        "contents": [
+            {
+                "type": "image",
+                "url": "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            },
+            {
+                "type": "image",
+                "url": "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Women's Fashion",
+        "slug": "womens-fashion",
+        "featuredImage": {
+            "type": "image",
+            "url": "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        },
+        "subCategories": [
+            {
+                "id": 201,
+                "name": "Dresses",
+                "slug": "womens-dresses",
+                "featuredImage": {
+                    "type": "image",
+                    "url": "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2"
+                }
+            },
+            {
+                "id": 202,
+                "name": "Skirts",
+                "slug": "womens-skirts",
+                "featuredImage": {
+                    "type": "image",
+                    "url": "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2"
+                }
+            },
+            {
+                "id": 203,
+                "name": "Tops & Blouses",
+                "slug": "womens-tops-blouses",
+                "featuredImage": {
+                    "type": "image",
+                    "url": "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2"
+                }
+            }
+        ],
+        "contents": [
+            {
+                "type": "image",
+                "url": "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Kids' Fashion",
+        "slug": "kids-fashion",
+        "featuredImage": {
+            "type": "image",
+            "url": "https://images.pexels.com/photos/3661445/pexels-photo-3661445.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        },
+        "subCategories": [
+            {
+                "id": 301,
+                "name": "Boys' Clothing",
+                "slug": "boys-clothing",
+                "featuredImage": {
+                    "type": "image",
+                    "url": "https://images.pexels.com/photos/3661445/pexels-photo-3661445.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2"
+                }
+            },
+            {
+                "id": 302,
+                "name": "Girls' Clothing",
+                "slug": "girls-clothing",
+                "featuredImage": {
+                    "type": "image",
+                    "url": "https://images.pexels.com/photos/3661445/pexels-photo-3661445.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2"
+                }
+            }
+        ],
+        "contents": [
+            {
+                "type": "image",
+                "url": "https://images.pexels.com/photos/3661445/pexels-photo-3661445.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Accessories",
+        "slug": "accessories",
+        "featuredImage": {
+            "type": "image",
+            "url": "https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+        },
+        "subCategories": [
+            {
+                "id": 401,
+                "name": "Bags",
+                "slug": "bags",
+                "featuredImage": {
+                    "type": "image",
+                    "url": "https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2"
+                }
+            },
+            {
+                "id": 402,
+                "name": "Jewelry",
+                "slug": "jewelry",
+                "featuredImage": {
+                    "type": "image",
+                    "url": "https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2"
+                }
+            },
+            {
+                "id": 403,
+                "name": "Watches",
+                "slug": "watches",
+                "featuredImage": {
+                    "type": "image",
+                    "url": "https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&dpr=2"
+                }
+            }
+        ],
+        "contents": [
+            {
+                "type": "image",
+                "url": "https://images.pexels.com/photos/298863/pexels-photo-298863.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            }
+        ]
+    }
+]

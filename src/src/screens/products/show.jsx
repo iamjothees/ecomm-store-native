@@ -15,6 +15,7 @@ import Variants from '@/components/screens/products/variants';
 import { useToast } from '@/contexts/ToastContext';
 import { useCart } from '@/contexts/CartContext';
 import { Link, useNavigate } from 'react-router';
+import useSWR from 'swr';
 
 const Context = createContext({ isScreen: true });
 
@@ -27,43 +28,68 @@ function ShowProduct({ slug: propSlug, isScreen=true }) {
   const [product, setProduct] = useState(undefined);
   const [selectedVariants, setSelectedVariants] = useState({});
 
+
+  const { isLoading: loading, error } = useSWR(slug, (slug) => fetchProduct({ slug }).then(product => setProduct(product))  );
+
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState(null);
+
+  // useEffect(() => {
+  //   if (!slug) {
+  //     setProduct(null);
+  //     if (isScreen) setScreen(() => ({ ...screen, screenTitle: "Product", showHeader: true }));
+  //     return;
+  //   }
+    
+  //   if (isScreen) setScreen(() => (() => ({ ...screen, screenTitle: "Product", showHeader: true })));
+  //   setProduct(undefined);
+  //   fetchProduct({ slug })
+  //     .then(product => { 
+  //       setProduct(product);
+  //       if(product === null) throw new Error("Product not found"); 
+  //     })
+  //     .catch(error => setError(error))
+  //     .finally(() => setLoading(false));
+  // }, [slug]);
+
+
   useEffect(() => {
-    if (!slug) { // Handle case where slug might be undefined initially
-      setProduct(null);
-      if (isScreen) setScreen({ ...screen, screenTitle: "Product", loading: false })
-      else setScreen({ ...screen, loading: false });
-      return;
-    }
+    console.log("Loading Local:", loading);
+    
+    if (isScreen) setScreen((screen) => ({ ...screen, loading }));
 
-    if (isScreen) setScreen({ ...screen, screenTitle: "Product", loading: true })
-    else setScreen({ ...screen, loading: true });
-
-    fetchProduct({ slug })
-      .then(productData => {
-        setProduct(productData);
-        if (productData === null) {
-          throw new Error("Product not found");
-        }
-        if (productData.variants && productData.variants.length > 0) {
-          const initialVariants = {};
-          productData.variants.forEach(variant => {
-            if (variant.values && variant.values.length > 0) {
-              initialVariants[variant.name] = variant.values[0]; // Select first option by default
-            }
-          });
-          setSelectedVariants(initialVariants);
-        }
-        return productData;
-      })
-      .then((productData) => setScreen({ ...screen, screenTitle: productData.name }))
-      .catch((error) => {
+    if (error) {
         console.error("Error fetching product:", error);
         setProduct(null); // Explicitly set to null on error for "Product not found" message
-      })
-      .finally(() => setScreen({ ...screen, loading: false }));
-  }, [slug]); // Depend on slug prop now
+        if (isScreen) setScreen((screen) => ({ ...screen, screenTitle: "Product", loading: false }));
+    }
+  }, [loading, error]);
 
-  // Show skeleton while loading or if product is undefined
+  useEffect(() => {
+    if (Boolean(product) === false) {
+      if(product === null) console.error("Error fetching product: Product not found");
+      return;
+    };
+
+    if (product.variants && product.variants.length > 0) {
+      const initialVariants = {};
+      product.variants.forEach(variant => {
+        if (variant.values && variant.values.length > 0) {
+          initialVariants[variant.name] = variant.values[0]; // Select first option by default
+        }
+      });
+      setSelectedVariants(initialVariants);
+    }
+
+    console.log("set title");
+    
+    if (isScreen) setScreen((screen) => ({ ...screen, screenTitle: product.name }));
+  }, [product]);
+
+  useEffect(() => {
+    console.log("Loading:", screen.loading);
+  }, [screen.loading]);
+  
   if (screen.loading || product === undefined) {
     return <Context value={{ isScreen }}><ProductSkeleton /></Context>;
   }
@@ -408,8 +434,8 @@ function ProductFAQs({ faqs }) {
       <ul className="text-sm text-muted-foreground space-y-3">
         {faqsToDisplay.map((faq, i) => (
           <li key={i}>
-            <strong className="text-gray-900 block mb-1">{faq.q}</strong>
-            <p className="text-gray-700">{faq.a}</p>
+            <strong className="text-gray-900 block mb-1">{faq.question}</strong>
+            <p className="text-gray-700">{faq.answer}</p>
           </li>
         ))}
       </ul>

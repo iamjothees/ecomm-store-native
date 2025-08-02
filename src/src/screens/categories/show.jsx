@@ -22,7 +22,8 @@ function Category() {
 
     useEffect(() => {
         setScreen({ loading: true });
-        show({ slug }).then(category => setCategory(category))
+        show({ slug })
+            .then(category => setCategory(category))
             .finally(() => setScreen({ loading: false }));
     }, [slug]);
 
@@ -68,7 +69,7 @@ const Hero = ({ category }) => {
                         <div key={Math.random()} className="grow shrink-0 h-full w-screen snap-center flex justify-center">
                             <ImageWithFallback 
                                 key={Math.random()}
-                                src={content.src}
+                                src={content.url}
                                 className="h-full max-w-[98%] bg-card rounded-lg object-cover"
                             />
                             {/* <div className="h-full max-w-[98%] bg-card rounded-lg object-cover w-[500px] mx-2 bg-primary-300" /> */}
