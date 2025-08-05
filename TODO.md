@@ -8,10 +8,11 @@
     *   Implement password reset functionality.
 *   **Shopping Cart:**
     *   [x] Implement "Add to Cart" functionality from the product page.
-    *   [ ] Create a shopping cart page to view and edit cart items.
+    *   [x] Create a shopping cart page to view and edit cart items.
     *   [x] Implement "Remove from Cart" functionality.
     *   [x] Replace the "Add to Cart" CTA with "Go to Cart" if item of same variant already available in Cart.
-    *   [ ] Create CartItemModel and CartModel in Cart Feature for strict type maintenance using ts. and use in cartService.ts
+    *   [x] Create CartItemModel and CartModel in Cart Feature for strict type maintenance using ts. and use in cartService.ts
+    *   [x] Improve the cart Item with variant switcher and quantity updater.
 *   **Checkout:**
     *   Create a checkout page with a summary of the order.
     *   Implement a form to collect shipping and billing information.

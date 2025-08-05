@@ -9,7 +9,7 @@ import CategoryCard from "@/features/categories/components/Card";
 import { Skeleton } from "@/components/ui/skeleton";
 
 function Categories() {
-    const { screen, setScreen } = useScreenContext();
+    const { defaultScreen, screen, setScreen } = useScreenContext();
     const [searchTerm, setSearchTerm] = useState("");
     const [ categories, setCategories ] = useState({
         featured: [],
@@ -26,13 +26,13 @@ function Categories() {
         navigate(`/categories/${slug}`);
     }
 
-    useEffect(() => { setScreen({ screenTitle: "Categories" }); }, []);
+    useEffect(() => { setScreen(() => ({ ...defaultScreen, screenTitle: "Categories" })); }, []);
 
     useEffect(() => {
-        setScreen({ loading: true });
+        setScreen((screen) => ({ ...screen, loading: true }));
         index()
             .then(({featured, all}) => setCategories({featured, all}))
-            .finally(() => setScreen({ loading: false }));
+            .finally(() => setScreen((screen) => ({ ...screen, loading: false })));
     }, []);
 
     // TODO: Add search functionality

@@ -2,6 +2,11 @@ import ImageWithFallback from "@/components/common/ImageWithFallback";
 import { Skeleton } from "@/components/ui/skeleton";
 
 const CategoryCard = ({ category, onClick, hideName }) => {
+
+    const handleClick = () => {
+        if (onClick) onClick(category);
+    }
+
     if (!category) return (
         <div className="w-full h-auto flex flex-col items-center justify-end">
             <Skeleton className="w-full aspect-square rounded-full bg-primary-100" />
@@ -10,9 +15,9 @@ const CategoryCard = ({ category, onClick, hideName }) => {
     );
 
     return (
-        <div key={category.id} className="w-full h-auto cursor-pointer flex flex-col items-center justify-end" onClick={() => onClick(category)}>
+        <div key={category.id} className="w-full h-auto cursor-pointer flex flex-col items-center justify-end" onClick={handleClick}>
             <ImageWithFallback
-                src={category.imageSrc}
+                src={category.featuredImage?.url}
                 fallbackSrc="https://placehold.co/100x100/E2E8F0/FFFFFF?text=Cat"
                 alt={category.name}
                 className="w-full aspect-square rounded-full object-cover border border-gray-200"

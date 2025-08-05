@@ -22,7 +22,7 @@ function AppRouter() {
               <Route path=":slug" element={<Category />} />
             </Route>
             <Route path="products">
-              <Route path=":slug" element={<Product />} />
+              <Route path=":slug" element={<Product isScreen={true} />} />
             </Route>
             <Route path="/search" element={<SearchScreen />} />
             <Route path="/cart" element={<Cart />} />

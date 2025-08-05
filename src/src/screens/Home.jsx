@@ -9,9 +9,9 @@ import Hero from "@/components/home/Hero"
 import UpcomingDelivery from "@/components/home/UpcomingDelivery";
 
 function Home() {
-  const { setScreen } = useScreenContext();
+  const { defaultScreen, setScreen } = useScreenContext();
 
-  useEffect(() => { setScreen({ screenTitle: "Home", showHeader: false, showFooter: true }); }, []);
+  useEffect(() => { setScreen(() => ({ ...defaultScreen, screenTitle: "Home", showHeader: false, showFooter: true })); }, []);
 
   return (
     <main className="grow flex flex-col gap-4 items-center my-2">

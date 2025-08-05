@@ -10,7 +10,7 @@ import { Skeleton } from "@/components/ui/skeleton"
 import { cn } from "@/lib/utils"
 
 function Category() {
-    const { screen, setScreen } = useScreenContext();
+    const { defaultScreen, screen, setScreen } = useScreenContext();
     const { slug } = useParams();
     const [category, setCategory] = useState(null);
 
@@ -21,14 +21,19 @@ function Category() {
     }
 
     useEffect(() => {
-        setScreen({ loading: true });
-        show({ slug }).then(category => setCategory(category))
-            .finally(() => setScreen({ loading: false }));
+        setScreen(() => ({ ...defaultScreen, screenTitle: "Category" }));
+    }, []);
+
+    useEffect(() => {
+        setScreen(() => ({ ...screen, loading: true }));
+        show({ slug })
+            .then(category => setCategory(category))
+            .finally((screen) => setScreen(() => ({ ...screen, loading: false })));
     }, [slug]);
 
     useEffect(() => { 
         if (category === null) return
-        setScreen({ screenTitle: category.name }); 
+        setScreen((screen) => ({ ...screen, screenTitle: category.name })); 
     }, [category]);
 
     if (screen.loading || category === null) return <ScreenSkeleton />;
@@ -68,7 +73,7 @@ const Hero = ({ category }) => {
                         <div key={Math.random()} className="grow shrink-0 h-full w-screen snap-center flex justify-center">
                             <ImageWithFallback 
                                 key={Math.random()}
-                                src={content.src}
+                                src={content.url}
                                 className="h-full max-w-[98%] bg-card rounded-lg object-cover"
                             />
                             {/* <div className="h-full max-w-[98%] bg-card rounded-lg object-cover w-[500px] mx-2 bg-primary-300" /> */}

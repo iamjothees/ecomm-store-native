@@ -25,7 +25,6 @@ function Explore({ config = { apiEndpoint, title: "Explore Products" } }) {
         if (page.current === null) return;
         if (page.loading) return;
         if (page.endReached) return;
-        
 
         handlePageLoading();
         fetchProducts({ endPoint: config.apiEndpoint, currentPage: page.current })

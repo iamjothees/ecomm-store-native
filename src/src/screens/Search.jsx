@@ -16,7 +16,7 @@ import { searchCategories } from '../features/categories/categoryService';
 const mockTags = ['Summer', 'Winter', 'Casual', 'Formal', 'Sportswear', 'Party Wear'];
 
 function SearchScreen() {
-    const { screen, setScreen } = useScreenContext();
+    const { defaultScreen, screen, setScreen } = useScreenContext();
     const [searchTerm, setSearchTerm] = useState('');
     const [activeTab, setActiveTab] = useState('all');
     const [searchResults, setSearchResults] = useState({
@@ -38,17 +38,17 @@ function SearchScreen() {
         })
     );
 
-    useEffect(() => setScreen({ screenTitle: "Search" }), []);
+    useEffect(() => setScreen(() => ({ ...defaultScreen, screenTitle: "Search" })), []);
 
     useEffect(() => {
         if (!searchTerm) {
             setSearchResults({ categories: [], products: [], tags: [], });
             return;
         };
-        setScreen({ loading: true });
+        setScreen(() => ({ ...screen, loading: true }));
         performSearch(searchTerm)
             .then(results => setSearchResults(results))
-            .finally(() => setScreen({ loading: false }));
+            .finally(() => setScreen(() => ({ ...screen, loading: false })));
     }, [searchTerm]);
 
     return (
