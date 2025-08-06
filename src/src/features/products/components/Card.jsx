@@ -45,11 +45,11 @@ function ProductCard({ product = null, onClick = null }) {
           onClick={handleClick}
         >
           <div className="flex-1 p-0.5">
-            {/* <ImageWithFallback 
+            <ImageWithFallback 
               src={product.featured_image.uri} 
               className="min-h-full w-full min-w-[40vw] aspect-square bg-primary-100 object-cover rounded-sm" 
-            /> */}
-            <div className="min-h-full w-full min-w-[40vw] aspect-square bg-primary-100 object-cover rounded-sm" />
+            />
+            {/* <div className="min-h-full w-full min-w-[40vw] aspect-square bg-primary-100 object-cover rounded-sm" /> */}
           </div>
           <div className="grow flex flex-col justify-end px-2 py-0.5">
             <p className="text-sm md:text-lg font-medium">{product.name}</p>

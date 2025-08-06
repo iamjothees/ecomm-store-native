@@ -5,29 +5,30 @@ const dummyHeroItems = [
     {
         id: 1,
         title: "Hero Item 1",
-        image: { uri: "https://picsum.photos/500/200" },
+        image: { uri: "https://picsum.photos/500/200?random=1" },
     },
     {
         id: 2,
         title: "Hero Item 2",
-        image: { uri: "https://picsum.photos/500/200" },
+        image: { uri: "https://picsum.photos/500/200?random=2" },
     },
     {
         id: 3,
         title: "Hero Item 3",
-        image: { uri: "https://picsum.photos/500/200" },
+        image: { uri: "https://picsum.photos/500/200?random=3" },
     },
     {
         id: 4,
         title: "Hero Item 4",
-        image: { uri: "https://picsum.photos/500/200" },
+        image: { uri: "https://picsum.photos/500/200?random=4" },
     },
     {
         id: 5,
         title: "Hero Item 5",
-        image: { uri: "https://picsum.photos/500/200" },
+        image: { uri: "https://picsum.photos/500/200?random=5" },
     },
-]
+];
+
 function Hero() {
     
     return (
@@ -36,11 +37,11 @@ function Hero() {
                 {
                     dummyHeroItems.map((item) => (
                         <div key={item.id} className="grow shrink-0 h-full w-screen snap-center flex justify-center">
-                            {/* <ImageWithFallback 
+                            <ImageWithFallback 
                                 className="h-full max-w-[98%] bg-card rounded-lg object-cover"
                                 src={item.image.uri}
-                            /> */}
-                            <div className="h-full max-w-[98%] bg-card rounded-lg object-cover w-[500px] mx-2 bg-primary-300" />
+                            />
+                            {/* <div className="h-full max-w-[98%] bg-card rounded-lg object-cover w-[500px] mx-2 bg-primary-300" /> */}
                         </div>
                     ))
                 }
