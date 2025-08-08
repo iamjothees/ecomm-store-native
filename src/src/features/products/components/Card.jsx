@@ -7,6 +7,7 @@ import ShowProduct from '@/screens/products/show'; // Import ShowProduct
 import { Button } from '@/components/ui/button'; // Import Button for close icon
 import { Expand } from "lucide-react";
 import { useNavigate } from "react-router";
+import { formatPrice } from "@/lib/utils";
 
 function ProductCard({ product = null, onClick = null }) {
   const navigate = useNavigate();
@@ -55,7 +56,7 @@ function ProductCard({ product = null, onClick = null }) {
             <p className="text-sm md:text-lg font-medium">{product.name}</p>
             <p className="text-xs md:text-sm font-light text-secondary-500">{product.category?.name || 'none'}</p>
             <p className="text-sm md:text-lg">
-              {product.price} <span className="text-xs md:text-sm text-secondary-700 font-light line-through">{product.price}</span>
+              { formatPrice(product.price) } <span className="text-xs md:text-sm text-secondary-700 font-light line-through">{ formatPrice(product.mrp) }</span>
             </p>
           </div>
         </Card>

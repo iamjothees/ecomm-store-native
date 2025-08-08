@@ -6,6 +6,8 @@ import Category from "@/screens/categories/show"
 import Product from "@/screens/products/show"
 import SearchScreen from "@/screens/Search"
 import Cart from "@/screens/Cart";
+import Checkout from "@/screens/Checkout";
+import OrderSuccess from "@/screens/OrderSuccess";
 import ScrollToTopOnNavigate from "@/components/ScrollToTopOnNavigate"
 
 function AppRouter() {
@@ -26,6 +28,8 @@ function AppRouter() {
             </Route>
             <Route path="/search" element={<SearchScreen />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/order-success" element={<OrderSuccess />} />
             <Route path="">
             </Route>
           </Route>

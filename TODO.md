@@ -16,7 +16,7 @@
 *   **Checkout:**
     *   Create a checkout page with a summary of the order.
     *   Implement a form to collect shipping and billing information.
-    *   Integrate a dummy payment gateway.
+    *   Place the order and redirect to a success page with order confirmation details.
 
 ### Medium Priority
 

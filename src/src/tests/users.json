@@ -1,0 +1,108 @@
+[
+    {
+        "id": "user-12345",
+        "email": "john.doe@example.com",
+        "firstName": "John",
+        "lastName": "Doe",
+        "phoneNumber": "+1-555-123-4567",
+        "dateOfBirth": "1990-08-15T00:00:00.000Z",
+        "createdAt": "2023-01-10T10:00:00.000Z",
+        "updatedAt": "2023-05-22T14:30:00.000Z",
+        "isActive": true,
+        "isEmailVerified": true,
+        "isPhoneNumberVerified": false,
+        "preferences": {
+            "language": "en-US",
+            "currency": "USD",
+            "notifications": {
+                "email": true,
+                "push": true,
+                "sms": false
+            }
+        },
+        "shippingAddresses": [
+            {
+                "id": "addr-ship-111",
+                "name": "John Doe",
+                "addressLine1": "123 Main Street",
+                "addressLine2": "Apt 4B",
+                "city": "Anytown",
+                "state": "CA",
+                "country": "USA",
+                "postalCode": "12345",
+                "phoneNumber": "+1-555-123-4567",
+                "isDefault": true,
+                "addressType": "shipping",
+                "addressCategory": "home",
+                "userId": "user-12345"
+            }
+        ],
+        "billingAddresses": [
+            {
+                "id": "addr-bill-222",
+                "name": "John Doe",
+                "addressLine1": "123 Main Street",
+                "addressLine2": "Apt 4B",
+                "city": "Anytown",
+                "state": "CA",
+                "country": "USA",
+                "postalCode": "12345",
+                "phoneNumber": "+1-555-123-4567",
+                "isDefault": true,
+                "addressType": "billing",
+                "addressCategory": "home",
+                "userId": "user-12345"
+            }
+        ]
+    },
+    {
+        "id": "user-67890",
+        "email": "jane.smith@example.com",
+        "firstName": "Jane",
+        "lastName": "Smith",
+        "phoneNumber": "+44-20-7946-0958",
+        "dateOfBirth": "1985-11-20T00:00:00.000Z",
+        "createdAt": "2022-11-01T18:20:00.000Z",
+        "updatedAt": "2023-06-01T11:00:00.000Z",
+        "isActive": true,
+        "isEmailVerified": true,
+        "isPhoneNumberVerified": true,
+        "preferences": {
+            "language": "en-GB",
+            "currency": "GBP",
+            "notifications": {
+                "email": true,
+                "push": false,
+                "sms": true
+            }
+        },
+        "shippingAddresses": [
+            {
+                "id": "addr-ship-333",
+                "name": "Jane Smith",
+                "addressLine1": "456 High Street",
+                "city": "London",
+                "state": "Greater London",
+                "country": "UK",
+                "postalCode": "SW1A 0AA",
+                "phoneNumber": "+44-20-7946-0958",
+                "isDefault": true,
+                "addressType": "shipping",
+                "addressCategory": "home",
+                "userId": "user-67890"
+            }
+        ],
+        "billingAddresses": []
+    },
+    {
+        "id": "user-abcde",
+        "email": "sam.jones@example.com",
+        "firstName": "Sam",
+        "lastName": "Jones",
+        "isActive": false,
+        "isEmailVerified": false,
+        "isPhoneNumberVerified": false,
+        "createdAt": "2023-07-15T09:00:00.000Z",
+        "updatedAt": "2023-07-15T09:00:00.000Z"
+    }
+]

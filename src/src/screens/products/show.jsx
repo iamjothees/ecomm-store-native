@@ -7,7 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-import { cn } from "@/lib/utils"; // Assuming cn is a utility for class concatenation
+import { cn, formatPrice } from "@/lib/utils"; // Assuming cn is a utility for class concatenation
 import { ShoppingCart, Heart, Frown, Home } from 'lucide-react'; // Importing Lucide React icons, added Frown, Home
 import { DynamicIcon } from 'lucide-react/dynamic';
 import ExploreProducts from "@/features/products/components/Explore";
@@ -253,9 +253,9 @@ function ProductDetails({ product }) {
       <h2 className="text-2xl font-bold text-foreground">{product.name}</h2>
       <p className="text-sm text-muted-foreground">{product.description}</p>
       <div className="flex items-center gap-2 mt-2">
-        <span className="text-xl font-bold text-primary">₹{product.price}</span>
+        <span className="text-xl font-bold text-primary">{ formatPrice(product.price) }</span>
         {product.mrp > product.price && (
-          <span className="line-through text-base text-muted-foreground">₹{product.mrp}</span>
+          <span className="line-through text-base text-muted-foreground">{ formatPrice(product.mrp) }</span>
         )}
         {product.mrp > product.price && (
           <Badge variant="default" className="bg-green-500 text-white text-xs font-semibold px-2 py-0.5 rounded-full">

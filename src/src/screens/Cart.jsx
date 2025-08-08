@@ -9,6 +9,7 @@ import ImageWithFallback from '@/components/common/ImageWithFallback';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useNavigate } from 'react-router';
 import CartItemVariantSelector from '@/features/cart/components/CartItemVariantSelector';
+import { formatPrice } from '@/lib/utils';
 
 function Cart() {
     const { defaultScreen, setScreen } = useScreenContext();
@@ -50,7 +51,7 @@ function Cart() {
                                 <h2 className="text-lg font-semibold">Order Summary</h2>
                                 <div className="flex justify-between text-md">
                                     <span>Subtotal:</span>
-                                    <span className="font-semibold">₹{cart.totalPrice}</span>
+                                    <span className="font-semibold">{formatPrice(cart.totalPrice)}</span>
                                 </div>
                                 <div className="flex justify-between text-md">
                                     <span>Shipping:</span>
@@ -58,9 +59,9 @@ function Cart() {
                                 </div>
                                 <div className="flex justify-between text-lg font-bold text-primary">
                                     <span>Total:</span>
-                                    <span>₹{cart.totalPrice}</span>
+                                    <span>{formatPrice(cart.totalPrice)}</span>
                                 </div>
-                                <Button className="w-full py-3 text-lg">Proceed to Checkout</Button>
+                                <Button className="w-full py-3 text-lg" onClick={() => navigate('/checkout')}>Proceed to Checkout</Button>
                             </div>
                         </div>
                     )
