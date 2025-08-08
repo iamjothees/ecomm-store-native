@@ -4,9 +4,20 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Card } from "@/components/ui/card"
 import { useCart } from "@/contexts/CartContext";
 import { Link } from "react-router";
+import { useEffect, useState } from "react";
+import { Skeleton } from "../ui/skeleton";
+import { getLoggedInUser } from "@/features/users/userService";
 
 export function HelloBar() {
   const { cart } = useCart();
+  const [user, setUser] = useState(undefined);
+
+  useEffect(() => {
+    getLoggedInUser()
+      .then(user => setUser(user));
+  }, []);
+
+  if (user === undefined) return <HelloBarSkeleton />;
 
   return (
     <Card className="w-[98%] p-4 bg-gradient-to-r from-primary to-primary/90 text-primary-foreground rounded-lg">
@@ -20,7 +31,7 @@ export function HelloBar() {
           </Avatar>
           <div>
             <p className="text-sm font-light">Hello,</p>
-            <p className="font-medium">Joe Dev</p>
+            <p className="font-medium">{user?.name || "Guest User"}</p>
           </div>
         </div>
 
@@ -49,3 +60,23 @@ export function HelloBar() {
 }
 
 export default HelloBar
+
+const HelloBarSkeleton = () => (
+  <Card className="w-[98%] p-4 bg-gradient-to-r from-primary to-primary/90 text-primary-foreground rounded-lg">
+    <div className="flex items-center justify-between">
+      {/* User greeting with Avatar */}
+      <div className="flex items-center gap-3">
+        <Skeleton className="h-9 w-9 rounded-full" />
+        <div>
+          <Skeleton className="text-sm font-light" />
+          <Skeleton className="font-medium" />
+        </div>
+      </div>
+      {/* Action icons */}
+      <div className="flex items-center gap-4">
+        <Skeleton className="h-6 w-6" />
+        <Skeleton className="h-6 w-6" />
+      </div>
+    </div>
+  </Card>
+);

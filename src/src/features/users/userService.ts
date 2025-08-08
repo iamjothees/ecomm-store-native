@@ -12,3 +12,13 @@ export const getAddresses = async (userId: string): Promise<AddressModel[]> => {
         setTimeout(() => resolve(addresses), 500);
     });
 };
+
+export const getLoggedInUser = async (): Promise<UserModel | null> => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            const user = localStorage.getItem('user');
+            if (user) resolve(JSON.parse(user) as UserModel);
+            else resolve(null);
+        }, 1500);
+    });
+};

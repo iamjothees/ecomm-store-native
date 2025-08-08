@@ -34,7 +34,7 @@ const fetchFeaturedCategories = () => (
     new Promise((resolve) => {
         setTimeout(() => {
             resolve(categories.slice(0, 8));
-        }, 100);
+        }, 1500);
     })
 );
 

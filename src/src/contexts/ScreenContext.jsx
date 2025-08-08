@@ -10,7 +10,7 @@ const defaultScreen = {
 }
 
 export function ScreenContextProvider({children}) {
-    const [screen, setScreen] = useState(defaultScreen);
+    const [screen, setScreen] = useState({...defaultScreen, showHeader: false});
 
     return (
         <ScreenContext value={{ screen, setScreen, defaultScreen }} >
