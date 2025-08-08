@@ -1,7 +1,8 @@
 import Footer from "@/components/layout/Footer"
-import { Outlet } from "react-router"
+import { Outlet, useNavigate } from "react-router"
 import useScreenContext from "@/contexts/ScreenContext";
 import { cn } from "@/lib/utils";
+import { ChevronLeft } from "lucide-react";
 
 function Layout() {
     const { screen } = useScreenContext();
@@ -24,9 +25,15 @@ function Layout() {
 export default Layout
 
 const Header = function ({ title = "" }) {
+    const navigate = useNavigate();
+
+    const handleBack = () => {
+        navigate(-1);
+    }
     return (
-        <header className={cn("z-999 fixed top-0 left-0 h-16 w-full py-4 px-3 bg-primary-300 text-primary flex items-end justify-between text-2xl font-semibold rounded-b-sm truncate", title.length > 15 && "text-lg")}>
-            { title }
+        <header className={cn("z-999 fixed top-0 left-0 h-12 w-full px-3 bg-primary-300 text-primary flex items-end justify-between text-xl font-semibold rounded-b-sm truncate flex items-center", title.length > 15 && "text-lg")}>
+            <ChevronLeft onClick={handleBack} />
+            <p className="text-center flex-1">{ title }</p>
         </header>
     )
 }

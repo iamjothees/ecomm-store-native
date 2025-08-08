@@ -25,10 +25,10 @@ function Category() {
     }, []);
 
     useEffect(() => {
-        setScreen(() => ({ ...screen, loading: true }));
+        setScreen((screen) => ({ ...screen, loading: true }));
         show({ slug })
             .then(category => setCategory(category))
-            .finally((screen) => setScreen(() => ({ ...screen, loading: false })));
+            .finally(() => setScreen((screen) => ({ ...screen, loading: false })));
     }, [slug]);
 
     useEffect(() => { 
