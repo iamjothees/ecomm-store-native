@@ -1,12 +1,14 @@
 import { House, Search, User } from 'lucide-react'
 import { Link } from "react-router";
 import { cn } from "@/lib/utils"
+import { useAuth } from "@/contexts/AuthContext";
 
 function Footer() {
     return (
         <div className="
                 w-screen h-16 bg-primary-300 border-t rounded-t-2xl text-primary 
                 flex items-center justify-around
+                animate-fade-in-up
             "
         >
             <Menu />
@@ -18,11 +20,15 @@ function Footer() {
 export default Footer
 
 const Menu = function (){
+    const { logout } = useAuth();
     return (
         <div className='w-full h-full flex items-center justify-around'>
             <MenuItem icon={<House size={25} />} />
             <MenuItem to="/search" icon={<Search size={35} />} isHighlighted={true} />
             <MenuItem icon={<User size={25} />}/>
+            <div onClick={logout}>
+                <User size={25} />
+            </div>
         </div>
     )
 }

@@ -3,9 +3,11 @@ import { Outlet, useNavigate } from "react-router"
 import useScreenContext from "@/contexts/ScreenContext";
 import { cn } from "@/lib/utils";
 import { ChevronLeft } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
 
 function Layout() {
     const { screen } = useScreenContext();
+    const { user } = useAuth();
 
     return (
         <div className='max-w-screen h-screen overflow-y-scroll overflow-x-hidden m-0 p-0 bg-background text-foreground'>
@@ -14,9 +16,13 @@ function Layout() {
                 <main id="app-main" className="h-full flex flex-col overflow-y-scroll pb-24">
                     <Outlet />
                 </main>
-                <footer className="fixed bottom-0 z-999">
-                    <Footer />
-                </footer>
+                {
+                    user && (
+                        <footer className="fixed bottom-0 z-999">
+                            <Footer />
+                        </footer>
+                    )
+                }
             </section>
         </div>
     )
