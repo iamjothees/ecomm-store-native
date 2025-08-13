@@ -6,10 +6,15 @@ import { useCart } from "@/contexts/CartContext";
 import { Link } from "react-router";
 import { Skeleton } from "../ui/skeleton";
 import { useAuth } from "@/contexts/AuthContext";
+import { useEffect } from "react";
 
 export function HelloBar() {
   const { cart } = useCart();
   const { user } = useAuth();
+  
+  useEffect(() => {
+    console.log({user});
+  }, [user]);
 
   return (
     <Card className="w-[98%] p-4 bg-gradient-to-r from-primary to-primary/90 text-primary-foreground rounded-lg animate-slide-in-left">

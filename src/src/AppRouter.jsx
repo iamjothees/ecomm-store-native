@@ -20,7 +20,7 @@ function AppRouter() {
     <BrowserRouter>
       <ScrollToTopOnNavigate>
         <Routes>
-          <Route element={<Layout hideHeader />}>
+          <Route element={<Layout />}>
             <Route path="onboarding" element={<OnboardingLayout />}>
               <Route index element={<Onboarding />} />
               <Route path="auth">
@@ -31,8 +31,6 @@ function AppRouter() {
             <Route element={<AuthLayout />}>
               <Route index element={<Home />} />
             </Route>
-          </Route>
-          <Route element={<Layout />}>
             <Route element={<AuthLayout />}>
               <Route path="categories">
                 <Route index element={<Categories />} />

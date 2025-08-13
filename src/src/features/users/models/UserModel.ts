@@ -2,9 +2,9 @@ import { AddressModel } from "./AddressModel";
 
 export class UserModel {
     id: string;
-    email?: string;
     firstName: string;
     lastName: string;
+    email?: string;
     phoneNumber?: string;
     dateOfBirth?: Date;
     createdAt?: Date;
@@ -79,12 +79,12 @@ export class UserModel {
 
         const user = new UserModel(
             json.id,
-            json.email,
             json.firstName,
             json.lastName,
             json.isActive,
             json.isEmailVerified,
             json.isPhoneNumberVerified,
+            json.email,
             json.phoneNumber,
             json.shippingAddresses?.map((address: any) => AddressModel.fromJson(address)),
             json.billingAddresses?.map((address: any) => AddressModel.fromJson(address))
