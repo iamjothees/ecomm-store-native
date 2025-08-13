@@ -2,7 +2,7 @@ import { AddressModel } from "./AddressModel";
 
 export class UserModel {
     id: string;
-    email: string;
+    email?: string;
     firstName: string;
     lastName: string;
     phoneNumber?: string;
@@ -26,16 +26,18 @@ export class UserModel {
 
     constructor(
         id: string,
-        email: string,
         firstName: string,
         lastName: string,
         isActive: boolean,
         isEmailVerified: boolean,
         isPhoneNumberVerified: boolean,
+        email?: string,
         phoneNumber?: string,
         shippingAddresses?: AddressModel[],
         billingAddresses?: AddressModel[],
     ) {
+        if (!email && !phoneNumber) throw new Error("Email or phone number is required");
+
         this.id = id;
         this.email = email;
         this.firstName = firstName;
@@ -56,8 +58,8 @@ export class UserModel {
         if (!json.id) {
             throw new Error("User ID is required");
         }
-        if (!json.email) {
-            throw new Error("Email is required");
+        if (!json.email && !json.phoneNumber) {
+            throw new Error("Email or phone number is required");
         }
         if (!json.firstName) {
             throw new Error("First name is required");

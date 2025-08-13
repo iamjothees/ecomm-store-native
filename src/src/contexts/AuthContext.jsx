@@ -12,28 +12,42 @@ export function AuthProvider({ children }) {
     }, []);
 
     const login = (loginUserData) => {
-        return new Promise((resolve) => {
+        return new Promise((resolve, reject) => {
             authService.login(loginUserData)
                 .then((user) => {
                     setUser(user);
                     return user;
                 })
-                .then((user) => resolve(user));
+                .then(resolve)
+                .catch(reject);
         });
     };
 
     const logout = () => {
-        return new Promise((resolve) => {
+        return new Promise((resolve, reject) => {
             authService.logout()
                 .then(() => {
                     setUser(null);
                     return resolve(true);
-                });
+                })
+                .catch(reject);
+        });
+    };
+
+    const signup = (signupUserData) => {
+        return new Promise((resolve, reject) => {
+            authService.signup(signupUserData)
+                .then((user) => {
+                    setUser(user);
+                    return user;
+                })
+                .then(resolve)
+                .catch(reject);
         });
     };
 
     return (
-        <AuthContext value={{ user: user, login, logout }}>
+        <AuthContext value={{ user: user, login, logout, signup }}>
             {children}
         </AuthContext>
     );

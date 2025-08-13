@@ -36,20 +36,20 @@ export default function LoginForm() {
     });
 
     const handleLoginFormSubmit = async (values) => {
-        try {
-            const user = await login(values);
-            if (!user) throw Error("User not found")
-            else{
+        await login(values)
+            .then((user) => {
+                if (!user) throw Error("User not found")
+                
                 showToast("Welcome back! " + user.fullName, "success");
                 navigate("/");
-            }
-        } catch (error) {
-            if (error.cause?.name === "ValidationError") {
-                showToast(error.message, "error");
-                return;
-            }
-            throw error;
-        }
+            })
+            .catch((error) => {
+                if (["InvalidCredentialsError"].includes(error.cause?.name)) {
+                    showToast(error.message, "error");
+                    return;
+                }
+                throw error;
+            });
     };
 
     return (
@@ -83,12 +83,12 @@ export default function LoginForm() {
                     <FormItem>
                         <div className="flex items-center">
                         <FormLabel>Password</FormLabel>
-                        <Link
+                        {/* <Link
                             to="/forgot-password"
                             className="ml-auto inline-block text-sm underline"
                         >
                             Forgot your password?
-                        </Link>
+                        </Link> */}
                         </div>
                         <FormControl>
                         <Input type="password" {...field} />
@@ -109,7 +109,7 @@ export default function LoginForm() {
             </Form>
             <div className="mt-4 text-center text-sm">
                 Don&apos;t have an account?{" "}
-                <Link to="/signup" className="underline">
+                <Link to="/onboarding/auth/signup" className="underline">
                 Sign up
                 </Link>
             </div>
