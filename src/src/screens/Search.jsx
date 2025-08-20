@@ -52,28 +52,41 @@ function SearchScreen() {
     }, [searchTerm]);
 
     return (
-        <div className="flex flex-col h-full p-4 pt-18">
+        <div className="flex-1 flex flex-col p-4 pt-18">
             <SearchBar placeholder="Find products by keywords" onChange={handleSearchChange} value={searchTerm} />
 
-        {/* Search Results Tabs */}
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full mt-3">
-            <TabsList className="grid w-full grid-cols-4 h-auto p-1 bg-gray-100 rounded-lg">
-                <TabsTrigger value="all" className="py-2 text-sm font-medium data-[state=active]:bg-white data-[state=active]:shadow-sm data-[state=active]:text-primary rounded-md">All</TabsTrigger>
-                <TabsTrigger value="categories" className="py-2 text-sm font-medium data-[state=active]:bg-white data-[state=active]:shadow-sm data-[state=active]:text-primary rounded-md">Categories</TabsTrigger>
-                <TabsTrigger value="products" className="py-2 text-sm font-medium data-[state=active]:bg-white data-[state=active]:shadow-sm data-[state=active]:text-primary rounded-md">Products</TabsTrigger>
-                <TabsTrigger value="tags" className="py-2 text-sm font-medium data-[state=active]:bg-white data-[state=active]:shadow-sm data-[state=active]:text-primary rounded-md">Tags</TabsTrigger>
-            </TabsList>
+            {/* Search Results Tabs */}
+            <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full mt-3">
+                <TabsList className="grid w-full grid-cols-4 h-auto p-1 bg-gray-100 rounded-lg">
+                    <TabsTrigger value="all" className="py-2 text-sm font-medium data-[state=active]:bg-white data-[state=active]:shadow-sm data-[state=active]:text-primary rounded-md">All</TabsTrigger>
+                    <TabsTrigger value="tags" className="py-2 text-sm font-medium data-[state=active]:bg-white data-[state=active]:shadow-sm data-[state=active]:text-primary rounded-md">Tags</TabsTrigger>
+                    <TabsTrigger value="categories" className="py-2 text-sm font-medium data-[state=active]:bg-white data-[state=active]:shadow-sm data-[state=active]:text-primary rounded-md">Categories</TabsTrigger>
+                    <TabsTrigger value="products" className="py-2 text-sm font-medium data-[state=active]:bg-white data-[state=active]:shadow-sm data-[state=active]:text-primary rounded-md">Products</TabsTrigger>
+                </TabsList>
 
-            {/* All Tab Content */}
-            <TabsContent value="all" className="mt-4">
-            {
-                screen.loading 
-                    ? <SearchSkeleton />
-                    : (
-                        <>
-                            {
-                            searchResults.categories.length > 0 
-                                && (
+                {/* All Tab Content */}
+                <TabsContent value="all" className="mt-4">
+                {
+                    screen.loading 
+                        ? <SearchSkeleton />
+                        : (
+                            <>
+                                {/* Tags */}
+                                { searchResults.tags.length > 0 && (
+                                    <section className="mb-6">
+                                    <h2 className="text-lg font-semibold text-foreground mb-3">Tags</h2>
+                                    <div className="flex flex-wrap gap-2">
+                                        {searchResults.tags.map(tag => (
+                                        <Badge key={tag} variant="secondary" className="px-3 py-1 rounded-full text-sm">
+                                            {tag}
+                                        </Badge>
+                                        ))}
+                                    </div>
+                                    </section>
+                                )}
+
+                                {/* Categories */}
+                                {searchResults.categories.length > 0 && (
                                     <section className="mb-6">
                                         <div className="flex justify-between items-center mb-3">
                                             <h2 className="text-lg font-semibold text-foreground">Categories</h2>
@@ -92,116 +105,103 @@ function SearchScreen() {
                                             <ScrollBar orientation="horizontal" />
                                         </ScrollArea>
                                     </section>
-                                )
-                            }
+                                )}
 
-                            {searchResults.products.length > 0 && (
-                                <section className="mb-6">
-                                <div className="flex justify-between items-center mb-3">
-                                    <h2 className="text-lg font-semibold text-foreground">Products</h2>
-                                    <Button onClick={() => setActiveTab('products')} variant="link" className="text-primary p-0 h-auto">
-                                    See More <ChevronRight className="h-4 w-4 ml-1" />
-                                    </Button>
-                                </div>
-                                <div className="grid grid-cols-2 gap-4">
-                                    {searchResults.products.map(product => (
-                                    <ProductCard key={product.id} product={product} />
-                                    ))}
-                                </div>
-                                </section>
-                            )}
+                                {/* Products */}
+                                {searchResults.products.length > 0 && (
+                                    <section className="mb-6">
+                                    <div className="flex justify-between items-center mb-3">
+                                        <h2 className="text-lg font-semibold text-foreground">Products</h2>
+                                        <Button onClick={() => setActiveTab('products')} variant="link" className="text-primary p-0 h-auto">
+                                        See More <ChevronRight className="h-4 w-4 ml-1" />
+                                        </Button>
+                                    </div>
+                                    <div className="grid grid-cols-2 gap-4">
+                                        {searchResults.products.map(product => (
+                                        <ProductCard key={product.id} product={product} />
+                                        ))}
+                                    </div>
+                                    </section>
+                                )}
 
-                            {searchResults.tags.length > 0 && (
-                                <section className="mb-6">
-                                <h2 className="text-lg font-semibold text-foreground mb-3">Tags</h2>
-                                <div className="flex flex-wrap gap-2">
-                                    {searchResults.tags.map(tag => (
-                                    <Badge key={tag} variant="secondary" className="px-3 py-1 rounded-full text-sm">
-                                        {tag}
-                                    </Badge>
-                                    ))}
-                                </div>
-                                </section>
-                            )}
+                                {searchTerm.length > 0 && searchResults.categories.length === 0 && searchResults.products.length === 0 && searchResults.tags.length === 0 && (
+                                    <div className="text-center text-muted-foreground mt-8">No results found for "{searchTerm}"</div>
+                                )}
+                            </>
+                        )
+                }
+                </TabsContent>
 
-                            {searchTerm.length > 0 && searchResults.categories.length === 0 && searchResults.products.length === 0 && searchResults.tags.length === 0 && (
-                                <div className="text-center text-muted-foreground mt-8">No results found for "{searchTerm}"</div>
-                            )}
-                        </>
-                    )
-            }
-            </TabsContent>
+                {/* Tags Tab Content */}
+                <TabsContent value="tags" className="mt-4">
+                {screen.loading ? (
+                    <SearchSkeleton type="tags" />
+                ) : (
+                    <>
+                    {searchResults.tags.length > 0 ? (
+                        <div className="flex flex-wrap gap-2">
+                        {searchResults.tags.map(tag => (
+                            <Badge key={tag} variant="secondary" className="px-3 py-1 rounded-full text-sm">
+                            {tag}
+                            </Badge>
+                        ))}
+                        </div>
+                    ) : (
+                        searchTerm.length > 0 && <div className="text-center text-muted-foreground mt-8">No tags found for "{searchTerm}"</div>
+                    )}
+                    </>
+                )}
+                </TabsContent>
 
-            <TabsContent value="categories" className="mt-4">
-            {screen.loading ? (
-                <SearchSkeleton type="categories" />
-            ) : (
-                <>
+                <TabsContent value="categories" className="mt-4">
+                {screen.loading ? (
+                    <SearchSkeleton type="categories" />
+                ) : (
+                    <>
+                    {
+                        searchResults.categories.length > 0 
+                        ? (
+                            <ul className="grid grid-cols-3 gap-4">
+                                { searchResults.categories.map(category => ( <li className="w-24"> <CategoryCard key={category.id} category={category} /> </li> )) }
+                            </ul>
+                        ) 
+                        : (
+                            searchTerm.length > 0 && <div className="text-center text-muted-foreground mt-8">No categories found for "{searchTerm}"</div>
+                        )
+                    }
+                    </>
+                )}
+                </TabsContent>
+
+                {/* Products Tab Content */}
+                <TabsContent value="products" className="mt-4">
+                {screen.loading ? (
+                    <SearchSkeleton type="products" />
+                ) : (
+                    <>
+                    {searchResults.products.length > 0 ? (
+                        <div className="grid grid-cols-2 gap-4">
+                        {searchResults.products.map(product => (
+                            <ProductCard key={product.id} product={product} />
+                        ))}
+                        </div>
+                    ) : (
+                        searchTerm.length > 0 && <div className="text-center text-muted-foreground mt-8">No products found for "{searchTerm}"</div>
+                    )}
+                    </>
+                )}
+                </TabsContent>
+
                 {
-                    searchResults.categories.length > 0 
-                    ? (
-                        <ul className="grid grid-cols-3 gap-4">
-                            { searchResults.categories.map(category => ( <li className="w-24"> <CategoryCard key={category.id} category={category} /> </li> )) }
-                        </ul>
-                    ) 
-                    : (
-                        searchTerm.length > 0 && <div className="text-center text-muted-foreground mt-8">No categories found for "{searchTerm}"</div>
+                    searchTerm === '' && (
+                        <div className="mt-12 flex flex-col items-center justify-center text-center gap-2 text-muted-foreground">
+                            <Search className="w-8 h-8 text-muted-foreground" />
+                            <p className="text-sm font-medium">Start typing to search for products or categories</p>
+                            <span className="text-xs text-muted-foreground">Try something like “Shoes”, “Laptops”, or “Accessories”</span>
+                        </div>
                     )
                 }
-                </>
-            )}
-            </TabsContent>
-
-            {/* Products Tab Content */}
-            <TabsContent value="products" className="mt-4">
-            {screen.loading ? (
-                <SearchSkeleton type="products" />
-            ) : (
-                <>
-                {searchResults.products.length > 0 ? (
-                    <div className="grid grid-cols-2 gap-4">
-                    {searchResults.products.map(product => (
-                        <ProductCard key={product.id} product={product} />
-                    ))}
-                    </div>
-                ) : (
-                    searchTerm.length > 0 && <div className="text-center text-muted-foreground mt-8">No products found for "{searchTerm}"</div>
-                )}
-                </>
-            )}
-            </TabsContent>
-
-            {/* Tags Tab Content */}
-            <TabsContent value="tags" className="mt-4">
-            {screen.loading ? (
-                <SearchSkeleton type="tags" />
-            ) : (
-                <>
-                {searchResults.tags.length > 0 ? (
-                    <div className="flex flex-wrap gap-2">
-                    {searchResults.tags.map(tag => (
-                        <Badge key={tag} variant="secondary" className="px-3 py-1 rounded-full text-sm">
-                        {tag}
-                        </Badge>
-                    ))}
-                    </div>
-                ) : (
-                    searchTerm.length > 0 && <div className="text-center text-muted-foreground mt-8">No tags found for "{searchTerm}"</div>
-                )}
-                </>
-            )}
-            </TabsContent>
-
-            {
-                searchTerm === '' && (
-                    <div className="mt-12 flex flex-col items-center justify-center text-center gap-2 text-muted-foreground">
-                        <Search className="w-8 h-8 text-muted-foreground" />
-                        <p className="text-sm font-medium">Start typing to search for products or categories</p>
-                        <span className="text-xs text-muted-foreground">Try something like “Shoes”, “Laptops”, or “Accessories”</span>
-                    </div>
-                )
-            }
-        </Tabs>
+            </Tabs>
         </div>
     );
 }
