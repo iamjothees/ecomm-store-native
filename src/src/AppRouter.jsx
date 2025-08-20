@@ -4,6 +4,8 @@ import Home from "@/screens/Home"
 import Categories from "@/screens/categories/index"
 import Category from "@/screens/categories/show"
 import Product from "@/screens/products/show"
+import FeaturedProducts from "@/screens/products/featured"
+import RecentProducts from "@/screens/products/recently-viewed"
 import SearchScreen from "@/screens/Search"
 import Cart from "@/screens/Cart";
 import Checkout from "@/screens/Checkout";
@@ -38,6 +40,8 @@ function AppRouter() {
               </Route>
               <Route path="products">
                 <Route path=":slug" element={<Product isScreen={true} />} />
+                <Route path="featured" element={<FeaturedProducts />} />
+                <Route path="recent" element={<RecentProducts />} />
               </Route>
               <Route path="/search" element={<SearchScreen />} />
               <Route path="/cart" element={<Cart />} />

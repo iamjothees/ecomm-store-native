@@ -50,17 +50,22 @@ export const getStories = async (): Promise<StoryItem[]> => {
         {
             id: 1,
             title: "The best products",
-            video: { uri: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" },
+            video: { uri: "https://videos.pexels.com/video-files/4434242/4434242-uhd_1440_2560_24fps.mp4" },
         },
         {
             id: 2,
             title: "The best products",
-            video: { uri: "https://videos.pexels.com/video-files/4620568/4620568-uhd_2732_1440_25fps.mp4" },
+            video: { uri: "https://videos.pexels.com/video-files/3959544/3959544-uhd_1440_2732_25fps.mp4" },
         },
         {
             id: 3,
             title: "The best products",
-            video: { uri: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4" },
+            video: { uri: "https://videos.pexels.com/video-files/2785536/2785536-uhd_1440_2560_25fps.mp4" },
+        },
+        {
+            id: 4,
+            title: "The best products",
+            video: { uri: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" },
         },
     ];
 

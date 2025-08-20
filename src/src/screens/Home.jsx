@@ -6,7 +6,8 @@ import FeaturedProducts from "@/components/home/FeaturedProducts"
 import Stories from "@/components/home/Stories"
 import RecentlyViewedProducts from "@/components/home/RecentlyViewedProducts"
 import Hero from "@/components/home/Hero"
-import UpcomingDelivery from "@/components/home/UpcomingDelivery";
+// import UpcomingDelivery from "@/components/home/UpcomingDelivery";
+import Explore from "@/features/products/components/Explore";
 
 function Home() {
   const { defaultScreen, setScreen } = useScreenContext();
@@ -18,10 +19,13 @@ function Home() {
       <HelloBar />
       <FeaturedCategories />
       <Hero />
-      <UpcomingDelivery />
+      {/* <UpcomingDelivery /> */}
       <FeaturedProducts />
       <Stories />
       <RecentlyViewedProducts />
+      <div className="flex-1 px-4">
+        <Explore config={{ apiEndpoint: "/recently-viewed-products", title: "Explore Products" }} />
+      </div>
     </main>
   )
 }

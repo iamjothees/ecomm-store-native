@@ -1,5 +1,9 @@
 import { AddressModel } from "./AddressModel";
 
+class Profile{
+    avatar?: string;
+}
+
 export class UserModel {
     id: string;
     firstName: string;
@@ -12,6 +16,7 @@ export class UserModel {
     isActive: boolean;
     isEmailVerified: boolean;
     isPhoneNumberVerified: boolean;
+    profile: Profile;
     preferences?: {
         language?: string;
         currency?: string;
@@ -31,6 +36,7 @@ export class UserModel {
         isActive: boolean,
         isEmailVerified: boolean,
         isPhoneNumberVerified: boolean,
+        profile: Profile,
         email?: string,
         phoneNumber?: string,
         shippingAddresses?: AddressModel[],
@@ -45,6 +51,7 @@ export class UserModel {
         this.isActive = isActive;
         this.isEmailVerified = isEmailVerified;
         this.isPhoneNumberVerified = isPhoneNumberVerified;
+        this.profile = profile;
         this.phoneNumber = phoneNumber;
         this.shippingAddresses = shippingAddresses;
         this.billingAddresses = billingAddresses;
@@ -84,6 +91,7 @@ export class UserModel {
             json.isActive,
             json.isEmailVerified,
             json.isPhoneNumberVerified,
+            json.profile || new Profile(),
             json.email,
             json.phoneNumber,
             json.shippingAddresses?.map((address: any) => AddressModel.fromJson(address)),

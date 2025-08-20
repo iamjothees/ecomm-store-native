@@ -11,6 +11,9 @@
         "isActive": true,
         "isEmailVerified": true,
         "isPhoneNumberVerified": false,
+        "profile": {
+            "avatar": "https://avatar.iran.liara.run/public"
+        },
         "preferences": {
             "language": "en-US",
             "currency": "USD",
@@ -67,6 +70,9 @@
         "isActive": true,
         "isEmailVerified": true,
         "isPhoneNumberVerified": true,
+        "profile": {
+            "avatar": "https://avatar.iran.liara.run/public"
+        },
         "preferences": {
             "language": "en-GB",
             "currency": "GBP",

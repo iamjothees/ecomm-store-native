@@ -22,7 +22,7 @@ function FeaturedCategories() {
                 loading 
                     ? <ComponentSkeleton />
                     : categories.map((category) => (
-                        <Link to={`/categories/${category.slug}`} key={category.id} className="w-24 h-auto"> {/* Added Link for navigation */}
+                        <Link to={`/categories/${category.slug}`} key={category.id} className="w-24 h-auto">
                             <CategoryCard key={category.id} category={category} hideName />
                         </Link>
                     ))
@@ -30,7 +30,7 @@ function FeaturedCategories() {
             renderHeader={() => (
                 <>
                     <h1 className="text-lg font-semibold text-primary-950">Categories</h1>
-                    <Link to="/categories" className="flex items-center gap-1 text-sm text-primary"> {/* Added text-primary for link color */}
+                    <Link to="/categories" className="flex items-center gap-1 text-sm text-primary"> 
                         View All
                         <ChevronsRight size={16} />
                     </Link>

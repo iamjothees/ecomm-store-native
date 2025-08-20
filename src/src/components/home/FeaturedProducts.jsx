@@ -4,6 +4,7 @@ import { ChevronsRight } from "lucide-react";
 import ProductCard from "@/features/products/components/Card";
 import HorizontalScrollSection from "@/components/common/HorizontalScrollSection";
 import { fetchFeaturedProducts } from '@/features/products/productService';
+import { Link } from "react-router";
 
 function FeaturedProducts() {
   const [products, setProducts] = useState([]);
@@ -21,10 +22,10 @@ function FeaturedProducts() {
         renderHeader={() => (
             <>
                 <h1 className="text-lg font-semibold text-primary-950">Featured Products</h1>
-                <Button variant="link" onClick={() => alert("View All")} className="!px-0">
+                <Link to="/products/featured" className="flex items-center gap-1 text-sm text-primary"> 
                     View All
                     <ChevronsRight />
-                </Button>
+                </Link>
             </>
         )}
         styles={{ main: "min-h-50" }}

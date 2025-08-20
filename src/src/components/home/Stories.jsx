@@ -1,8 +1,41 @@
 import HorizontalScrollSection from "@/components/common/HorizontalScrollSection";
 import { Play } from "lucide-react";
 import { Skeleton } from "../ui/skeleton";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { getStories } from "@/features/screens/services/homeScreenServices";
+import { useInView } from "react-intersection-observer";
+
+const StoryVideo = ({ src }) => {
+    const videoRef = useRef(null);
+    const { ref, inView } = useInView({
+        threshold: 0.5,
+    });
+
+    useEffect(() => {
+        if (inView) {
+            videoRef.current?.play().catch(e => {
+                // Autoplay can be blocked by browser policies
+                console.info("Story video autoplay was prevented.", e);
+            });
+        } else {
+            videoRef.current?.pause();
+        }
+    }, [inView]);
+
+    return (
+        <div ref={ref} className="shrink-0 snap-center w-[180px] h-full bg-black rounded-lg overflow-hidden">
+            <video
+                ref={videoRef}
+                src={src}
+                className="w-full h-full object-cover"
+                loop
+                muted
+                playsInline
+                preload="metadata"
+            />
+        </div>
+    );
+};
 
 function Stories() {
     const [stories, setStories] = useState(undefined);
@@ -19,10 +52,7 @@ function Stories() {
     return (
         <HorizontalScrollSection 
             renderMain={() => ( stories.map((story) => ( 
-                // <video key={story.id} src={story.video.uri} controls className="snap-center" />
-                <div key={story.id} className="shrink-0 snap-center w-[180px] bg-primary-300 flex justify-center items-center">
-                    <Play className="text-primary-950 w-12 h-12 rounded-full border border-primary-950 p-2.5" />
-                </div>
+                <StoryVideo key={story.id} src={story.video.uri} />
             )) )}
             renderHeader={() => ( <h1 className="text-lg font-semibold text-primary-950">Stories</h1> )}
             styles={{ main: "h-[300px] align-end",  }}
