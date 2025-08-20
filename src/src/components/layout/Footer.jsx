@@ -20,15 +20,11 @@ function Footer() {
 export default Footer
 
 const Menu = function (){
-    const { logout } = useAuth();
     return (
         <div className='w-full h-full flex items-center justify-around'>
             <MenuItem icon={<House size={25} />} />
             <MenuItem to="/search" icon={<Search size={35} />} isHighlighted={true} />
-            <MenuItem icon={<User size={25} />}/>
-            <div onClick={logout}>
-                <User size={25} />
-            </div>
+            <MenuItem to="/account" icon={<User size={25} />}/>
         </div>
     )
 }
