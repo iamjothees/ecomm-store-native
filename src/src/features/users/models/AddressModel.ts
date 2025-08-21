@@ -8,6 +8,7 @@ export class AddressModel {
     country: string;
     postalCode: string;
     phoneNumber: string;
+    phoneNumberCountryCode?: string;
     isDefault?: boolean;
     addressType: 'shipping' | 'billing' | 'both';
     addressCategory: 'home' | 'work' | 'other';
@@ -25,6 +26,7 @@ export class AddressModel {
         country: string,
         postalCode: string,
         phoneNumber: string,
+        phoneNumberCountryCode?: string,
         isDefault?: boolean,
         addressType?: 'shipping' | 'billing' | 'both',
         addressCategory?: 'home' | 'work' | 'other',
@@ -41,12 +43,17 @@ export class AddressModel {
         this.country = country;
         this.postalCode = postalCode;
         this.phoneNumber = phoneNumber;
+        this.phoneNumberCountryCode = phoneNumberCountryCode;
         this.isDefault = isDefault;
         this.addressType = addressType;
         this.addressCategory = addressCategory;
         this.userId = userId;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+    }
+
+    get phoneNumberWithCountryCode(): string {
+        return `${this.phoneNumberCountryCode} ${this.phoneNumber}`;
     }
 
     static fromJson(json: any): AddressModel {
@@ -71,6 +78,9 @@ export class AddressModel {
         if (!json.phoneNumber) {
             throw new Error("Phone number is required");
         }
+        if (json.phoneNumber && !json.phoneNumberCountryCode) {
+            throw new Error("Phone number country code is required");
+        }
         if (!json.addressType) {
             throw new Error("Address type is required");
         }
@@ -91,6 +101,7 @@ export class AddressModel {
             json.country,
             json.postalCode,
             json.phoneNumber,
+            json.phoneNumberCountryCode,
             json.isDefault,
             json.addressType,
             json.addressCategory,

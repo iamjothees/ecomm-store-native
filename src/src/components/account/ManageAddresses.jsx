@@ -1,29 +1,92 @@
 import React, { useEffect, useState } from 'react';
-import { getAddresses } from '@/features/users/userService';
+import { addAddress, getAddresses, deleteAddress, updateAddress } from '@/features/users/userService';
 import { useAuth } from '@/contexts/AuthContext';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Plus } from 'lucide-react';
+import { Plus, Pencil, Trash2, MoreVertical } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer';
+import { AddressForm } from './AddressForm';
+import { useToast } from '@/contexts/ToastContext';
 
 function ManageAddresses() {
   const { user } = useAuth();
   const [addresses, setAddresses] = useState(undefined);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [selectedAddress, setSelectedAddress] = useState(null);
+  const { showToast } = useToast();
 
   useEffect(() => {
     if (user) {
-      getAddresses(user.id).then(setAddresses);
+      fetchAddresses();
     }
   }, [user]);
+
+  const fetchAddresses = () => {
+    getAddresses(user.id).then(setAddresses);
+  };
+
+  const handleAddAddress = () => {
+    setSelectedAddress(null);
+    setIsDrawerOpen(true);
+  };
+
+  const handleEditAddress = (address) => {
+    setSelectedAddress(address);
+    setIsDrawerOpen(true);
+  };
+
+  const handleDeleteAddress = async (addressId) => {
+    try {
+      await deleteAddress(user.id, addressId);
+      fetchAddresses();
+      showToast("Address deleted successfully");
+    } catch (error) {
+      showToast("Failed to delete address", "error");
+    }
+  };
+
+  const handleFormSubmit = async (data) => {
+    try {
+      if (selectedAddress) {
+        await updateAddress(user.id, { ...selectedAddress, ...data });
+        showToast("Address updated successfully");
+      } else {
+        await addAddress(user.id, data);
+        showToast("Address added successfully");
+      }
+      fetchAddresses();
+      setIsDrawerOpen(false);
+    } catch (error) {
+      showToast("Failed to save address", "error");
+    }
+  };
 
   return (
     <Card>
       <CardHeader className="flex flex-row items-center justify-between">
         <CardTitle>Manage Addresses</CardTitle>
-        <Button variant="outline">
-          <Plus className="h-4 w-4 mr-2" />
-          Add Address
-        </Button>
+        <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
+          <DrawerTrigger asChild>
+            <Button variant="outline" onClick={handleAddAddress}>
+              <Plus className="h-4 w-4 mr-2" />
+              Add Address
+            </Button>
+          </DrawerTrigger>
+          <DrawerContent>
+            <DrawerHeader>
+              <DrawerTitle>{selectedAddress ? 'Edit Address' : 'Add a new address'}</DrawerTitle>
+            </DrawerHeader>
+            <div className="px-4 pb-32 overflow-y-auto">
+                <AddressForm 
+                    address={selectedAddress} 
+                    onSubmit={handleFormSubmit} 
+                    onCancel={() => setIsDrawerOpen(false)} 
+                />
+            </div>
+          </DrawerContent>
+        </Drawer>
       </CardHeader>
       <CardContent>
         {addresses === undefined && <AddressSkeleton />}
@@ -31,7 +94,12 @@ function ManageAddresses() {
         {addresses?.length > 0 && (
           <div className="space-y-4">
             {addresses.map(address => (
-              <AddressItem key={address.id} address={address} />
+              <AddressItem 
+                key={address.id} 
+                address={address} 
+                onEdit={handleEditAddress} 
+                onDelete={handleDeleteAddress} 
+              />
             ))}
           </div>
         )}
@@ -40,7 +108,7 @@ function ManageAddresses() {
   );
 }
 
-const AddressItem = ({ address }) => {
+const AddressItem = ({ address, onEdit, onDelete }) => {
   return (
     <div className="border p-4 rounded-lg flex justify-between items-start">
       <div>
@@ -49,11 +117,36 @@ const AddressItem = ({ address }) => {
         {address.addressLine2 && <p className="text-sm text-muted-foreground">{address.addressLine2}</p>}
         <p className="text-sm text-muted-foreground">{address.city}, {address.state} {address.postalCode}</p>
         <p className="text-sm text-muted-foreground">{address.country}</p>
-        <p className="text-sm text-muted-foreground">Phone: {address.phoneNumber}</p>
+        <p className="text-sm text-muted-foreground">Phone: {address.phoneNumberWithCountryCode}</p>
       </div>
-      <div className="flex flex-col space-y-2">
-        <Button variant="outline" size="sm">Edit</Button>
-        <Button variant="destructive" size="sm">Delete</Button>
+      <div className="md:hidden">
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" size="icon">
+              <MoreVertical className="h-4 w-4" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuItem onClick={() => onEdit(address)}>
+              <Pencil className="mr-2 h-4 w-4" />
+              <span>Edit</span>
+            </DropdownMenuItem>
+            <DropdownMenuItem className="text-red-500" onClick={() => onDelete(address.id)}>
+              <Trash2 className="mr-2 h-4 w-4" />
+              <span>Delete</span>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
+      <div className="hidden md:flex flex-col space-y-2">
+        <Button variant="outline" size="sm" onClick={() => onEdit(address)}>
+            <Pencil className="h-4 w-4 mr-2" />
+            Edit
+        </Button>
+        <Button variant="destructive" size="sm" onClick={() => onDelete(address.id)}>
+            <Trash2 className="h-4 w-4 mr-2" />
+            Delete
+        </Button>
       </div>
     </div>
   )

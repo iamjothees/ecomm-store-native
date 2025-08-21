@@ -21,7 +21,7 @@ function OrderHistory() {
         {orders?.length > 0 && (
           <div className="space-y-4">
             {orders.map(order => (
-              <OrderItem key={order.id} order={order} />
+              <Order key={order.id} order={order} />
             ))}
           </div>
         )}
@@ -30,7 +30,7 @@ function OrderHistory() {
   );
 }
 
-const OrderItem = ({ order }) => {
+const Order = ({ order }) => {
   return (
     <div className="border p-4 rounded-lg flex justify-between items-center">
       <div>
