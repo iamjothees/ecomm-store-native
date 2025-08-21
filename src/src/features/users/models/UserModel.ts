@@ -10,6 +10,7 @@ export class UserModel {
     lastName: string;
     email?: string;
     phoneNumber?: string;
+    phoneNumberCountryCode?: string;
     dateOfBirth?: Date;
     createdAt?: Date;
     updatedAt?: Date;
@@ -39,6 +40,7 @@ export class UserModel {
         profile: Profile,
         email?: string,
         phoneNumber?: string,
+        phoneNumberCountryCode?: string,
         shippingAddresses?: AddressModel[],
         billingAddresses?: AddressModel[],
     ) {
@@ -53,12 +55,17 @@ export class UserModel {
         this.isPhoneNumberVerified = isPhoneNumberVerified;
         this.profile = profile;
         this.phoneNumber = phoneNumber;
+        this.phoneNumberCountryCode = phoneNumberCountryCode;
         this.shippingAddresses = shippingAddresses;
         this.billingAddresses = billingAddresses;
     }
 
     get fullName(): string {
         return `${this.firstName} ${this.lastName}`;
+    };
+
+    get phoneNumberWithCountryCode(): string {
+        return `${this.phoneNumberCountryCode} ${this.phoneNumber}`;
     };
 
     static fromJson(json: any): UserModel {
@@ -77,6 +84,9 @@ export class UserModel {
         if (json.isActive === undefined) {
             throw new Error("isActive is required");
         }
+        if (json.phoneNumber && !json.phoneNumberCountryCode) {
+            throw new Error("Phone number country code is required");
+        }
         if (json.isEmailVerified === undefined) {
             throw new Error("isEmailVerified is required");
         }
@@ -94,6 +104,7 @@ export class UserModel {
             json.profile || new Profile(),
             json.email,
             json.phoneNumber,
+            json.phoneNumberCountryCode,
             json.shippingAddresses?.map((address: any) => AddressModel.fromJson(address)),
             json.billingAddresses?.map((address: any) => AddressModel.fromJson(address))
         );

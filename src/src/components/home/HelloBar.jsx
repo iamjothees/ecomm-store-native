@@ -28,7 +28,7 @@ export function HelloBar() {
                   </AvatarFallback>
                 </Avatar>
                 <div>
-                  <p className="text-sm font-light">Hello,</p>
+                  <p className="text-sm font-light">Welcome,</p>
                   <p className="font-medium">{user.fullName || "Guest User"}</p>
                 </div>
               </div>
