@@ -15,7 +15,6 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/contexts/ToastContext";
-import authService from "@/features/users/authService";
 import { useAuth } from "@/contexts/AuthContext";
 
 const formSchema = z.object({
@@ -50,6 +49,11 @@ export default function LoginForm() {
                 }
                 throw error;
             });
+    };
+
+    const handleLoginAsDemoUser = () => {
+        form.setValue("email", "iamjothees@gmail.com");
+        form.setValue("password", "password");
     };
 
     return (
@@ -97,7 +101,14 @@ export default function LoginForm() {
                     </FormItem>
                     )}
                 />
-                {/* TODO: Loading on submission */}
+                {
+                    import.meta.env.MODE === "development" && (
+                        <Button type="submit" onClick={handleLoginAsDemoUser} className="w-full" disabled={form.formState.isSubmitting}>
+                            {form.formState.isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                            Login as Demo User
+                        </Button>         
+                    )
+                }
                 <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
                     {form.formState.isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                     Login

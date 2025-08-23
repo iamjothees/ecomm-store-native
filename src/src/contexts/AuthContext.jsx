@@ -27,7 +27,7 @@ export function AuthProvider({ children }) {
         return new Promise((resolve, reject) => {
             authService.logout()
                 .then(() => {
-                    setUser(null);
+                    setUser(undefined);
                     return resolve(true);
                 })
                 .catch(reject);
