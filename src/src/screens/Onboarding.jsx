@@ -16,7 +16,7 @@ const Onboarding = () => {
     const [current, setCurrent] = useState(0);
     const [count, setCount] = useState(0);
 
-    const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true }));
+    const plugin = useRef(Autoplay({ delay: 2000, stopOnInteraction: true, stopOnLastSnap: true }));
 
     useEffect(() => {
         if (!api) {

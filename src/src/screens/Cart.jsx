@@ -3,20 +3,55 @@ import useScreenContext from "@/contexts/ScreenContext";
 import { Button } from '@/components/ui/button';
 import { Trash2, ShoppingCart, ChevronDown } from 'lucide-react';
 import { useToast } from '@/contexts/ToastContext';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Card } from '@/components/ui/card';
 import ImageWithFallback from '@/components/common/ImageWithFallback';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useNavigate } from 'react-router';
 import CartItemVariantSelector from '@/features/cart/components/CartItemVariantSelector';
 import { formatPrice } from '@/lib/utils';
+import AddressesSelector from '@/components/checkout/AddressesSelector';
+import orderService from '@/features/orders/orderService';
+import { getSelectedAddresses } from '@/features/cart/cartService';
 
 function Cart() {
     const { defaultScreen, setScreen } = useScreenContext();
-    const { cart } = useCart();
+    const { cart, dispatch } = useCart();
     const navigate = useNavigate();
+    const { showToast } = useToast();
+    const [isPlacingOrder, setIsPlacingOrder] = useState(false);
 
     useEffect(() => { setScreen(() => ({ ...defaultScreen, screenTitle: "Cart" })); }, []);
+
+    const handlePlaceOrder = async () => {
+        setIsPlacingOrder(true);
+        const { shippingAddress, billingAddress } = getSelectedAddresses();
+
+        if (!shippingAddress || !billingAddress) {
+            showToast("Please select shipping and billing addresses.", "error");
+            setIsPlacingOrder(false);
+            return;
+        }
+
+        const order = {
+            items: cart.items,
+            total: cart.totalPrice,
+            shippingAddress,
+            billingAddress,
+            status: 'pending',
+        };
+
+        try {
+            await orderService.placeOrder(order);
+            dispatch({ type: 'CLEAR_CART' });
+            showToast("Order placed successfully!", "success");
+            navigate('/order-success');
+        } catch (error) {
+            showToast("Failed to place order. Please try again.", "error");
+        } finally {
+            setIsPlacingOrder(false);
+        }
+    };
 
     return (
         <div className="flex-1 px-4 pt-18 flex flex-col gap-3 sm:absolute sm:w-screen">
@@ -44,6 +79,7 @@ function Cart() {
                                         ))
                                     }
                                 </div>
+                                <AddressesSelector />
                                 <div className="h-16 hidden sm:block"></div>
                             </ScrollArea>
 
@@ -61,7 +97,9 @@ function Cart() {
                                     <span>Total:</span>
                                     <span>{formatPrice(cart.totalPrice)}</span>
                                 </div>
-                                <Button className="w-full py-3 text-lg" onClick={() => navigate('/checkout')}>Proceed to Checkout</Button>
+                                <Button className="w-full py-3 text-lg" onClick={handlePlaceOrder} disabled={isPlacingOrder}>
+                                    {isPlacingOrder ? 'Placing Order...' : 'Place Order'}
+                                </Button>
                             </div>
                         </div>
                     )

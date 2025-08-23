@@ -1,3 +1,4 @@
+import { AddressModel } from '../users/models/AddressModel';
 import { Cart } from './models/CartModel';
 import { CartItem } from './models/CartItemModel';
 
@@ -87,4 +88,22 @@ export const updateCartItemVariants = (originalItem: CartItem, newVariants: Reco
 export const getInitialCart = (): Cart => {
     return getCart();
 }
+
+export const saveSelectedAddresses = (shippingAddress: AddressModel, billingAddress: AddressModel, isBillingSameAsShipping: boolean) => {
+    localStorage.setItem('shippingAddress', JSON.stringify(shippingAddress));
+    localStorage.setItem('billingAddress', JSON.stringify(billingAddress));
+    localStorage.setItem('isBillingSameAsShipping', JSON.stringify(isBillingSameAsShipping));
+};
+
+export const getSelectedAddresses = (): { shippingAddress: AddressModel | null, billingAddress: AddressModel | null, isBillingSameAsShipping: boolean } => {
+    const shippingAddress = localStorage.getItem('shippingAddress');
+    const billingAddress = localStorage.getItem('billingAddress');
+    const isBillingSameAsShipping = localStorage.getItem('isBillingSameAsShipping');
+
+    return {
+        shippingAddress: shippingAddress ? JSON.parse(shippingAddress) : null,
+        billingAddress: billingAddress ? JSON.parse(billingAddress) : null,
+        isBillingSameAsShipping: isBillingSameAsShipping ? JSON.parse(isBillingSameAsShipping) : true,
+    };
+};
 

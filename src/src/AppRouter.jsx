@@ -8,7 +8,7 @@ import FeaturedProducts from "@/screens/products/featured"
 import RecentProducts from "@/screens/products/recently-viewed"
 import SearchScreen from "@/screens/Search"
 import Cart from "@/screens/Cart";
-import Checkout from "@/screens/Checkout";
+
 import OrderSuccess from "@/screens/OrderSuccess";
 import Onboarding from "@/screens/Onboarding";
 import Login from "@/screens/auth/Login";
@@ -46,7 +46,7 @@ function AppRouter() {
               </Route>
               <Route path="/search" element={<SearchScreen />} />
               <Route path="/cart" element={<Cart />} />
-              <Route path="/checkout" element={<Checkout />} />
+              
               <Route path="/order-success" element={<OrderSuccess />} />
               <Route path="/account" element={<Account />} />
               <Route path="">
