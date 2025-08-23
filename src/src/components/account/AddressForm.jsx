@@ -15,7 +15,7 @@ const addressSchema = z.object({
   country: z.string().min(2, { message: "Country must be at least 2 characters." }),
   postalCode: z.string().min(5, { message: "Postal code must be at least 5 characters." }),
   phoneNumber: z.string().min(10, { message: "Phone number must be at least 10 digits." }),
-  phoneCountryCode: z.string().min(2, { message: "Country code must be at least 2 digits." }),
+  phoneNumberCountryCode: z.string().min(2, { message: "Country code must be at least 2 digits." }),
   addressType: z.enum(['shipping', 'billing', 'both']),
   addressCategory: z.enum(['home', 'work', 'other']),
 });
@@ -32,7 +32,7 @@ export function AddressForm({ address, onSubmit, onCancel }) {
       country: address?.country || '',
       postalCode: address?.postalCode || '',
       phoneNumber: address?.phoneNumber || '',
-      phoneCountryCode: address?.phoneCountryCode || '',
+      phoneNumberCountryCode: address?.phoneNumberCountryCode || '',
       addressType: address?.addressType || 'shipping',
       addressCategory: address?.addressCategory || 'home',
     },
@@ -139,7 +139,7 @@ export function AddressForm({ address, onSubmit, onCancel }) {
         <div className="grid grid-cols-3 gap-4">
           <FormField
             control={form.control}
-            name="phoneCountryCode"
+            name="phoneNumberCountryCode"
             render={({ field }) => (
               <FormItem className="col-span-1">
                 <FormLabel>Code</FormLabel>

@@ -9,6 +9,18 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer';
 import { AddressForm } from './AddressForm';
 import { useToast } from '@/contexts/ToastContext';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+
 
 function ManageAddresses() {
   const { user } = useAuth();
@@ -94,7 +106,7 @@ function ManageAddresses() {
         {addresses?.length > 0 && (
           <div className="space-y-4">
             {addresses.map(address => (
-              <AddressItem 
+              <Address 
                 key={address.id} 
                 address={address} 
                 onEdit={handleEditAddress} 
@@ -108,7 +120,7 @@ function ManageAddresses() {
   );
 }
 
-const AddressItem = ({ address, onEdit, onDelete }) => {
+const Address = ({ address, onEdit, onDelete }) => {
   return (
     <div className="border p-4 rounded-lg flex justify-between items-start">
       <div>
@@ -131,10 +143,26 @@ const AddressItem = ({ address, onEdit, onDelete }) => {
               <Pencil className="mr-2 h-4 w-4" />
               <span>Edit</span>
             </DropdownMenuItem>
-            <DropdownMenuItem className="text-red-500" onClick={() => onDelete(address.id)}>
-              <Trash2 className="mr-2 h-4 w-4" />
-              <span>Delete</span>
-            </DropdownMenuItem>
+            <AlertDialog>
+              <AlertDialogTrigger asChild>
+                <DropdownMenuItem className="text-red-500" onSelect={(e) => e.preventDefault()}>
+                  <Trash2 className="mr-2 h-4 w-4" />
+                  <span>Delete</span>
+                </DropdownMenuItem>
+              </AlertDialogTrigger>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    This action cannot be undone. This will permanently delete this address.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                  <AlertDialogAction onClick={() => onDelete(address.id)}>Delete</AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
@@ -143,10 +171,26 @@ const AddressItem = ({ address, onEdit, onDelete }) => {
             <Pencil className="h-4 w-4 mr-2" />
             Edit
         </Button>
-        <Button variant="destructive" size="sm" onClick={() => onDelete(address.id)}>
-            <Trash2 className="h-4 w-4 mr-2" />
-            Delete
-        </Button>
+        <AlertDialog>
+          <AlertDialogTrigger asChild>
+            <Button variant="destructive" size="sm">
+                <Trash2 className="h-4 w-4 mr-2" />
+                Delete
+            </Button>
+          </AlertDialogTrigger>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+              <AlertDialogDescription>
+                This action cannot be undone. This will permanently delete this address.
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogAction onClick={() => onDelete(address.id)}>Delete</AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
+        </AlertDialog>
       </div>
     </div>
   )
