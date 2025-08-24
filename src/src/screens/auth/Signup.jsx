@@ -7,17 +7,25 @@ import { useToast } from "@/contexts/ToastContext";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { PhoneInput } from "@/components/common/PhoneInput";
 
 export default function SignupForm() {
-  const { register, handleSubmit, setValue, formState: { isSubmitting } } = useForm();
+  const form = useForm();
   const { signup } = useAuth();
   const navigate = useNavigate();
   const { showToast } = useToast();
   const [signupWith, setSignupWith] = useState("email");
 
   const onSubmit = async (data) => {
-    await signup(data)
+    const { countryCode, phoneNumber, ...rest } = data;
+    let submissionData = rest;
+
+    if (signupWith === 'phone') {
+        submissionData.phoneNumber = `${countryCode || ''}${phoneNumber}`;
+    }
+
+    await signup(submissionData)
       .then(() => {
         navigate("/");
       })
@@ -32,10 +40,11 @@ export default function SignupForm() {
 
   const toggleSignupWith = () => {
     if (signupWith === "email") {
-      setValue("email", "");
+      form.setValue("email", "");
       setSignupWith("phone");
     } else {
-      setValue("phoneNumber", "");
+      form.setValue("countryCode", "");
+      form.setValue("phoneNumber", "");
       setSignupWith("email");
     }
   };
@@ -49,59 +58,82 @@ export default function SignupForm() {
             Enter your information to create an account
           </p>
         </div>
-        <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4">
-          <div className="grid grid-cols-2 gap-4">
-            <div className="grid gap-2">
-              <Label htmlFor="first-name">First name</Label>
-              <Input id="first-name" placeholder="Max" required {...register("firstName")} />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="last-name">Last name</Label>
-              <Input id="last-name" placeholder="Robinson" required {...register("lastName")} />
-            </div>
-          </div>
-          {signupWith === "email" ? (
-            <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="m@example.com"
-                required
-                {...register("email")}
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-4">
+            <div className="grid grid-cols-2 gap-4">
+              <FormField
+                control={form.control}
+                name="firstName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>First name</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Max" required {...field} />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="lastName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Last name</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Robinson" required {...field} />
+                    </FormControl>
+                  </FormItem>
+                )}
               />
             </div>
-          ) : (
-            <div className="grid gap-2">
-              <Label htmlFor="phoneNumber">Phone Number</Label>
-              <Input
-                id="phoneNumber"
-                type="tel"
-                placeholder="+1 123 456 7890"
-                required
-                {...register("phoneNumber")}
+            {signupWith === "email" ? (
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input type="email" placeholder="m@example.com" required {...field} />
+                    </FormControl>
+                  </FormItem>
+                )}
               />
+            ) : (
+              <PhoneInput
+                control={form.control}
+                countryCodeName="countryCode"
+                phoneNumberName="phoneNumber"
+              />
+            )}
+            <div className="text-sm">
+              <Button variant="link" type="button" onClick={toggleSignupWith}>
+                {signupWith === "email"
+                  ? "Sign up with phone number instead"
+                  : "Sign up with email instead"}
+              </Button>
             </div>
-          )}
-          <div className="text-sm">
-            <Button variant="link" type="button" onClick={toggleSignupWith}>
-              {signupWith === "email"
-                ? "Sign up with phone number instead"
-                : "Sign up with email instead"}
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Password</FormLabel>
+                  <FormControl>
+                    <Input type="password" {...field} />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+            <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
+              {form.formState.isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+              Create an account
             </Button>
-          </div>
-          <div className="grid gap-2">
-            <Label htmlFor="password">Password</Label>
-            <Input id="password" type="password" {...register("password")} />
-          </div>
-          <Button type="submit" className="w-full" disabled={isSubmitting}>
-            {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-            Create an account
-          </Button>
-          <Button variant="outline" className="w-full" disabled={isSubmitting}>
-            Sign up with Google
-          </Button>
-        </form>
+            <Button variant="outline" className="w-full" disabled={form.formState.isSubmitting}>
+              Sign up with Google
+            </Button>
+          </form>
+        </Form>
         <div className="mt-4 text-center text-sm">
           Already have an account?{" "}
           <Link to="/onboarding/auth/login" className="underline">

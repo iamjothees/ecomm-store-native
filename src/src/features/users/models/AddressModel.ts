@@ -10,9 +10,7 @@ export class AddressModel {
     phoneNumber: string;
     phoneNumberCountryCode?: string;
     isDefault?: boolean;
-    addressType: 'shipping' | 'billing' | 'both';
     addressCategory: 'home' | 'work' | 'other';
-    userId: string;
     createdAt?: Date;
     updatedAt?: Date;
 
@@ -28,9 +26,7 @@ export class AddressModel {
         phoneNumber: string,
         phoneNumberCountryCode?: string,
         isDefault?: boolean,
-        addressType?: 'shipping' | 'billing' | 'both',
         addressCategory?: 'home' | 'work' | 'other',
-        userId?: string,
         createdAt?: Date,
         updatedAt?: Date,
     ) {
@@ -44,10 +40,8 @@ export class AddressModel {
         this.postalCode = postalCode;
         this.phoneNumber = phoneNumber;
         this.phoneNumberCountryCode = phoneNumberCountryCode;
-        this.isDefault = isDefault;
-        this.addressType = addressType;
+        this.isDefault = Boolean(isDefault);
         this.addressCategory = addressCategory;
-        this.userId = userId;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
@@ -81,14 +75,8 @@ export class AddressModel {
         if (json.phoneNumber && !json.phoneNumberCountryCode) {
             throw new Error("Phone number country code is required");
         }
-        if (!json.addressType) {
-            throw new Error("Address type is required");
-        }
         if (!json.addressCategory) {
             throw new Error("Address category is required");
-        }
-        if (!json.userId) {
-            throw new Error("User ID is required");
         }
 
         const address = new AddressModel(
@@ -103,9 +91,7 @@ export class AddressModel {
             json.phoneNumber,
             json.phoneNumberCountryCode,
             json.isDefault,
-            json.addressType,
             json.addressCategory,
-            json.userId,
         );
         address.createdAt = json.createdAt ? new Date(json.createdAt) : undefined;
         address.updatedAt = json.updatedAt ? new Date(json.updatedAt) : undefined;

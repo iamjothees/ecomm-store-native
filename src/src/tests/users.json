@@ -24,7 +24,7 @@
                 "sms": false
             }
         },
-        "shippingAddresses": [
+        "addresses": [
             {
                 "id": "addr-ship-111",
                 "name": "John Doe",
@@ -37,12 +37,9 @@
                 "phoneNumber": "555-123-4567",
                 "phoneNumberCountryCode": "+1",
                 "isDefault": true,
-                "addressType": "shipping",
                 "addressCategory": "home",
                 "userId": "user-12345"
-            }
-        ],
-        "billingAddresses": [
+            },
             {
                 "id": "addr-bill-222",
                 "name": "John Doe",
@@ -55,7 +52,6 @@
                 "phoneNumber": "555-123-4567",
                 "phoneNumberCountryCode": "+1",
                 "isDefault": true,
-                "addressType": "billing",
                 "addressCategory": "home",
                 "userId": "user-12345"
             }
@@ -86,7 +82,7 @@
                 "sms": true
             }
         },
-        "shippingAddresses": [
+        "addresses": [
             {
                 "id": "addr-ship-333",
                 "name": "Jane Smith",
@@ -98,12 +94,10 @@
                 "phoneNumber": "20-7946-0958",
                 "phoneNumberCountryCode": "+44",
                 "isDefault": true,
-                "addressType": "shipping",
                 "addressCategory": "home",
                 "userId": "user-67890"
             }
-        ],
-        "billingAddresses": []
+        ]
     },
     {
         "id": "user-abcde",

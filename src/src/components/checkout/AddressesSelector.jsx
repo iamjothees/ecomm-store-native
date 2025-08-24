@@ -1,11 +1,11 @@
-import { getAddresses, addAddress } from "@/features/users/userService";
+import { getAddresses, addAddress, updateAddress } from "@/features/users/userService";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Briefcase, CheckCircle2, Home, MapPin, Plus } from 'lucide-react';
+import { Briefcase, CheckCircle2, Home, MapPin, Plus, Edit } from 'lucide-react';
 import { useAuth } from "@/contexts/AuthContext";
 import { saveSelectedAddresses, getSelectedAddresses } from "@/features/cart/cartService";
-import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer';
+import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from '@/components/ui/drawer';
 import { AddressForm } from "@/components/account/AddressForm";
 import { useToast } from "@/contexts/ToastContext";
 
@@ -17,29 +17,13 @@ const AddressesSelector = () => {
   const [selectedBillingAddress, setSelectedBillingAddress] = useState(null);
   const [useShippingAsBilling, setUseShippingAsBilling] = useState(true);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
-  useEffect(() => {
-    if (user) {
-      fetchAddresses();
-      const { shippingAddress, billingAddress, isBillingSameAsShipping } = getSelectedAddresses();
-      if (shippingAddress) setSelectedShippingAddress(shippingAddress);
-      if (billingAddress) setSelectedBillingAddress(billingAddress);
-      setUseShippingAsBilling(isBillingSameAsShipping);
-    }
-  }, [user]);
-
-  useEffect(() => {
-    if (useShippingAsBilling) {
-      setSelectedBillingAddress(selectedShippingAddress);
-    }
-    saveSelectedAddresses(selectedShippingAddress, selectedBillingAddress, useShippingAsBilling);
-  }, [useShippingAsBilling, selectedShippingAddress, selectedBillingAddress]);
+  const [editingAddress, setEditingAddress] = useState(null);
 
   const fetchAddresses = () => {
     getAddresses(user.id).then(addresses => {
       setAddresses(addresses);
       if (!selectedShippingAddress) {
-        const defaultShipping = addresses.find(a => a.isDefault && ['shipping', 'both'].includes(a.addressType));
+        const defaultShipping = addresses.find(a => a.isDefault);
         if (defaultShipping) setSelectedShippingAddress(defaultShipping);
         else if (addresses.length > 0) setSelectedShippingAddress(addresses[0]);
       }
@@ -59,13 +43,30 @@ const AddressesSelector = () => {
 
   const handleFormSubmit = async (data) => {
     try {
-      await addAddress(user.id, data);
+      let savedAddress;
+      if (editingAddress?.id) {
+        savedAddress = await updateAddress(user.id, data);
+        showToast("Address updated successfully");
+      } else {
+        savedAddress = await addAddress(user.id, data);
+        showToast("Address added successfully");
+      }
+
+      if (savedAddress) {
+        setSelectedShippingAddress(savedAddress);
+      }
+
       fetchAddresses();
-      showToast("Address added successfully");
       setIsDrawerOpen(false);
+      setEditingAddress(null);
     } catch (error) {
       showToast("Failed to save address", "error");
     }
+  };
+
+  const openAddressForm = (address = null) => {
+    setEditingAddress(address);
+    setIsDrawerOpen(true);
   };
 
   const renderAddress = (address, type) => {
@@ -101,10 +102,30 @@ const AddressesSelector = () => {
           <p className="mt-2 text-sm">
             {address.phoneNumberWithCountryCode}
           </p>
+          <Button variant="ghost" size="icon" className="absolute bottom-2 right-2" onClick={(e) => { e.stopPropagation(); openAddressForm(address); }}>
+            <Edit className="h-4 w-4" />
+          </Button>
         </CardContent>
       </Card>
     );
   }
+
+  useEffect(() => {
+    if (user) {
+      fetchAddresses();
+      const { shippingAddress, billingAddress, isBillingSameAsShipping } = getSelectedAddresses();
+      if (shippingAddress) setSelectedShippingAddress(shippingAddress);
+      if (billingAddress) setSelectedBillingAddress(billingAddress);
+      setUseShippingAsBilling(isBillingSameAsShipping);
+    }
+  }, [user]);
+
+  useEffect(() => {
+    if (useShippingAsBilling) {
+      setSelectedBillingAddress(selectedShippingAddress);
+    }
+    saveSelectedAddresses(selectedShippingAddress, selectedBillingAddress, useShippingAsBilling);
+   }, [useShippingAsBilling, selectedShippingAddress, selectedBillingAddress]);
 
   return (
     <div className="space-y-6">
@@ -114,7 +135,6 @@ const AddressesSelector = () => {
         </CardHeader>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {addresses
-            .filter((addr) => [...['shipping', 'both'], ...(useShippingAsBilling ? ['billing'] : [])].includes(addr.addressType))
             .map((address) => renderAddress(address, 'shipping'))}
         </div>
         <div className="flex items-center space-x-2 mt-4">
@@ -130,25 +150,24 @@ const AddressesSelector = () => {
           </CardHeader>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {addresses
-              .filter((addr) => ['billing', 'both'].includes(addr.addressType))
               .map((address) => renderAddress(address, 'billing'))}
           </div>
         </div>
       )}
 
-      <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
-        <DrawerTrigger asChild>
-            <Button variant="outline">
-                <Plus className="h-4 w-4 mr-2" />
-                Add New Address
-            </Button>
-        </DrawerTrigger>
+      <Button variant="outline" onClick={() => openAddressForm()}>
+          <Plus className="h-4 w-4 mr-2" />
+          Add New Address
+      </Button>
+
+      <Drawer open={isDrawerOpen} onOpenChange={(open) => { setIsDrawerOpen(open); if (!open) setEditingAddress(null); }}>
         <DrawerContent>
             <DrawerHeader>
-                <DrawerTitle>Add a new address</DrawerTitle>
+                <DrawerTitle>{editingAddress?.id ? 'Edit Address' : 'Add a new address'}</DrawerTitle>
             </DrawerHeader>
             <div className="px-4 pb-32 overflow-y-auto">
                 <AddressForm 
+                    address={editingAddress}
                     onSubmit={handleFormSubmit} 
                     onCancel={() => setIsDrawerOpen(false)} 
                 />

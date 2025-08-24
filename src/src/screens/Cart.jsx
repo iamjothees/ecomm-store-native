@@ -79,7 +79,9 @@ function Cart() {
                                         ))
                                     }
                                 </div>
-                                <AddressesSelector />
+                                <div className='mt-8'>
+                                    <AddressesSelector />
+                                </div>
                                 <div className="h-16 hidden sm:block"></div>
                             </ScrollArea>
 

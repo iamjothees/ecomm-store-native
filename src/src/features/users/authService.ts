@@ -58,8 +58,7 @@ export const signup = async (signupData: { email?: string; phoneNumber?: string;
                         sms: false
                     }
                 },
-                shippingAddresses: [],
-                billingAddresses: []
+                addresses: []
             };
 
             localStorage.setItem('user', JSON.stringify(newUser));

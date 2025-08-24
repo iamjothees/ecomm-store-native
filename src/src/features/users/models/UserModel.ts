@@ -27,8 +27,7 @@ export class UserModel {
             sms?: boolean;
         };
     };
-    shippingAddresses?: AddressModel[];
-    billingAddresses?: AddressModel[];
+    addresses?: AddressModel[];
 
     constructor(
         id: string,
@@ -41,8 +40,7 @@ export class UserModel {
         email?: string,
         phoneNumber?: string,
         phoneNumberCountryCode?: string,
-        shippingAddresses?: AddressModel[],
-        billingAddresses?: AddressModel[],
+        addresses?: AddressModel[],
     ) {
         if (!email && !phoneNumber) throw new Error("Email or phone number is required");
 
@@ -56,8 +54,7 @@ export class UserModel {
         this.profile = profile;
         this.phoneNumber = phoneNumber;
         this.phoneNumberCountryCode = phoneNumberCountryCode;
-        this.shippingAddresses = shippingAddresses;
-        this.billingAddresses = billingAddresses;
+        this.addresses = addresses;
     }
 
     get fullName(): string {
@@ -105,8 +102,7 @@ export class UserModel {
             json.email,
             json.phoneNumber,
             json.phoneNumberCountryCode,
-            json.shippingAddresses?.map((address: any) => AddressModel.fromJson(address)),
-            json.billingAddresses?.map((address: any) => AddressModel.fromJson(address))
+            json.addresses?.map((address: any) => AddressModel.fromJson(address))
         );
         user.dateOfBirth = json.dateOfBirth ? new Date(json.dateOfBirth) : undefined;
         user.createdAt = json.createdAt ? new Date(json.createdAt) : undefined;

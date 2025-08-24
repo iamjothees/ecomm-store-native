@@ -15,6 +15,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { Calendar } from '@/components/ui/calendar';
 import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
+import { PhoneInput } from '@/components/common/PhoneInput';
 
 const profileSchema = z.object({
   firstName: z.string().min(2, { message: "First name must be at least 2 characters." }),
@@ -73,34 +74,11 @@ function ProfileEditForm({ form, onSubmit }) {
             </FormItem>
           )}
         />
-        <div className="grid grid-cols-3 gap-4">
-          <FormField
+        <PhoneInput
             control={form.control}
-            name="countryCode"
-            render={({ field }) => (
-              <FormItem className="col-span-1">
-                <FormLabel>Code</FormLabel>
-                <FormControl>
-                  <Input placeholder="+1" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="phoneNumber"
-            render={({ field }) => (
-              <FormItem className="col-span-2">
-                <FormLabel>Phone Number</FormLabel>
-                <FormControl>
-                  <Input placeholder="123-456-7890" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        </div>
+            countryCodeName="countryCode"
+            phoneNumberName="phoneNumber"
+        />
         <FormField
           control={form.control}
           name="dateOfBirth"

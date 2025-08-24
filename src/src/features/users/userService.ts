@@ -11,7 +11,8 @@ export const getAddresses = async (userId: string): Promise<AddressModel[]> => {
     }
     const user = UserModel.fromJson(userJson);
 
-    const addresses = [ ...(user.shippingAddresses || []), ...(user.billingAddresses || []) ];
+    const addresses = user.addresses || [];
+    
     // Simulate API delay
     return new Promise((resolve) => {
         setTimeout(() => resolve(addresses), 500);
@@ -46,20 +47,12 @@ export const addAddress = async (userId: string, addressData: Omit<AddressModel,
         throw new Error("User not found");
     }
 
-    const newAddress = { ...addressData, id: uuidv4(), userId };
+    const newAddress = { ...addressData, id: uuidv4() };
     
-    if (newAddress.addressType === 'shipping' || newAddress.addressType === 'both') {
-        if (!testUsers[userIndex].shippingAddresses) {
-            testUsers[userIndex].shippingAddresses = [];
-        }
-        testUsers[userIndex].shippingAddresses.push(newAddress);
+    if (!testUsers[userIndex].addresses) {
+        testUsers[userIndex].addresses = [];
     }
-    if (newAddress.addressType === 'billing' || newAddress.addressType === 'both') {
-        if (!testUsers[userIndex].billingAddresses) {
-            testUsers[userIndex].billingAddresses = [];
-        }
-        testUsers[userIndex].billingAddresses.push(newAddress);
-    }
+    testUsers[userIndex].addresses.push(newAddress);
 
     // Simulate API delay
     return new Promise((resolve) => {
@@ -74,17 +67,11 @@ export const updateAddress = async (userId: string, addressData: AddressModel): 
     }
 
     const addressId = addressData.id;
-
-    const updateUserAddress = (addresses: AddressModel[] | undefined) => {
-        if (!addresses) return;
-        const addressIndex = addresses.findIndex(addr => addr.id === addressId);
-        if (addressIndex !== -1) {
-            addresses[addressIndex] = addressData;
-        }
-    };
-
-    updateUserAddress(testUsers[userIndex].shippingAddresses);
-    updateUserAddress(testUsers[userIndex].billingAddresses);
+    
+    const addressIndex = testUsers[userIndex].addresses.findIndex(addr => addr.id === addressId);
+    if (addressIndex !== -1) {
+        testUsers[userIndex].addresses[addressIndex] = addressData;
+    }
 
     // Simulate API delay
     return new Promise((resolve) => {
@@ -98,13 +85,10 @@ export const deleteAddress = async (userId: string, addressId: string): Promise<
         throw new Error("User not found");
     }
 
-    const filterAddresses = (addresses: AddressModel[] | undefined) => {
-        if (!addresses) return undefined;
-        return addresses.filter(addr => addr.id !== addressId);
-    };
-
-    testUsers[userIndex].shippingAddresses = filterAddresses(testUsers[userIndex].shippingAddresses);
-    testUsers[userIndex].billingAddresses = filterAddresses(testUsers[userIndex].billingAddresses);
+    if (!testUsers[userIndex].addresses) {
+        return;
+    }
+    testUsers[userIndex].addresses = testUsers[userIndex].addresses.filter(addr => addr.id !== addressId);
 
     // Simulate API delay
     return new Promise((resolve) => {
