@@ -9,7 +9,7 @@ import { Drawer, DrawerContent, DrawerHeader, DrawerTitle } from '@/components/u
 import { AddressForm } from "@/components/account/AddressForm";
 import { useToast } from "@/contexts/ToastContext";
 
-const AddressesSelector = () => {
+const AddressesSelector = ({ onSelectionChange }) => {
   const { user } = useAuth();
   const { showToast } = useToast();
   const [addresses, setAddresses] = useState([]);
@@ -121,11 +121,15 @@ const AddressesSelector = () => {
   }, [user]);
 
   useEffect(() => {
+    const billing = useShippingAsBilling ? selectedShippingAddress : selectedBillingAddress;
     if (useShippingAsBilling) {
       setSelectedBillingAddress(selectedShippingAddress);
     }
-    saveSelectedAddresses(selectedShippingAddress, selectedBillingAddress, useShippingAsBilling);
-   }, [useShippingAsBilling, selectedShippingAddress, selectedBillingAddress]);
+    saveSelectedAddresses(selectedShippingAddress, billing, useShippingAsBilling);
+    if (onSelectionChange) {
+        onSelectionChange({ shippingAddress: selectedShippingAddress, billingAddress: selectedBillingAddress });
+    }
+   }, [useShippingAsBilling, selectedShippingAddress, selectedBillingAddress, onSelectionChange]);
 
   return (
     <div className="space-y-6">

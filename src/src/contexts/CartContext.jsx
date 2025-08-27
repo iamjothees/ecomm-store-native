@@ -1,5 +1,5 @@
 import { createContext, useContext, useReducer, useEffect } from 'react';
-import { getInitialCart, addToCart, removeFromCart, incrementQuantity, decrementQuantity, updateCartItemVariants } from '@/features/cart/cartService.ts';
+import { getInitialCart, addToCart, removeFromCart, incrementQuantity, decrementQuantity, updateCartItemVariants, clearCart } from '@/features/cart/cartService.ts';
 
 const CartContext = createContext();
 
@@ -17,6 +17,8 @@ const cartReducer = (state, action) => {
             return updateCartItemVariants(action.payload.item, action.payload.newVariants);
         case 'INITIALIZE_CART':
             return action.payload;
+        case 'CLEAR_CART':
+            return clearCart();
         default:
             return state;
     }

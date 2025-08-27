@@ -89,6 +89,14 @@ export const getInitialCart = (): Cart => {
     return getCart();
 }
 
+export const clearCart = (): Cart => {
+    localStorage.removeItem('cart');
+    localStorage.removeItem('shippingAddress');
+    localStorage.removeItem('billingAddress');
+    localStorage.removeItem('isBillingSameAsShipping');
+    return new Cart([]);
+};
+
 export const saveSelectedAddresses = (shippingAddress: AddressModel, billingAddress: AddressModel, isBillingSameAsShipping: boolean) => {
     localStorage.setItem('shippingAddress', JSON.stringify(shippingAddress));
     localStorage.setItem('billingAddress', JSON.stringify(billingAddress));

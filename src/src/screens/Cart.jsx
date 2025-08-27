@@ -12,7 +12,6 @@ import CartItemVariantSelector from '@/features/cart/components/CartItemVariantS
 import { formatPrice } from '@/lib/utils';
 import AddressesSelector from '@/components/checkout/AddressesSelector';
 import orderService from '@/features/orders/orderService';
-import { getSelectedAddresses } from '@/features/cart/cartService';
 
 function Cart() {
     const { defaultScreen, setScreen } = useScreenContext();
@@ -20,12 +19,13 @@ function Cart() {
     const navigate = useNavigate();
     const { showToast } = useToast();
     const [isPlacingOrder, setIsPlacingOrder] = useState(false);
+    const [selectedAddresses, setSelectedAddresses] = useState({ shippingAddress: null, billingAddress: null });
 
     useEffect(() => { setScreen(() => ({ ...defaultScreen, screenTitle: "Cart" })); }, []);
 
     const handlePlaceOrder = async () => {
         setIsPlacingOrder(true);
-        const { shippingAddress, billingAddress } = getSelectedAddresses();
+        const { shippingAddress, billingAddress } = selectedAddresses;
 
         if (!shippingAddress || !billingAddress) {
             showToast("Please select shipping and billing addresses.", "error");
@@ -41,16 +41,18 @@ function Cart() {
             status: 'pending',
         };
 
-        try {
-            await orderService.placeOrder(order);
-            dispatch({ type: 'CLEAR_CART' });
-            showToast("Order placed successfully!", "success");
-            navigate('/order-success');
-        } catch (error) {
-            showToast("Failed to place order. Please try again.", "error");
-        } finally {
-            setIsPlacingOrder(false);
-        }
+        await orderService.placeOrder(order)
+            .then((order) => {
+                dispatch({ type: 'CLEAR_CART' });
+                showToast("Order placed successfully!", "success");
+                navigate('/order-success', { state: { order } });
+            })
+            .catch((error) => {
+                showToast("Failed to place order. Please try again.", "error");
+            })
+            .finally(() => {
+                setIsPlacingOrder(false);
+            });
     };
 
     return (
@@ -80,7 +82,7 @@ function Cart() {
                                     }
                                 </div>
                                 <div className='mt-8'>
-                                    <AddressesSelector />
+                                    <AddressesSelector onSelectionChange={setSelectedAddresses} />
                                 </div>
                                 <div className="h-16 hidden sm:block"></div>
                             </ScrollArea>
