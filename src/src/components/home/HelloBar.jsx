@@ -11,11 +11,11 @@ import { useEffect } from "react";
 export function HelloBar() {
   const { cart } = useCart();
   const { user } = useAuth();
-
+  
   return (
     <Card className="w-[98%] p-4 bg-gradient-to-r from-primary to-primary/90 text-primary-foreground rounded-lg animate-slide-in-left">
       {
-        user === undefined 
+        Boolean(user) === false 
           ? <HelloBarSkeleton /> 
           : (
             <div className="flex items-center justify-between">

@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router"
+import { HashRouter, Route, Routes } from "react-router"
 import Layout from "@/components/Layout"
 import Home from "@/screens/Home"
 import Categories from "@/screens/categories/index"
@@ -20,7 +20,7 @@ import AuthLayout from "./components/layouts/Auth"
 
 function AppRouter() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <ScrollToTopOnNavigate>
         <Routes>
           <Route element={<Layout />}>
@@ -55,7 +55,7 @@ function AppRouter() {
           </Route>
         </Routes>
       </ScrollToTopOnNavigate>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
