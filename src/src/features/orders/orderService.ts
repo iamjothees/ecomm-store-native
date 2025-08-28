@@ -1,11 +1,23 @@
+import { Product } from '../products/models/productModel';
+import { AddressModel } from '../users/models/AddressModel';
 import { Order } from './models/OrderModel';
+import { testOrders } from '@/tests/data';
+import { OrderItem } from './models/OrderItemModel';
+
+
+export interface OrderData {
+  items: OrderItem[];
+  shippingAddress: AddressModel;
+  billingAddress: AddressModel;
+}
+
 
 class OrderService {
-  placeOrder(order: Order): Promise<Order> {
+  placeOrder(orderData: OrderData): Promise<Order> {
     return new Promise(resolve => {
       // Mock API call
       setTimeout(() => {
-        resolve({ ...order, id: new Date().getTime().toString() });
+        resolve(Order.fromData(orderData));
       }, 1000);
     });
   }
@@ -13,51 +25,7 @@ class OrderService {
   getOrders(): Promise<Order[]> {
     return new Promise(resolve => {
       setTimeout(() => {
-        const mockOrders: Order[] = [
-          {
-            id: 'ord123',
-            items: [
-              {
-                id: '1',
-                name: 'Classic T-Shirt',
-                price: 25,
-                featured_image: { uri: 'https://placehold.co/200x200' },
-                quantity: 2,
-                selectedVariants: { 'Size': 'M', 'Color': 'Black' },
-              } as any, // Using 'as any' to simplify mock data
-            ],
-            total: 50,
-            shippingAddress: { address: '123 Main St, Anytown USA' },
-            billingAddress: { address: '123 Main St, Anytown USA' },
-            status: 'delivered',
-          },
-          {
-            id: 'ord456',
-            items: [
-              {
-                id: '2',
-                name: 'Wireless Headphones',
-                price: 150,
-                featured_image: { uri: 'https://placehold.co/200x200' },
-                quantity: 1,
-                selectedVariants: { 'Color': 'Silver' },
-              } as any,
-              {
-                id: '3',
-                name: 'Coffee Mug',
-                price: 15,
-                featured_image: { uri: 'https://placehold.co/200x200' },
-                quantity: 1,
-                selectedVariants: {},
-              } as any,
-            ],
-            total: 165,
-            shippingAddress: { address: '123 Main St, Anytown USA' },
-            billingAddress: { address: '123 Main St, Anytown USA' },
-            status: 'shipped',
-          },
-        ];
-        resolve(mockOrders);
+        resolve(testOrders.map((order: any): Order => Order.fromJSON(order)));
       }, 500);
     });
   }

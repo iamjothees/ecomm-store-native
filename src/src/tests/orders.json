@@ -1,0 +1,81 @@
+[
+  {
+    "id": "order-1",
+    "items": [
+      {
+        "id": "trendy-denim-jacket",
+        "slug": "trendy-denim-jacket",
+        "name": "Trendy Oversized Denim Jacket",
+        "category": { "id": 1, "name": "Men's Fashion", "slug": "mens-fashion" },
+        "description": "A stylish oversized denim jacket, perfect for layering and adding a cool vibe to any outfit. Made from durable, comfortable denim.",
+        "price": 1499,
+        "mrp": 1999,
+        "featured_image": { "uri": "https://picsum.photos/seed/denimjacket1/600/800" },
+        "media": [ { "type": "image", "url": "https://picsum.photos/seed/denimjacket1-1/800/800" } ],
+        "variants": [
+          { "name": "Color", "values": ["Light Blue", "Dark Blue", "Black"] },
+          { "name": "Size", "values": ["XS", "S", "M", "L", "XL"] }
+        ],
+        "info_tags": [], "specs": [], "faqs": [], "relatedProducts": [],
+        "quantity": 1,
+        "selectedVariants": { "Color": "Light Blue", "Size": "M" }
+      },
+      {
+        "id": "classic-hoodie",
+        "slug": "classic-hoodie",
+        "name": "Classic Comfort Hoodie",
+        "category": { "id": 1, "name": "Men's Fashion", "slug": "mens-fashion" },
+        "description": "Soft and comfortable hoodie, perfect for everyday wear or lounging. Features a spacious front pocket and adjustable drawstring hood.",
+        "price": 799,
+        "mrp": 1099,
+        "featured_image": { "uri": "https://picsum.photos/seed/hoodie1/600/800" },
+        "media": [ { "type": "image", "url": "https://picsum.photos/seed/hoodie1-1/800/800" } ],
+        "variants": [
+          { "name": "Color", "values": ["Grey", "Black", "Navy Blue", "Maroon"] },
+          { "name": "Size", "values": ["S", "M", "L", "XL", "XXL"] }
+        ],
+        "info_tags": [], "specs": [], "faqs": [], "relatedProducts": [],
+        "quantity": 2,
+        "selectedVariants": { "Color": "Grey", "Size": "L" }
+      }
+    ],
+    "total": 3097,
+    "shippingAddress": {
+      "id": "addr-ship-111", "name": "John Doe", "addressLine1": "123 Main Street", "addressLine2": "Apt 4B", "city": "Anytown", "state": "CA", "country": "USA", "postalCode": "12345", "phoneNumber": "555-123-4567", "phoneNumberCountryCode": "+1", "isDefault": true, "addressCategory": "home", "userId": "user-12345"
+    },
+    "billingAddress": {
+      "id": "addr-bill-222", "name": "John Doe", "addressLine1": "123 Main Street", "addressLine2": "Apt 4B", "city": "Anytown", "state": "CA", "country": "USA", "postalCode": "12345", "phoneNumber": "555-123-4567", "phoneNumberCountryCode": "+1", "isDefault": true, "addressCategory": "home", "userId": "user-12345"
+    },
+    "status": "delivered",
+    "createdAt": "2025-08-20T10:00:00.000Z"
+  },
+  {
+    "id": "order-2",
+    "items": [
+      {
+        "id": "fashion-backpack",
+        "slug": "fashion-backpack",
+        "name": "Fashionable Mini Backpack",
+        "category": { "id": 4, "name": "Accessories", "slug": "accessories" },
+        "description": "A compact and stylish mini backpack, perfect for carrying essentials. Features multiple compartments and adjustable straps.",
+        "price": 899,
+        "mrp": 1199,
+        "featured_image": { "uri": "https://picsum.photos/seed/backpack1/600/800" },
+        "media": [ { "type": "image", "url": "https://picsum.photos/seed/backpack1-1/800/800" } ],
+        "variants": [ { "name": "Color", "values": ["Pink", "Lavender", "Mint Green", "Black"] } ],
+        "info_tags": [], "specs": [], "faqs": [], "relatedProducts": [],
+        "quantity": 1,
+        "selectedVariants": { "Color": "Pink" }
+      }
+    ],
+    "total": 899,
+    "shippingAddress": {
+      "id": "addr-bill-333", "name": "Jane Smith", "addressLine1": "456 High Street", "city": "London", "state": "Greater London", "country": "UK", "postalCode": "SW1A 0AA", "phoneNumber": "20-7946-0958", "phoneNumberCountryCode": "+44", "isDefault": true, "addressCategory": "home", "userId": "user-67890"
+    },
+    "billingAddress": {
+      "id": "addr-ship-333", "name": "Jane Smith", "addressLine1": "456 High Street", "city": "London", "state": "Greater London", "country": "UK", "postalCode": "SW1A 0AA", "phoneNumber": "20-7946-0958", "phoneNumberCountryCode": "+44", "isDefault": true, "addressCategory": "home", "userId": "user-67890"
+    },
+    "status": "pending",
+    "createdAt": "2025-08-25T14:30:00.000Z"
+  }
+]
