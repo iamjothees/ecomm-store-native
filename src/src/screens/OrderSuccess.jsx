@@ -6,6 +6,7 @@ import ImageWithFallback from '@/components/common/ImageWithFallback';
 import { CheckCircle } from 'lucide-react';
 import { useEffect } from 'react';
 import useScreenContext from '@/contexts/ScreenContext';
+import AddressDisplay from '@/components/common/AddressDisplay';
 
 const OrderSuccess = () => {
     const location = useLocation();
@@ -81,32 +82,8 @@ const OrderSuccess = () => {
                     </div>
 
                     <div className="border-t pt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <h4 className="font-semibold mb-2">Shipping Address</h4>
-                            <address className="text-muted-foreground not-italic space-y-1">
-                                <p className="font-semibold">{order.shippingAddress.name}</p>
-                                <p>{order.shippingAddress.addressLine1}</p>
-                                {order.shippingAddress.addressLine2 && <p>{order.shippingAddress.addressLine2}</p>}
-                                <p>{order.shippingAddress.city}, {order.shippingAddress.state} {order.shippingAddress.postalCode}</p>
-                                <p>{order.shippingAddress.country}</p>
-                                <p>
-                                    <span className="font-medium">Phone:</span> {order.shippingAddress.phoneNumberCountryCode} {order.shippingAddress.phoneNumber}
-                                </p>
-                            </address>
-                        </div>
-                        <div>
-                            <h4 className="font-semibold mb-2">Billing Address</h4>
-                            <address className="text-muted-foreground not-italic space-y-1">
-                                <p className="font-semibold">{order.billingAddress.name}</p>
-                                <p>{order.billingAddress.addressLine1}</p>
-                                {order.billingAddress.addressLine2 && <p>{order.billingAddress.addressLine2}</p>}
-                                <p>{order.billingAddress.city}, {order.billingAddress.state} {order.billingAddress.postalCode}</p>
-                                <p>{order.billingAddress.country}</p>
-                                <p>
-                                    <span className="font-medium">Phone:</span> {order.billingAddress.phoneNumberCountryCode} {order.billingAddress.phoneNumber}
-                                </p>
-                            </address>
-                        </div>
+                        <AddressDisplay title="Shipping Address" address={order.shippingAddress} />
+                        <AddressDisplay title="Billing Address" address={order.billingAddress} />
                     </div>
 
                     <div className="border-t pt-6 flex flex-col sm:flex-row gap-4 justify-center">

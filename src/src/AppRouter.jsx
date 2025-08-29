@@ -14,6 +14,8 @@ import Onboarding from "@/screens/Onboarding";
 import Login from "@/screens/auth/Login";
 import Signup from "@/screens/auth/Signup";
 import Account from "@/screens/Account";
+import Orders from "@/screens/account/Orders";
+import OrderPage from "@/screens/account/Order";
 import ScrollToTopOnNavigate from "@/components/ScrollToTopOnNavigate"
 import OnboardingLayout from "@/components/layouts/Onboarding"
 import AuthLayout from "./components/layouts/Auth"
@@ -49,6 +51,8 @@ function AppRouter() {
               
               <Route path="/order-success" element={<OrderSuccess />} />
               <Route path="/account" element={<Account />} />
+              <Route path="/account/orders" element={<Orders />} />
+              <Route path="/account/orders/:orderId" element={<OrderPage />} />
               <Route path="">
               </Route>
             </Route>

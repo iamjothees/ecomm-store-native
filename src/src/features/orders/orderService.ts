@@ -22,10 +22,22 @@ class OrderService {
     });
   }
 
-  getOrders(): Promise<Order[]> {
+  getOrders({ page = 1, limit = 10 } = {}): Promise<Order[]> {
     return new Promise(resolve => {
       setTimeout(() => {
-        resolve(testOrders.map((order: any): Order => Order.fromJSON(order)));
+        const start = (page - 1) * limit;
+        const end = start + limit;
+        const paginatedOrders = testOrders.slice(start, end);
+        resolve(paginatedOrders.map((order: any): Order => Order.fromJSON(order)));
+      }, 1000);
+    });
+  }
+
+  getOrderById(id: string): Promise<Order | undefined> {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        const order = testOrders.find(o => o.id === id);
+        resolve(order ? Order.fromJSON(order) : undefined);
       }, 500);
     });
   }

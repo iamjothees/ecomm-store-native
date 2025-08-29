@@ -1,5 +1,6 @@
 import { OrderItem } from "@/features/orders/models/OrderItemModel";
 import { OrderData } from "../orderService";
+import dayjs from 'dayjs';
 
 export class Order {
   id: string;
@@ -10,7 +11,7 @@ export class Order {
   status: 'pending' | 'confirmed' | 'shipped' | 'delivered';
   createdAt: string;
   readableCreatedAt() {
-    return new Date(this.createdAt).toLocaleDateString();
+    return dayjs(this.createdAt).format('MMMM D, YYYY h:mm A');
   }
 
   static fromJSON(data: any): Order {
@@ -27,7 +28,7 @@ export class Order {
 
   static fromData(orderData: OrderData): Order {
     const order = new Order();
-    order.id = `Order ${`${Date.now()}`.slice(-6)}`;
+    order.id = `Order ${`${Date.now()}`.slice(-6)} ${Math.random().toString(36).slice(2, 8)}`;
     order.items = orderData.items.map(item => new OrderItem(item));
     order.total = order.items.reduce((acc, item) => acc + item.price * item.quantity, 0);
     order.shippingAddress = orderData.shippingAddress;
