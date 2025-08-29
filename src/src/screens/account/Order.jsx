@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import orderService from '@/features/orders/orderService';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Badge } from '@/components/ui/badge';
-import ImageWithFallback from '@/components/common/ImageWithFallback';
-import { formatPrice } from '@/lib/utils';
 import useScreenContext from "@/contexts/ScreenContext";
 import AddressDisplay from '@/components/common/AddressDisplay';
 import AddressDisplaySkeleton from '@/components/common/AddressDisplaySkeleton';
+import OrderCard from '@/features/orders/components/OrderCard';
 
 
 function OrderPage() {
@@ -59,38 +57,7 @@ function OrderPage() {
   return (
     <div className="flex flex-col pt-18">
         <main className="flex-1 overflow-y-auto p-4 space-y-4">
-            <Card>
-                <CardHeader>
-                    <div className="flex justify-between items-center">
-                        <div>
-                            <CardTitle>Order #{order.id}</CardTitle>
-                            <p className="text-sm text-muted-foreground">{order.readableCreatedAt()}</p>
-                        </div>
-                        <Badge variant={getStatusVariant(order.status)}>{order.status}</Badge>
-                    </div>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                    <section>
-                        <h3 className="font-semibold mb-2">Items</h3>
-                        <div className="flex flex-col gap-3">
-                            {order.items.map(item => (
-                                <div key={item.id} className="flex items-center gap-4">
-                                    <ImageWithFallback src={item.featured_image.uri} alt={item.name} className="h-16 w-16 rounded-md" />
-                                    <div className="flex-1">
-                                        <p className="font-medium">{item.name}</p>
-                                        <p className="text-sm text-muted-foreground">Qty: {item.quantity}</p>
-                                    </div>
-                                    <p className="font-medium">{formatPrice(item.price * item.quantity)}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </section>
-                    <section className="flex justify-end">
-                         <p className="font-semibold text-lg">Total: {formatPrice(order.total)}</p>
-                    </section>
-                </CardContent>
-            </Card>
-
+            <div> <OrderCard order={order} /> </div>
             <div className="grid md:grid-cols-2 gap-4">
                 <AddressDisplay title="Shipping Address" address={order.shippingAddress} />
                 <AddressDisplay title="Billing Address" address={order.billingAddress} />
