@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils"
-import { ChevronRightCircle } from "lucide-react"
+import { ChevronRight, ChevronRightCircle } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
 
 function HorizontalScrollSection( { renderMain, renderHeader=null, renderFooter=null, styles={}, hideIndicator=false } ) {
@@ -62,13 +62,13 @@ function HorizontalScrollSection( { renderMain, renderHeader=null, renderFooter=
                 {renderMain()}
                 {
                     hideIndicator === false && isScrolled === false &&
-                    <ChevronRightCircle 
+                    <ChevronRight
                         size={30} 
                         className={cn(
                             `
                                 z-10 absolute top-1/2 -translate-y-1/2 right-3 animate-bounce
                                 h-8 aspect-square rounded-full pointer-events-none
-                                bg-primary-200/80 text-primary-800
+                                bg-gray-200/50 border border-black
                             `,
                             styles.indicator
                         )}
