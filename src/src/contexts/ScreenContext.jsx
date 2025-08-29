@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from 'react';
 const ScreenContext = createContext();
 
 const defaultScreen = {
-    screenTitle: "Ecomm Store Native",
+    screenTitle: import.meta.env.VITE_STORE_NAME,
     showHeader: true,
     showFooter: true,
     loading: false,
