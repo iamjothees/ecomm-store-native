@@ -1,4 +1,4 @@
-import { House, Search, User } from 'lucide-react'
+import { House, LayoutDashboard, Search, ShoppingCart, User } from 'lucide-react'
 import { Link } from "react-router";
 import { cn } from "@/lib/utils"
 import { useAuth } from "@/contexts/AuthContext";
@@ -23,8 +23,10 @@ const Menu = function (){
     return (
         <div className='w-full h-full flex items-center justify-around'>
             <MenuItem icon={<House size={25} />} />
+            <MenuItem to="/categories" icon={<LayoutDashboard size={25} />}/>
             <MenuItem to="/search" icon={<Search size={35} />} isHighlighted={true} />
             <MenuItem to="/account" icon={<User size={25} />}/>
+            <MenuItem to="/cart" icon={<ShoppingCart size={25} />}/>
         </div>
     )
 }

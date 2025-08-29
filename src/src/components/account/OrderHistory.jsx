@@ -23,7 +23,7 @@ function OrderHistory() {
         {orders?.length === 0 && <p>You have no past orders.</p>}
         {orders?.length > 0 && (
           <div className="space-y-4">
-            { orders.slice(0, 2).map(order => ( <OrderCard key={order.id} order={order} /> )) }
+            { orders.slice(0, 2).map(order => ( <div key={order.id}> <OrderCard key={order.id} order={order} /> </div> )) }
             {
               orders.length > 2 && (
                 <Link to="/account/orders" className="flex items-center justify-center text-sm text-muted-foreground mt-3">
