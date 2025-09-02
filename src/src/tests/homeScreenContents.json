@@ -1,0 +1,51 @@
+{
+    "heroItems": [
+        {
+            "id": 1,
+            "title": "Hero Item 1",
+            "image": { "uri": "https://s7ap1.scene7.com/is/image/adityabirlafashion/LP-Racing Day Banner_D?resMode=sharp2&wid=1366&hei=544" }
+        },
+        {
+            "id": 2,
+            "title": "Hero Item 2",
+            "image": { "uri": "https://s7ap1.scene7.com/is/image/adityabirlafashion/LP_April-25_Shoe-Banner-D?resMode=sharp2&wid=1366&hei=544" }
+        },
+        {
+            "id": 3,
+            "title": "Hero Item 3",
+            "image": { "uri": "https://s7ap1.scene7.com/is/image/adityabirlafashion/LP-Onam-25-D?resMode=sharp2&wid=1366&hei=544" }
+        },
+        {
+            "id": 4,
+            "title": "Hero Item 4",
+            "image": { "uri": "https://s7ap1.scene7.com/is/image/adityabirlafashion/PE_D_HB_12_08_25_Trousers?resMode=sharp2&wid=1600&hei=650" }
+        },
+        {
+            "id": 5,
+            "title": "Hero Item 5",
+            "image": { "uri": "https://s7ap1.scene7.com/is/image/adityabirlafashion/PE_D_HB_12_08_25_TGL?resMode=sharp2&wid=1600&hei=650" }
+        }
+    ],
+    "storyItems" : [
+        {
+            "id": 1,
+            "title": "Vintage Suit",
+            "video": { "uri": "https://www.pexels.com/download/video/9210434/" }
+        },
+        {
+            "id": 2,
+            "title": "Western Grass Field Casuals",
+            "video": { "uri": "https://www.pexels.com/download/video/33632676/" }
+        },
+        {
+            "id": 3,
+            "title": "White Sneakers",
+            "video": { "uri": "https://www.pexels.com/download/video/6626483/" }
+        },
+        {
+            "id": 4,
+            "title": "Eye wear",
+            "video": { "uri": "https://www.pexels.com/download/video/5989757/" }
+        }
+    ]
+}

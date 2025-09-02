@@ -24,6 +24,7 @@ RUN apt install npm -y
 WORKDIR /usr/src/app
 
 EXPOSE 5173
+EXPOSE 4173
 
 COPY startup.sh /
 RUN chmod +x /startup.sh

@@ -13,10 +13,11 @@ const products: Product[] = testProducts
 .filter((p: Product): p is Product => p !== null);
 
 
-const fetchProducts = ({ endPoint, currentPage = 1 }: { endPoint?: string; currentPage?: number }): Promise<Product[]> => (
+const fetchProducts = ({ endPoint = '', filterProducts = () => true, currentPage = 1 }: { endPoint?: string; filterProducts?: (product: Product) => boolean; currentPage?: number }): Promise<Product[]> => (
+    // const resultProducts = import.meta.env.VITE_STORE_NAME;
     new Promise((resolve) => {
         const pageSize = 4;
-        setTimeout( () => resolve(products.slice((currentPage - 1) * pageSize, pageSize * currentPage)), 100 );
+        setTimeout( () => resolve(products.slice((currentPage - 1) * pageSize, pageSize * currentPage).filter(filterProducts)), 100 );
     })
 );
 

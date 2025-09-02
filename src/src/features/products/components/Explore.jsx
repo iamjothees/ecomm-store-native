@@ -6,14 +6,14 @@ import ProductCard from "@/features/products/components/Card";
 import usePagination from "@/hooks/usePagination";
 
 // interface ExploreProps {
-//     products: Product[],
 //     config: {
 //         apiEndpoint: string,
 //         title: string,
+//         filterCallback: callback function
 //     }
 // }
 
-function Explore({ config = { apiEndpoint, title: "Explore Products" } }) {
+function Explore({ config = { apiEndpoint: '', title: "Explore Products", filterCallback: () => {} } }) {
     const [products, setProducts] = useState([]);
     const { page, initiatePage, handlePageEndReached, handlePageLoading, handlePageLoaded, nextPageTrigger } = usePagination();
 
@@ -27,7 +27,7 @@ function Explore({ config = { apiEndpoint, title: "Explore Products" } }) {
         if (page.endReached) return;
 
         handlePageLoading();
-        fetchProducts({ endPoint: config.apiEndpoint, currentPage: page.current })
+        fetchProducts({ endPoint: config.apiEndpoint, filterCallback: config.filterCallback, currentPage: page.current })
             .then((newProducts) => {
                 if (newProducts.length === 0) return newProducts;
                 
