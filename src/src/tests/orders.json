@@ -10,7 +10,6 @@
         "description": "A stylish oversized denim jacket, perfect for layering and adding a cool vibe to any outfit. Made from durable, comfortable denim.",
         "price": 1499,
         "mrp": 1999,
-        "featured_image": { "uri": "https://picsum.photos/seed/denimjacket1/600/800" },
         "media": [ { "type": "image", "url": "https://picsum.photos/seed/denimjacket1-1/800/800" } ],
         "variants": [
           { "name": "Color", "values": ["Light Blue", "Dark Blue", "Black"] },

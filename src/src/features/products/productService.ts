@@ -56,4 +56,4 @@ const searchProducts = ({ searchQuery }: { searchQuery: string }): Promise<Produ
     })
 );
 
-export { fetchProducts, fetchProduct, fetchFeaturedProducts, fetchRecentlyViewedProducts, searchProducts, };
+export { fetchProducts, fetchProduct, fetchFeaturedProducts, fetchRecentlyViewedProducts, searchProducts };

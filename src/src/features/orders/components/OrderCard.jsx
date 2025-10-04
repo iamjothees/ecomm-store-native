@@ -4,6 +4,7 @@ import { cn, formatPrice } from "@/lib/utils";
 import { ChevronRight } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Link } from "react-router";
+import placeholderImg from '@/assets/placeholder.png';
 
 const OrderCard = ({ order }) => {
   const getStatusVariant = (status) => {
@@ -38,7 +39,7 @@ const OrderCard = ({ order }) => {
               {order.items.map((item, index) => (
                 <section key={item.id} className={cn("flex flex-col gap-2 pb-3 border-b border-gray-300 mb-3", { "border-b-2 border-gray-400": index === (order.items.length-1) })}>
                   <main className="flex gap-2">
-                    <ImageWithFallback src={item.featured_image.uri} alt={item.name} className="h-16 w-16 rounded-md" />
+                    <ImageWithFallback src={item.featured_image?.uri ?? placeholderImg} fallbackSrc={placeholderImg} alt={item.name} className="h-16 w-16 rounded-md" />
                     <div className="flex-1">
                       <p className="text-sm font-medium">{item.name}</p>
                       <p className="text-xs font-light">{item.category.name}</p>

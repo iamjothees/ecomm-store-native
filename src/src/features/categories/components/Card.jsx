@@ -1,5 +1,6 @@
 import ImageWithFallback from "@/components/common/ImageWithFallback";
 import { Skeleton } from "@/components/ui/skeleton";
+import placeholderImg from '@/assets/placeholder.png';
 
 const CategoryCard = ({ category, onClick, hideName }) => {
 
@@ -17,8 +18,8 @@ const CategoryCard = ({ category, onClick, hideName }) => {
     return (
         <div key={category.id} className="w-full h-auto cursor-pointer flex flex-col items-center justify-end" onClick={handleClick}>
             <ImageWithFallback
-                src={category.featuredImage?.url}
-                fallbackSrc="https://placehold.co/100x100/E2E8F0/FFFFFF?text=Cat"
+                src={category.featuredImage?.url ?? placeholderImg}
+                fallbackSrc={placeholderImg}
                 alt={category.name}
                 className="w-full aspect-square rounded-full object-cover border border-gray-200"
             />

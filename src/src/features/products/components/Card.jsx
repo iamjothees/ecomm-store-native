@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button'; // Import Button for close icon
 import { Expand } from "lucide-react";
 import { useNavigate } from "react-router";
 import { formatPrice } from "@/lib/utils";
+import placeholderImg from '@/assets/placeholder.png';
 
 function ProductCard({ product = null, onClick = null }) {
   const navigate = useNavigate();
@@ -47,7 +48,8 @@ function ProductCard({ product = null, onClick = null }) {
         >
           <div className="flex-1 p-0.5">
             <ImageWithFallback 
-              src={product.featured_image.uri} 
+              fallbackSrc={placeholderImg}
+              src={product.featured_image?.uri ?? placeholderImg} 
               className="min-h-full w-full min-w-[40vw] aspect-square bg-primary-100 object-cover rounded-sm" 
             />
             {/* <div className="min-h-full w-full min-w-[40vw] aspect-square bg-primary-100 object-cover rounded-sm" /> */}

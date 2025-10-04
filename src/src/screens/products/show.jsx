@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { data, useParams } from 'react-router';
+import { useParams } from 'react-router';
 import useScreenContext from '@/contexts/ScreenContext';
 import { fetchProduct } from '@/features/products/productService';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -16,6 +16,8 @@ import { useToast } from '@/contexts/ToastContext';
 import { useCart } from '@/contexts/CartContext';
 import { Link, useNavigate } from 'react-router';
 import useSWR from 'swr';
+import ImageWithFallback from '@/components/common/ImageWithFallback';
+import placeholderImg from '@/assets/placeholder.png';
 
 const Context = createContext({ isScreen: true });
 
@@ -187,10 +189,9 @@ function ProductMedia({ product }) {
     <div className="space-y-2">
       <Card className="aspect-square w-full overflow-hidden !p-1 flex items-center justify-center bg-gray-100">
         {media[current]?.type === "image" ? (
-          <img
-            key={media[current].url} // Use URL as key for stability
-            src={media[current].url}
-            alt={`Product image ${current + 1}`}
+          <ImageWithFallback
+            fallbackSrc={placeholderImg}
+            src={media[current].url ?? placeholderImg} 
             className="w-full h-full object-contain rounded-md"
             loading="eager" // Main image is eager loaded
           />
@@ -221,9 +222,9 @@ function ProductMedia({ product }) {
               )}
             >
               {item.type === "image" ? (
-                <img
-                  src={item.url}
-                  alt={`Thumbnail ${idx + 1}`}
+                <ImageWithFallback 
+                  fallbackSrc={placeholderImg}
+                  src={item.url ?? placeholderImg} 
                   className="w-full h-full object-cover"
                   loading="lazy" // Thumbnails can be lazy loaded
                 />

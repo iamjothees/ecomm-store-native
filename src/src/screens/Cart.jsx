@@ -12,6 +12,7 @@ import CartItemVariantSelector from '@/features/cart/components/CartItemVariantS
 import { formatPrice } from '@/lib/utils';
 import AddressesSelector from '@/components/checkout/AddressesSelector';
 import orderService from '@/features/orders/orderService';
+import placeholderImg from '@/assets/placeholder.png';
 
 function Cart() {
     const { defaultScreen, setScreen } = useScreenContext();
@@ -128,7 +129,6 @@ const Item = ({ item }) => {
 
     const handleIncrementQuantity = (item) => {
         dispatch({ type: 'ADD_TO_CART', payload: item }); // Re-use ADD_TO_CART to increment quantity
-        showToast(`Increased quantity of ${item.name}`, 'info');
     };
 
     const handleDecrementQuantity = (item) => {
@@ -136,7 +136,6 @@ const Item = ({ item }) => {
             handleRemoveFromCart(item);
         } else {
             dispatch({ type: 'DECREMENT_QUANTITY', payload: item });
-            showToast(`Decreased quantity of ${item.name}`, 'info');
         }
     };
 
@@ -152,7 +151,8 @@ const Item = ({ item }) => {
             </Button>
             <div className="w-full flex gap-5 justify-start items-start">
                 <ImageWithFallback
-                    src={item.featured_image.uri}
+                    src={item.featured_image?.uri ?? placeholderImg}
+                    fallbackSrc={placeholderImg}
                     className="flex-0 h-24 md:h-28 aspect-square object-cover rounded-md"
                 />
                 <div>
