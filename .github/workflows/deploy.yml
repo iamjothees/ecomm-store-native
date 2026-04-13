@@ -11,12 +11,6 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.4'
-          extensions: mbstring, xml, bcmath, curl, zip
-
       - name: Install Node Dependencies & Build Assets
         run: |
           cd src
@@ -30,8 +24,9 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.SSH_PORT }}
-          source: "src/dist/*"
+          source: "src/dist/"
           target: "~/app-repos/demos/ecomm-store"
+          strip_components: 2
 
       - name: 🛠️ Deploy Complete
         uses: appleboy/ssh-action@v1.0.3
