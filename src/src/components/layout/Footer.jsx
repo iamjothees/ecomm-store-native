@@ -38,7 +38,7 @@ const MenuItem = function({isHighlighted = false, icon = <div />, to = "/"}){
             className={cn(
                 `h-full aspect-square flex items-center justify-center transition-all duration-200 ease-in-out`,
                 isHighlighted 
-                    ? '!h-[90%] relative -top-[25%] scale-105 hover:scale-115 rounded-full bg-primary text-primary-50 shadow-md ring-2 ring-primary/50'
+                    ? '!h-[90%] relative -top-[25%] scale-105 hover:scale-115 rounded-full bg-primary text-secondary-50 shadow-md ring-2 ring-primary/50'
                     : 'text-primary hover:text-primary/90 hover:scale-130'
             )}
         >
